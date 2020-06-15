@@ -1,1 +1,5 @@
-const connectToMongo = require("./connect");
+const connectToMongo = require('./connect');
+
+module.exports = {
+  connectToMongo,
+};
