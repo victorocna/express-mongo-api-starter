@@ -1,0 +1,39 @@
+{
+  "name": "netlify-mongo-api-starter",
+  "version": "0.1.0",
+  "description": "Starter for Mongo API projects exported as Netlify functions",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon ./server/app.js",
+    "build": "netlify-lambda build ./serverless -c ./scripts/lambda-build.js",
+    "start": "netlify-lambda serve ./serverless -c ./scripts/lambda-dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "netlify",
+    "netlify functions",
+    "mongo",
+    "mongodb",
+    "api starter"
+  ],
+  "author": "victorocna <victor@chesscoders.com> (https://chesscoders.com)",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "encoding": "^0.1.12",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "helmet": "^3.23.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.18",
+    "netlify-lambda": "^1.6.3",
+    "serverless-http": "^2.5.0",
+    "terser-webpack-plugin": "^3.0.4",
+    "webpack": "^4.43.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
