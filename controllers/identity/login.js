@@ -21,16 +21,33 @@ module.exports = async (req, res) => {
   }
 
   const passwordsMatch = await bcrypt.compare(password, passwordFromDb);
-  if (passwordsMatch) {
-    // the JWT public data payload
-    const payload = { id, key, email, role };
-    const token = jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: '4h',
-      algorithm: 'HS256',
-    });
-
-    return res.status(200).json({ token });
+  if (!passwordsMatch) {
+    throw error(400, 'Your username or password are invalid');
   }
 
-  throw error(400, 'Your username or password are invalid');
+  // the JWT public data payload
+  const payload = { id, key, email, role };
+
+  const token = jwt.sign(payload, process.env.JWT_SECRET, {
+    expiresIn: '15m',
+    algorithm: 'HS256',
+  });
+
+  const refreshToken = jwt.sign(payload, process.env.JWT_SECRET, {
+    expiresIn: '60m',
+    algorithm: 'HS256',
+  });
+
+  // set refresk token as cookie
+  const secure = process.env.NODE_ENV === 'production';
+  const oneDay = 24 * 3600 * 1000;
+  res.cookie('jwt_refresh_token', refreshToken, {
+    secure,
+    maxAge: oneDay,
+    signed: true,
+    httpOnly: true,
+    sameSite: true,
+  });
+
+  return res.status(200).json({ token, message: 'Authentication successful' });
 };
