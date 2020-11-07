@@ -1,3 +1,4 @@
+const { authenticate } = require('../middleware');
 const { Identity } = require('../controllers');
 
 const express = require('express');
@@ -10,3 +11,5 @@ router.post('/login', Identity.login);
 router.post('/logout', Identity.logout);
 router.post('/refresh-token', Identity.refreshToken);
 router.post('/reset/:hash', Identity.reset);
+
+router.get('/profile', authenticate, Identity.profile);
