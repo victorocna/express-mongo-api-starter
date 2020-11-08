@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
+const { hashPasswords, paginate } = require('./plugins');
 const { timestamps } = require('./schemas');
 
 /**
@@ -39,7 +40,7 @@ const schema = new mongoose.Schema({
   ...timestamps,
 });
 
-schema.plugin(require('./plugins/hash-passwords'));
-schema.plugin(require('./plugins/update-options'));
+schema.plugin(hashPasswords);
+schema.plugin(paginate);
 
 module.exports = mongoose.model(name, schema);
