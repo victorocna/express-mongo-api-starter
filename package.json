@@ -1,6 +1,6 @@
 {
   "name": "netlify-mongo-api-starter",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Starter for Mongo API projects exported as Netlify functions",
   "main": "app.js",
   "scripts": {
