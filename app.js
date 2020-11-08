@@ -13,7 +13,7 @@ app.use(helmet());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // allow CORS only from app URL
-app.use(cors({ origin: process.env.APP_BASE_URL }));
+app.use(cors({ origin: process.env.APP_BASE_URL, credentials: true }));
 
 // route everything through Netlify functions URL
 app.use('/.netlify/functions/app', router);
