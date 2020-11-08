@@ -29,7 +29,7 @@
     "express-async-errors": "^3.1.1",
     "helmet": "^3.23.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.9",
+    "mongoose": "^5.10.13",
     "netlify-lambda": "^1.6.3",
     "serverless-http": "^2.6.0",
     "terser-webpack-plugin": "^3.1.0",
@@ -37,8 +37,8 @@
     "webpack": "^4.44.2"
   },
   "devDependencies": {
-    "eslint": "^7.11.0",
-    "nodemon": "^2.0.5",
+    "eslint": "^7.13.0",
+    "nodemon": "^2.0.6",
     "prettier": "^2.1.2"
   }
 }
