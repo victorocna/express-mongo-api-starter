@@ -7,13 +7,9 @@ module.exports = async (req, res) => {
     throw error(404, 'Missing required params');
   }
 
-  const profile = await Identity.findById(id).lean();
+  const profile = await Identity.findOne({ _id: id, key: secret }).lean();
   if (!profile) {
     throw error(404, 'Profile not found');
-  }
-  const { key } = profile;
-  if (key !== secret) {
-    throw error(401, 'Unauthorized');
   }
 
   return res.status(200).json(profile);

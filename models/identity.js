@@ -13,6 +13,9 @@ const schema = new mongoose.Schema({
     required: true,
     get: (value) => value.toString(),
   },
+  name: {
+    type: String,
+  },
   email: {
     type: String,
     required: true,
