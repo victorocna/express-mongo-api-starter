@@ -1,5 +1,5 @@
 const { error, randomHash } = require('../../functions');
-const { Identity, Mailer, Reset } = require('../../models');
+const { Identity, Reset } = require('../../models');
 
 module.exports = async (req, res) => {
   const { email } = req.body;
@@ -15,8 +15,6 @@ module.exports = async (req, res) => {
   const hash = randomHash();
   await Reset.deleteMany({ identity });
   await Reset.create({ hash, identity });
-
-  await Mailer.forgot(email, { hash });
 
   return res.status(200).json({ success: true });
 };
