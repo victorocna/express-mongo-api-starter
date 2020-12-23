@@ -1,4 +1,5 @@
 const confirm = require('./confirm');
+const cookies = require('./cookies');
 const forgot = require('./forgot');
 const login = require('./login');
 const logout = require('./logout');
@@ -8,6 +9,7 @@ const reset = require('./reset');
 
 module.exports = {
   confirm,
+  cookies,
   forgot,
   login,
   logout,
