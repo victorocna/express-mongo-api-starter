@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon ./server/app.js",
+    "start": "node ./server/app.js",
     "demo": "node ./scripts/create-demo.js",
     "build": "netlify-lambda build ./serverless -c ./scripts/lambda-build.js",
-    "start": "netlify-lambda serve ./serverless -c ./scripts/lambda-dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
