@@ -2,6 +2,7 @@ module.exports = async (req, res) => {
   // set a temporary test cookie
   const options = {
     sameSite: 'none',
+    secure: true,
   };
   res.cookie('current_timestamp', +Date.now(), options);
 
