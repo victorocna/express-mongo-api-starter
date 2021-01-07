@@ -1,18 +1,15 @@
 {
-  "name": "netlify-mongo-api-starter",
+  "name": "express-mongo-api-starter",
   "version": "0.5.4",
-  "description": "Starter for Mongo API projects exported as Netlify functions",
+  "description": "Starter for Node Express API projects with Mongo database",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon ./server/app.js",
-    "start": "node ./server/app.js",
-    "demo": "node ./scripts/create-demo.js",
-    "build": "netlify-lambda build ./serverless -c ./scripts/lambda-build.js",
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "netlify",
-    "netlify functions",
+    "express",
     "mongo",
     "mongodb",
     "api starter"
@@ -31,7 +28,7 @@
     "helmet": "^3.23.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.13",
-    "netlify-lambda": "^2.0.2",
+    "pino": "^6.9.0",
     "serverless-http": "^2.6.0",
     "terser-webpack-plugin": "^3.1.0",
     "validator": "^13.1.17",
@@ -40,6 +37,7 @@
   "devDependencies": {
     "eslint": "^7.13.0",
     "nodemon": "^2.0.6",
+    "pino-pretty": "^4.3.0",
     "prettier": "^2.1.2"
   }
 }
