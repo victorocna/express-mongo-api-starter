@@ -1,6 +1,6 @@
-# Netlify Mongo API starter
+# Express Mongo API starter
 
-Starter for Mongo API projects exported as Netlify functions
+Starter for Node Express API projects with Mongo database
 
 ## Quick start
 
