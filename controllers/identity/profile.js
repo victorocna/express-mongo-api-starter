@@ -12,8 +12,5 @@ module.exports = async (req, res) => {
     throw error(404, 'Profile not found');
   }
 
-  // set a temporary test cookie
-  res.cookie('current_timestamp', +Date.now());
-
   return res.status(200).json(profile);
 };

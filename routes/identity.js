@@ -14,5 +14,3 @@ router.post('/logout', Identity.logout);
 router.post('/refresh-token', Identity.refreshToken);
 
 router.get('/profile', authenticate, Identity.profile);
-router.get('/give-me-cookies', Identity.cookies);
-router.get('/more-cookies', Identity.moreCookies);
