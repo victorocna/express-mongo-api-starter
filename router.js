@@ -1,7 +1,12 @@
 const express = require('express');
+const { fail, slow } = require('./middleware');
 
 const router = express.Router();
 module.exports = router;
+
+// useful middleware for testing
+router.use(fail);
+router.use(slow);
 
 /**
  * Use the router instances defined
