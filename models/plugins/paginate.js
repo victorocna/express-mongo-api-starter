@@ -1,33 +1,30 @@
-function paginate(query, options = {}) {
-  const { limit, offset, select, sort, lean = true } = options;
+const sliceAndDice = require('../../functions/slice-and-dice');
 
-  const mQuery = this.find(query);
-  mQuery.select(select);
+const paginate = async function (options) {
+  const { limit, offset, sort } = sliceAndDice(options);
+
+  const mQuery = this.find(this._conditions);
   mQuery.sort(sort);
-  mQuery.lean(lean);
-
   mQuery.skip(offset);
   mQuery.limit(limit);
 
-  const countPromise = this.countDocuments(query).exec();
-  const docsPromise = mQuery.exec();
+  // @see https://mongoosejs.com/docs/tutorials/lean.html
+  mQuery.lean(true);
 
-  return Promise.all([countPromise, docsPromise])
-    .then((values) => {
-      const [count, documents] = values;
+  const documents = await mQuery.exec();
 
-      return Promise.resolve({
-        count,
-        hasNext: count > parseInt(documents.length + offset),
-        offset: parseInt(limit + offset),
-        documents,
-      });
-    })
-    .catch((error) => {
-      return Promise.reject(error);
-    });
-}
+  mQuery.limit(); // reset limit
+  mQuery.skip(); // reset offset
+  const count = await mQuery.countDocuments(this._conditions).exec();
+
+  return {
+    count,
+    hasNext: count > parseInt(documents.length + offset),
+    offset: parseInt(limit + offset),
+    documents,
+  };
+};
 
 module.exports = (schema) => {
-  schema.statics.paginate = paginate;
+  schema.query.paginate = paginate;
 };

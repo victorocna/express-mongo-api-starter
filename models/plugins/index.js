@@ -1,11 +1,11 @@
 const hashPasswords = require('./hash-passwords');
 const normalizeId = require('./normalize-id');
 const paginate = require('./paginate');
-const updateOptions = require('./update-options');
+const validate = require('./validate');
 
 module.exports = {
   hashPasswords,
   normalizeId,
   paginate,
-  updateOptions,
+  validate,
 };
