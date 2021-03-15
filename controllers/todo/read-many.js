@@ -7,7 +7,16 @@ module.exports = async (req, res) => {
     throw error(404, 'Missing required params');
   }
 
-  const todos = await Todo.find({ key: secret }).paginate(req.query);
+  const filter = { key: secret };
+  const { only } = req.query;
+  if (only === 'completed') {
+    filter.done = true;
+  }
+  if (only === 'pending') {
+    filter.done = false;
+  }
+
+  const todos = await Todo.find(filter).paginate(req.query);
   if (!todos) {
     throw error(404, 'Resource not found');
   }
