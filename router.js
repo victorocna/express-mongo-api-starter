@@ -1,53 +1,20 @@
-const express = require('express');
-const { fail, slow } = require('./middleware');
+const { Router } = require('express');
+const { errorHandler, fail, notFound, slow } = require('./middleware');
+const { identity, todo } = require('./routes');
 
-const router = express.Router();
+const router = Router();
 module.exports = router;
 
 // useful middleware for testing
 router.use(fail);
 router.use(slow);
 
-/**
- * Use the router instances defined
- * @see https://expressjs.com/en/api.html#app.use
- */
-router.use(require('./routes/identity'));
-router.use(require('./routes/todo'));
+// use the router instances defined
+router.use(identity);
+router.use(todo);
 
-/**
- * Matches any other HTTP method and route not matched before
- * @see https://expressjs.com/en/api.html#router.all
- */
-router.all('*', (req, res) => {
-  res.status(404).json({
-    name: 'Error',
-    message: 'Not found',
-  });
-});
+// matches any other HTTP method and route not matched before
+router.all('*', notFound);
 
-/**
- * Custom error handler
- * @see https://expressjs.com/en/guide/error-handling.html
- */
-// eslint-disable-next-line
-router.use((err, req, res, next) => {
-  if (!(err instanceof Error)) {
-    return res.status(500).json({
-      name: 'Error',
-      message: 'Unknown error',
-    });
-  }
-
-  // Validation error from Mongoose
-  if (err.name === 'ValidationError') {
-    return res.status(422).json({
-      name: 'ValidationError',
-      message: err.message.split(':')[0],
-    });
-  }
-
-  // HTTP status code from the Error object or a default of 400
-  const { status = 400, name, message } = err;
-  return res.status(status).json({ name, message });
-});
+// finally, an error handler
+router.use(errorHandler);
