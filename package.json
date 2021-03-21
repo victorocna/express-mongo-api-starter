@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www",
-    "demo": "node ./scripts/create-demo",
+    "seed": "node ./db/seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

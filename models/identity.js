@@ -8,11 +8,6 @@ const { timestamps } = require('./schemas');
  */
 const name = 'identity';
 const schema = new mongoose.Schema({
-  key: {
-    type: mongoose.Types.ObjectId,
-    required: true,
-    get: (value) => value.toString(),
-  },
   name: {
     type: String,
   },
