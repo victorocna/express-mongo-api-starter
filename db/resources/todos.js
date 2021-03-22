@@ -1,8 +1,8 @@
-const { getIdentityByName } = require('../functions');
+const { getIdentityByEmail } = require('../functions');
 
 module.exports = async () => {
-  const michael = await getIdentityByName('Michael Scott');
-  const jim = await getIdentityByName('Jim Halpert');
+  const michael = await getIdentityByEmail('michael@email.com');
+  const jim = await getIdentityByEmail('jim@email.com');
 
   return [
     {
