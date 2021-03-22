@@ -7,7 +7,7 @@ const { timestamps } = require('./schemas');
  */
 const name = 'todo';
 const schema = new Schema({
-  key: {
+  identity: {
     type: Types.ObjectId,
     required: true,
     get: (value) => value.toString(),
