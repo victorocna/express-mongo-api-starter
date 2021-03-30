@@ -1,7 +1,7 @@
 const { Identity } = require('../../models');
 
-const getIdentityByEmail = async (name) => {
-  const identity = await Identity.findOne({ name }).lean();
+const getIdentityByEmail = async (email) => {
+  const identity = await Identity.findOne({ email }).lean();
   return identity._id;
 };
 
