@@ -2,6 +2,7 @@
 migrate.json
 NOTES.txt
 .env.production
+yarn.lock
 
 # Logs
 logs
