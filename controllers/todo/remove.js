@@ -3,12 +3,12 @@ const { Todo } = require('../../models');
 
 module.exports = async (req, res) => {
   const { id } = req.params;
-  const { secret } = req.user;
-  if (!id || !secret) {
+  const { me } = req.user;
+  if (!id || !me) {
     throw error(404, 'Missing required params');
   }
 
-  const todo = await Todo.findOne({ _id: id, key: secret });
+  const todo = await Todo.findById(id);
   if (!todo) {
     throw error(404, 'Resource not found');
   }

@@ -2,12 +2,12 @@ const { error } = require('../../functions');
 const { Todo } = require('../../models');
 
 module.exports = async (req, res) => {
-  const { secret } = req.user;
-  if (!secret) {
+  const { me } = req.user;
+  if (!me) {
     throw error(404, 'Missing required params');
   }
 
-  const filter = { key: secret };
+  const filter = {};
   const { only } = req.query;
   if (only === 'completed') {
     filter.done = true;
