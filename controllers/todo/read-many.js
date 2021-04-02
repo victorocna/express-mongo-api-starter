@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     throw error(404, 'Missing required params');
   }
 
-  const filter = {};
+  const filter = { identity: me };
   const { only } = req.query;
   if (only === 'completed') {
     filter.done = true;
