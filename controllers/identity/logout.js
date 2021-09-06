@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 module.exports = async (req, res) => {
   const secure = process.env.NODE_ENV === 'production';
   const now = new Date(0);
