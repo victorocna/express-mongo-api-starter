@@ -19,6 +19,7 @@ module.exports = async (req, res, next) => {
         secret: process.env.RECAPTCHA_SECRET,
         response: req.body['g-recaptcha-response'],
       },
+      timeout: 3000,
     });
 
     const data = recaptcha.data || {};
