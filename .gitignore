@@ -3,6 +3,7 @@ migrate.json
 NOTES.txt
 .env.production
 yarn.lock
+.idea
 
 # Logs
 logs
