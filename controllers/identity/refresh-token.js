@@ -31,14 +31,13 @@ module.exports = async (req, res) => {
   });
 
   // set refresk token as cookie
-  const secure = process.env.NODE_ENV === 'production';
   const oneDay = 24 * 3600 * 1000;
   res.cookie('jwt_refresh_token', refreshToken, {
-    secure,
+    secure: true,
     maxAge: oneDay,
     signed: true,
     httpOnly: true,
-    sameSite: true,
+    sameSite: 'lax',
   });
 
   return res.json({ token, message: 'Token refresh successful' });
