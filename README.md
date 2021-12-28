@@ -1,19 +1,26 @@
 # Express Mongo API starter
 
-Starter for Node Express API projects with Mongo database
+Starter for Node Express API projects with Mongo database packed with features like
+pagination, powerful middlewares and many more.
 
 ## Quick start
 
 Install dependencies
 
 ```bash
-npm install
+npm ci
 ```
 
 Copy the example environment variables
 
 ```bash
 cp .env.example .env
+```
+
+Optional: Add seeds to your Mongo database
+
+```bash
+npm run seed
 ```
 
 Start the local server
