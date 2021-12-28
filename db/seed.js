@@ -1,12 +1,10 @@
 const connectToMongo = require('../functions/connect');
 const identities = require('./seeds/001_identities');
-const todos = require('./seeds/002_todos');
 
 const seed = async () => {
   await connectToMongo();
 
   await identities.seed();
-  await todos.seed();
 };
 
 (async () => {

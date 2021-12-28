@@ -4,7 +4,6 @@ const Hash = require('./hash');
 const Identity = require('./identity');
 const Key = require('./key');
 const Reset = require('./reset');
-const Todo = require('./todo');
 
 module.exports = {
   Admin,
@@ -13,5 +12,4 @@ module.exports = {
   Identity,
   Key,
   Reset,
-  Todo,
 };
