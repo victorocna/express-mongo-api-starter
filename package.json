@@ -17,6 +17,10 @@
   ],
   "author": "victorocna <victor@chesscoders.com> (https://chesscoders.com)",
   "license": "MIT",
+  "engines": {
+    "npm": ">= 7",
+    "node": ">= 15"
+  },
   "dependencies": {
     "axios": "^0.21.3",
     "bcryptjs": "^2.4.3",
