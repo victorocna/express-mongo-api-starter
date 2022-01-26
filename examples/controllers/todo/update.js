@@ -1,13 +1,15 @@
-const { error } = require('../../functions');
+const { error } = require('../../../functions');
 const { Todo } = require('../../models');
 
 module.exports = async (req, res) => {
+  const { id } = req.params;
   const { me } = req.user;
-  if (!me) {
+  if (!id || !me) {
     throw error(404, 'Missing required params');
   }
 
-  const todo = await Todo.create(req.body);
+  const update = req.body;
+  const todo = await Todo.findByIdAndUpdate(id, update);
   if (!todo) {
     throw error(404, 'Resource not found');
   }

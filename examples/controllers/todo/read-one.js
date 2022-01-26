@@ -1,4 +1,4 @@
-const { error } = require('../../functions');
+const { error } = require('../../../functions');
 const { Todo } = require('../../models');
 
 module.exports = async (req, res) => {

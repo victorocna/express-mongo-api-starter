@@ -1,6 +1,6 @@
 const { Schema, Types, model } = require('mongoose');
-const { paginate, validate } = require('./plugins');
-const { timestamps } = require('./schemas');
+const { paginate, validate } = require('../../models/plugins');
+const { timestamps } = require('../../models/schemas');
 
 /**
  * Identities manage login related operations
