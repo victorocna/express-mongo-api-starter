@@ -4,6 +4,7 @@ NOTES.txt
 .env.production
 yarn.lock
 .idea
+.DS_Store
 
 # Logs
 logs
