@@ -1,7 +1,8 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 let cachedConnection;
-module.exports = () => {
+const connectToMongo = () => {
   if (!cachedConnection) {
     cachedConnection = mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
@@ -11,3 +12,5 @@ module.exports = () => {
   }
   return cachedConnection;
 };
+
+module.exports = connectToMongo;

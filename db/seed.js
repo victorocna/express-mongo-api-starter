@@ -1,4 +1,3 @@
-require('dotenv').config();
 const connectToMongo = require('../functions/connect');
 const identities = require('./seeds/001_identities');
 
