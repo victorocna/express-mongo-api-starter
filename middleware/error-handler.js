@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
 /**
  * Custom error handler
  * @see https://expressjs.com/en/guide/error-handling.html
  */
-// eslint-disable-next-line
 module.exports = (err, req, res, next) => {
   if (!(err instanceof Error)) {
     return res.status(500).json({
