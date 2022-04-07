@@ -8,11 +8,11 @@ module.exports = async (req, res) => {
     throw error(404, 'Missing required params');
   }
 
-  const update = { done: false };
-  const todo = await Todo.findByIdAndUpdate(id, update);
+  const todo = await Todo.findOne({ _id: id, 'identity._id': me });
   if (!todo) {
     throw error(404, 'Resource not found');
   }
+  await todo.update({ done: false });
 
-  return res.status(200).json(todo);
+  return res.status(200).json({ data: todo, message: 'Undo completed todo' });
 };

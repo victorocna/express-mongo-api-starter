@@ -2,15 +2,17 @@ const { Schema, Types, model } = require('mongoose');
 const { paginate, validate } = require('../../models/plugins');
 const { timestamps } = require('../../models/schemas');
 
-/**
- * Identities manage login related operations
- */
-const name = 'todo';
 const schema = new Schema({
   identity: {
-    type: Types.ObjectId,
-    required: true,
-    get: (value) => value.toString(),
+    _id: {
+      type: Types.ObjectId,
+      required: true,
+      get: (value) => value.toString(),
+    },
+    email: {
+      type: String,
+      required: true,
+    },
   },
   name: {
     type: String,
@@ -26,4 +28,4 @@ const schema = new Schema({
 schema.plugin(paginate);
 schema.plugin(validate);
 
-module.exports = model(name, schema);
+module.exports = model('todo', schema);

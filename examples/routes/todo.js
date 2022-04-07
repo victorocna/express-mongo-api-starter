@@ -1,10 +1,14 @@
 const { authenticate } = require('../../middleware');
-const { Todo } = require('../../controllers');
+const { Todo } = require('../controllers');
 
 const express = require('express');
 const router = express.Router();
 module.exports = router;
 
+/**
+ * Use RESTful routes only
+ * @see https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
+ */
 router.get('/todos', authenticate, Todo.readMany);
 router.get('/todos/:id', authenticate, Todo.readOne);
 router.post('/todos', authenticate, Todo.create);
