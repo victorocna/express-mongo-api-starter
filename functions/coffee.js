@@ -1,4 +1,4 @@
-module.exports = (miliseconds = 5000) => {
+module.exports = (miliseconds = 3500) => {
   return new Promise((resolve) => {
     setTimeout(() => resolve('☕'), miliseconds);
   });
