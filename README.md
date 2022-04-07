@@ -3,6 +3,10 @@
 Starter for Node Express API projects with Mongo database packed with features like
 pagination, powerful middlewares and many more.
 
+## Documentation and wiki
+
+Refer to the `examples` folder for code examples regarding controllers, models, routes and seeds for "to do" items.
+
 ## Quick start
 
 Install dependencies
@@ -33,11 +37,11 @@ npm run dev
 
 ### Logger
 
-You can use the logger from `pino.js` file to log anything with different logging levels.
+You can use the logger from lib folder to log anything with different logging levels.
 
 By default the logs will not be enabled on production environments. To overwrite this behaviour use the `LOG_EVERYWHERE` environment variable and set its value to `"yes"`.
 
-### Slow and fail
+### Slow and Fail
 
 You can append these query params to any route in this API:
 
@@ -46,7 +50,8 @@ You can append these query params to any route in this API:
 
 ### Recaptcha
 
-You can use the Recaptcha middleware on any public route.
+You should use the Recaptcha middleware on any public route.
+Moreover, you should skip Recaptcha middleware and validation on any private route.
 
 By default Recaptcha will not be enabled when the request has no origin (it is sent through an API).
 
