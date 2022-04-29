@@ -4,8 +4,8 @@
   "description": "Starter for Node Express API projects with Mongo database",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www",
+    "dev": "nodemon ./server",
+    "start": "node ./server",
     "seed": "node ./db/seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

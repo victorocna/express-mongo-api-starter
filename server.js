@@ -3,7 +3,7 @@
 require('dotenv').config();
 const http = require('http');
 const logger = require('pino')();
-const app = require('../app');
+const app = require('./app');
 
 /**
  * Make sure to fallback to development environment.
