@@ -3,8 +3,8 @@ const { error } = require('../functions');
 
 module.exports = async (req, res, next) => {
   try {
-    // allow requests with no origin
-    if (!req.origin) {
+    // allow requests with no origin from postman / others
+    if (!req.headers.origin) {
       return next();
     }
 
