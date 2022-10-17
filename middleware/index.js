@@ -5,6 +5,7 @@ const fail = require('./fail');
 const notFound = require('./not-found');
 const recaptcha = require('./recaptcha');
 const slow = require('./slow');
+const speedLimiter = require('./speed-limiter');
 const userExists = require('./user-exists');
 const userNotExist = require('./user-not-exist');
 
@@ -16,6 +17,7 @@ module.exports = {
   notFound,
   recaptcha,
   slow,
+  speedLimiter,
   userExists,
   userNotExist,
 };
