@@ -1,19 +1,18 @@
-const { authenticate } = require('../../middleware');
+const { Router } = require('express');
 const { Todo } = require('../controllers');
 
-const express = require('express');
-const router = express.Router();
+const router = Router();
 module.exports = router;
 
 /**
  * Use RESTful routes only
  * @see https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
  */
-router.get('/todos', authenticate, Todo.readMany);
-router.get('/todos/:id', authenticate, Todo.readOne);
-router.post('/todos', authenticate, Todo.create);
-router.put('/todos/:id', authenticate, Todo.update);
-router.delete('/todos/:id', authenticate, Todo.remove);
+router.get('/admin/todos', Todo.readMany);
+router.get('/admin/todos/:id', Todo.readOne);
+router.post('/admin/todos', Todo.create);
+router.put('/admin/todos/:id', Todo.update);
+router.delete('/admin/todos/:id', Todo.remove);
 
-router.post('/todos/:id/check', authenticate, Todo.check);
-router.delete('/todos/:id/check', authenticate, Todo.uncheck);
+router.post('/admin/todos/:id/check', Todo.check);
+router.delete('/admin/todos/:id/check', Todo.uncheck);

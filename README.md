@@ -41,12 +41,12 @@ You can use the logger from lib folder to log anything with different logging le
 
 By default the logs will not be enabled on production environments. To overwrite this behaviour use the `LOG_EVERYWHERE` environment variable and set its value to `"yes"`.
 
-### Slow and Fail
+### Loading and error states
 
 You can append these query params to any route in this API:
 
-- use `&trigger=slow` to delay any request with 5 seconds
-- use `&trigger=fail` to trigger a failed request
+- use `&test=loading&wait=5000` to delay any request with 5 seconds
+- use `&test=error` to trigger a failed request
 
 ### Recaptcha
 
