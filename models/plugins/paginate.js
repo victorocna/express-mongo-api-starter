@@ -7,10 +7,10 @@ const paginate = async function (options) {
   } = options;
 
   if (isNaN(perPage)) {
-    throw new Error('Paginate error: perPage must be a number');
+    throw new Error('Paginate error: per_page must be a number');
   }
   if (isNaN(currentPage)) {
-    throw new Error('Paginate error: currentPage must be a number');
+    throw new Error('Paginate error: page must be a number');
   }
 
   const mQuery = this.find(this._conditions);
@@ -18,7 +18,7 @@ const paginate = async function (options) {
 
   mQuery.sort({ [order]: direction });
   mQuery.skip(offset);
-  mQuery.limit(+perPage);
+  mQuery.limit(Number(perPage));
 
   // @see https://mongoosejs.com/docs/tutorials/lean.html
   mQuery.lean(true);
