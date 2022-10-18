@@ -39,7 +39,8 @@ npm run dev
 
 You can use the logger from lib folder to log anything with different logging levels.
 
-By default the logs will not be enabled on production environments. To overwrite this behaviour use the `LOG_EVERYWHERE` environment variable and set its value to `"yes"`.
+By default the logs will not be enabled on production environments.
+To overwrite this behaviour use the `LOG_EVERYWHERE` environment variable and set its value to `"yes"`.
 
 ### Loading and error states
 
@@ -47,6 +48,10 @@ You can append these query params to any route in this API:
 
 - use `&test=loading&wait=5000` to delay any request with 5 seconds
 - use `&test=error` to trigger a failed request
+
+Customize the loading time with the `wait` query param which takes the number of miliseconds you want to wait.
+
+This feature is available only for dev environments.
 
 ### Recaptcha
 
