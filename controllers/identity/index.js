@@ -1,3 +1,4 @@
+const changePassword = require('./change-password');
 const confirm = require('./confirm');
 const forgot = require('./forgot');
 const login = require('./login');
@@ -7,6 +8,7 @@ const refreshToken = require('./refresh-token');
 const reset = require('./reset');
 
 module.exports = {
+  changePassword,
   confirm,
   forgot,
   login,
