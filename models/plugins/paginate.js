@@ -1,4 +1,5 @@
 const paginate = async function ({
+  sort,
   per_page: perPage = 30,
   page: currentPage = 1,
   order = 'createdAt',
@@ -24,7 +25,11 @@ const paginate = async function ({
   const mQuery = this.find(this._conditions);
   const offset = (currentPage - 1) * perPage;
 
-  mQuery.sort({ [order]: direction });
+  if (sort) {
+    mQuery.sort(sort);
+  } else {
+    mQuery.sort({ [order]: direction });
+  }
   mQuery.skip(offset);
   mQuery.limit(perPage);
 
