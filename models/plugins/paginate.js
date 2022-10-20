@@ -1,10 +1,12 @@
-const paginate = async function (options) {
-  const {
-    direction = -1,
-    order = 'createdAt',
-    per_page: perPage = 30,
-    page: currentPage = 1,
-  } = options;
+const paginate = async function ({
+  per_page: perPage = 30,
+  page: currentPage = 1,
+  order = 'createdAt',
+  direction = -1,
+}) {
+  // make sure these params are numbers
+  perPage = Number(perPage);
+  currentPage = Number(currentPage);
 
   if (isNaN(perPage)) {
     throw new Error('Paginate error: per_page must be a number');
@@ -12,13 +14,19 @@ const paginate = async function (options) {
   if (isNaN(currentPage)) {
     throw new Error('Paginate error: page must be a number');
   }
+  if (perPage > 300) {
+    throw new Error('Paginate error: too many results');
+  }
+  if (currentPage < 1) {
+    currentPage = 1;
+  }
 
   const mQuery = this.find(this._conditions);
   const offset = (currentPage - 1) * perPage;
 
   mQuery.sort({ [order]: direction });
   mQuery.skip(offset);
-  mQuery.limit(Number(perPage));
+  mQuery.limit(perPage);
 
   // @see https://mongoosejs.com/docs/tutorials/lean.html
   mQuery.lean(true);
@@ -29,7 +37,7 @@ const paginate = async function (options) {
   mQuery.skip(); // reset offset
   const count = await mQuery.countDocuments(this._conditions).exec();
 
-  const hasNext = count > parseInt(pages.length + offset);
+  const hasNext = count > Number(pages.length + offset);
   const pageParams = {
     count: Number(count),
     hasNext: Boolean(hasNext),
