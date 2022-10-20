@@ -4,7 +4,7 @@ const paginate = async function ({
   page: currentPage = 1,
   order = 'createdAt',
   direction = -1,
-}) {
+} = {}) {
   // make sure these params are numbers
   perPage = Number(perPage);
   currentPage = Number(currentPage);
