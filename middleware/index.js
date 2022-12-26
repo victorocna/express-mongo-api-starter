@@ -7,6 +7,7 @@ const speedLimiter = require('./speed-limiter');
 const status = require('./status');
 const userExists = require('./user-exists');
 const userNotExist = require('./user-not-exist');
+const validate = require('./validate');
 
 module.exports = {
   authenticate,
@@ -18,4 +19,5 @@ module.exports = {
   status,
   userExists,
   userNotExist,
+  validate,
 };
