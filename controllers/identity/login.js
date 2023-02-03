@@ -21,9 +21,17 @@ module.exports = async (req, res) => {
 
   const passwordsMatch = await bcrypt.compare(password, passwordFromDb);
   if (!passwordsMatch) {
-    throw error(400, 'Your username or password are invalid');
-  }
+    const failedLogin = identity.failedLogin + 1;
+    await identity.updateOne({ failedLogin });
 
+    if (failedLogin > 4) {
+      await identity.updateOne({ active: false });
+      throw error(409, 'Your account has been locked due too many failed login attemts');
+    }
+    throw error(400, 'Your username or password are invalid');
+  } else {
+    await identity.updateOne({ failedLogin: 0 });
+  }
   // the JWT public data payload
   const payload = { name, email, role, me: id };
 

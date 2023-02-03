@@ -24,6 +24,10 @@ const schema = new mongoose.Schema({
     minlength: 8,
     select: false,
   },
+  failedLogin: {
+    type: Number,
+    default: 0,
+  },
   active: {
     type: Boolean,
     default: false,
