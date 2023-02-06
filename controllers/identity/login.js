@@ -26,7 +26,7 @@ module.exports = async (req, res) => {
 
     if (failedLogin > 4) {
       await identity.updateOne({ active: false });
-      throw error(409, 'Your account has been locked due too many failed login attemts');
+      throw error(409, 'Your account has been locked for security reasons');
     }
     throw error(400, 'Your username or password are invalid');
   } else {
