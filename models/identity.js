@@ -24,7 +24,7 @@ const schema = new mongoose.Schema({
     minlength: 8,
     select: false,
   },
-  failedLogin: {
+  retries: {
     type: Number,
     default: 0,
   },

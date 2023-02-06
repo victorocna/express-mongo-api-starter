@@ -14,23 +14,22 @@ module.exports = async (req, res) => {
     throw error(400, 'Your email or password are invalid');
   }
 
+  if (identity.retries >= 5) {
+    await identity.updateOne({ active: false });
+    throw error(409, 'Your account has been locked for security reasons');
+  }
+
   const { id, name, active, confirmed, __t: role, password: passwordFromDb } = identity;
   if (!active || !confirmed) {
-    throw error(400, 'Your account is not active, yet');
+    throw error(400, 'Your account is not active');
   }
 
   const passwordsMatch = await bcrypt.compare(password, passwordFromDb);
   if (!passwordsMatch) {
-    const failedLogin = identity.failedLogin + 1;
-    await identity.updateOne({ failedLogin });
-
-    if (failedLogin > 4) {
-      await identity.updateOne({ active: false });
-      throw error(409, 'Your account has been locked for security reasons');
-    }
+    await identity.updateOne({ $inc: { retries: 1 } });
     throw error(400, 'Your username or password are invalid');
   } else {
-    await identity.updateOne({ failedLogin: 0 });
+    await identity.updateOne({ retries: 0 });
   }
   // the JWT public data payload
   const payload = { name, email, role, me: id };
