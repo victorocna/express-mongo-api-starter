@@ -1,0 +1,12 @@
+[
+  {
+    "from": "ACME SRL",
+    "type": "forgot",
+    "title": "Forgot password"
+  },
+  {
+    "from": "ACME SRL",
+    "type": "signup",
+    "title": "Signup confirmation"
+  }
+]
