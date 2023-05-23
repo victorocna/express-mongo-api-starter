@@ -26,13 +26,14 @@ module.exports = async (req, res) => {
   });
 
   const refreshToken = jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn: '60m',
+    expiresIn: '12h',
     algorithm: 'HS256',
   });
 
   // set refresk token as cookie
   const oneDay = 24 * 3600 * 1000;
   res.cookie('jwt_refresh_token', refreshToken, {
+    domain: process.env.COOKIE_DOMAIN,
     secure: true,
     maxAge: oneDay,
     signed: true,

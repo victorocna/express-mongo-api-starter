@@ -1,7 +1,7 @@
 # Express Mongo API starter
 
 Starter for Node Express API projects with Mongo database packed with features like
-pagination, powerful middlewares and many more.
+pagination, authentication, powerful middlewares and many more.
 
 ## Documentation and wiki
 
@@ -34,6 +34,16 @@ npm run dev
 ```
 
 ## Features
+
+Important features are listed below
+
+### Authentication
+
+JSON web tokens (JWT) and HTTP-only cookies are used to facilitate authentication.
+
+Important note for `COOKIE_DOMAIN` environment variable:
+
+> Multiple host/domain values are not allowed, but if a domain is specified, then subdomains are always included.
 
 ### Logger
 

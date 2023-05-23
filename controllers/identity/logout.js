@@ -1,12 +1,11 @@
 module.exports = async (req, res) => {
-  const secure = process.env.NODE_ENV === 'production';
-  const now = new Date(0);
   res.cookie('jwt_refresh_token', '', {
-    secure,
-    maxAge: now,
+    domain: process.env.COOKIE_DOMAIN,
+    secure: true,
+    maxAge: new Date(0),
     signed: true,
     httpOnly: true,
-    sameSite: true,
+    sameSite: 'lax',
   });
 
   return res.json({ message: 'Logout successful' });
