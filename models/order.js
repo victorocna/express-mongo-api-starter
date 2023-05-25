@@ -12,7 +12,7 @@ const schema = new Schema({
   },
   status: {
     type: String,
-    enum: ['approved', 'pending', 'rejected'],
+    enum: ['confirmed', 'pending', 'open', 'canceled', 'refunded', 'rejected'],
     default: 'pending',
   },
   processed: {
