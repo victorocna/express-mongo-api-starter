@@ -37,3 +37,15 @@ otherwise you will need extra documents
   - Logo Netopia Payments
 
 After following these steps you should be able to accept card payments with Netopia!
+
+## Order statuses
+
+- **confirmed**: Avem certitudinea ca banii au plecat din contul posesorului de card si facem update al starii comenzii si livrarea produsului.
+- **confirmed_pending**: Tranzactia este in curs de verificare antifrauda. Nu facem livrare/expediere.
+In urma trecerii de aceasta verificare se va primi o noua notificare pentru o actiune de confirmare sau anulare.
+- **paid_pending**: Tranzactia este in curs de verificare. Nu facem livrare/expediere.
+In urma trecerii de aceasta verificare se va primi o noua notificare pentru o actiune de confirmare sau anulare.
+- **paid**: Tranzactia este in curs de procesare. Nu facem livrare/expediere.
+In urma trecerii de aceasta procesare se va primi o noua notificare pentru o actiune de confirmare sau anulare.
+- **canceled**: Tranzactia este anulata. Nu facem livrare/expediere.
+- **credit**: Banii sunt returnati posesorului de card. Daca s-a facut deja livrare, aceasta trebuie oprita sau facut un reverse.
