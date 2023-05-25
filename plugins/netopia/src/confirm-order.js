@@ -18,8 +18,8 @@ module.exports = async (req, res) => {
   }
 
   // Do not process the same order twice (Netopia can call this endpoint multiple times)
-  if (document?.status === 'confirmed') {
-    throw error(400, 'Error! Order was already confirmed');
+  if (document?.status === 'approved') {
+    throw error(400, 'Error! Order was already approved');
   }
 
   // Mark order as processed
@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
   switch (action) {
     case 'confirmed':
       // Avem certitudinea ca banii au plecat din contul posesorului de card si facem update al starii comenzii si livrarea produsului.
-      await document.updateOne({ status: 'confirmed' });
+      await document.updateOne({ status: 'approved' });
       break;
     case 'confirmed_pending':
       // Tranzactia este in curs de verificare antifrauda. Nu facem livrare/expediere.
