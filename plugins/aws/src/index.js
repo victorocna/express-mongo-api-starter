@@ -1,6 +1,5 @@
 const { basename, extname } = require('path');
 const { S3Client, PutObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3');
-const { format } = require('date-fns');
 const settings = require('../settings.json');
 
 const s3Client = new S3Client({
@@ -51,7 +50,7 @@ const remove = async (filename) => {
 // Create an unique key for the file
 const createKey = (filename) => {
   const extension = extname(filename);
-  const timestamp = format(new Date(), 'yyyyMMddhhmmss');
+  const timestamp = Date.now();
   const normalized = filename.toLowerCase().replaceAll(' ', '-');
   const file = basename(normalized, extension);
 
