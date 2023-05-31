@@ -15,6 +15,18 @@
 Netopia settings are located in the [Admin Dashboard - Domains](https://admin.netopia-payments.com/domains) page,
 click the "Setari tehnice" button to reveal them.
 
+## Basic usage
+
+```js
+const { netopia } = require('../plugins');
+
+// Create Netopia order
+await netopia.createOrder(data);
+
+// Confirm Netopia order
+await netopia.confirmOrder(envKey, data);
+```
+
 ## Configuration
 
 Before accepting card payments with Netopia you need to:

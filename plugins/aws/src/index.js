@@ -64,14 +64,14 @@ const getKey = (path) => {
 };
 
 // Get the public URL of the file
-const view = (filename) => {
+const getPublicUrl = (filename) => {
   return `https://${settings.bucket}.${settings.region}.digitaloceanspaces.com/${filename}`;
 };
 
 const aws = {
   upload,
   remove,
-  view,
+  getPublicUrl,
 };
 
 module.exports = aws;
