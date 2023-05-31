@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { postmark } = require('../plugins');
+const postmark = require('../plugins/postmark/src');
 
 it('Sends an email', async () => {
   // Arrange

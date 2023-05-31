@@ -18,7 +18,7 @@ click the "Setari tehnice" button to reveal them.
 ## Basic usage
 
 ```js
-const { netopia } = require('../plugins');
+const netopia = require('../plugins/netopia/src');
 
 // Create Netopia order
 await netopia.createOrder(data);

@@ -20,7 +20,7 @@ Quick start
 ## Basic usage
 
 ```js
-const { postmark } = require('../plugins');
+const postmark = require('../plugins/postmark/src');
 
 // Send an email
 await postmark.sendEmail({

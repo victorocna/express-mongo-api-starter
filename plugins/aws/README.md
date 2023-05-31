@@ -12,7 +12,7 @@
 ## Basic Usage
 
 ```js
-const { aws } = require('../plugins');
+const aws = require('../plugins/aws/src');
 
 // Upload files
 await aws.upload(filename, data);
