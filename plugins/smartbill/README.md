@@ -10,6 +10,15 @@ No extra dependencies needed 😊
 - `SMARTBILL_TOKEN`: Smartbill secret token
 - `SMARTBILL_USERNAME`: Smartbill login username
 
+## Basic usage
+
+```js
+const smartbill = require('../plugins/smartbill/src');
+
+// Create Smartbill invoice
+await smartbill.createInvoice(data);
+```
+
 ## Configuration
 
 Before accepting invoices with Smartbill you need to:
