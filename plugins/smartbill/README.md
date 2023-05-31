@@ -2,7 +2,8 @@
 
 ## Dependencies
 
-No extra dependencies needed 😊
+- `date-fns` [NPM package](https://www.npmjs.com/package/date-fns)
+- `lodash` [NPM package](https://www.npmjs.com/package/lodash)
 
 ## Environment variables
 
