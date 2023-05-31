@@ -3,11 +3,26 @@
 ## Dependencies
 
 - `postmark` [NPM package](https://www.npmjs.com/package/postmark)
+- `handlebars` [NPM package](https://www.npmjs.com/package/handlebars)
 
 ## Environment variables
 
 - `POSTMARK_FROM`: The Postmark sender email address
 - `POSTMARK_SECRET`: The Postmark API secret
+
+## Basic usage
+
+```js
+const { postmark } = require('../plugins');
+
+// Send an email
+await postmark.sendEmail({
+  type: 'contact',
+  to: 'office@email.com',
+  subject: 'Hello world',
+  message: 'This is a test message',
+});
+```
 
 ## Configuration
 

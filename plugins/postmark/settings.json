@@ -1,12 +1,4 @@
-[
-  {
-    "from": "ACME SRL",
-    "type": "forgot",
-    "title": "Forgot password"
-  },
-  {
-    "from": "ACME SRL",
-    "type": "signup",
-    "title": "Signup confirmation"
-  }
-]
+{
+  "name": "plugins/postmark",
+  "version": "0.1"
+}

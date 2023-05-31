@@ -1,23 +1,27 @@
-const loadSubject = require('./load-subject');
-const loadTemplate = require('./load-template');
+const handlebars = require('handlebars');
+const views = require('../views');
 
-const createEmail = async ({ name, type, to, data = {} }) => {
-  const payload = {
-    data: {
-      ...data,
-      app_base_url: process.env.APP_BASE_URL,
-      email_support: process.env.POSTMARK_FROM,
-    },
-    name,
-    type,
-  };
-  const HtmlBody = loadTemplate(payload);
-  const Subject = loadSubject(HtmlBody);
+const createEmail = async ({ from, to, type, subject, message, data = {} }) => {
+  if (!type || !to || !subject) {
+    throw new Error('Missing required parameters');
+  }
+
+  // Prepend some data to be used in the email templates
+  data.app_base_url = process.env.APP_BASE_URL;
+  data.email_support = process.env.POSTMARK_FROM;
+  data.subject = subject;
+  data.message = message;
+
+  // Compile handlebars template
+  if (!views[type]) {
+    throw new Error('Invalid email type');
+  }
+  const template = handlebars.compile(views[type]);
 
   return {
-    From: process.env.POSTMARK_FROM,
-    HtmlBody,
-    Subject,
+    From: from || process.env.POSTMARK_FROM,
+    HtmlBody: template(data),
+    Subject: subject,
     To: to,
   };
 };
