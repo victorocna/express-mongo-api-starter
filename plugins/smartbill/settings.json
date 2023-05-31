@@ -1,4 +1,5 @@
 {
+  "name": "plugins/smartbill",
   "version": "0.1",
   "collection": "orders",
   "series": "ACME",

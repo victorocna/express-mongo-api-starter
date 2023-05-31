@@ -1,4 +1,5 @@
 {
+  "name": "plugins/netopia",
   "version": "0.1",
   "collection": "orders",
   "series": "ACME",
