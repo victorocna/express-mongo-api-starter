@@ -1,5 +1,12 @@
 # Postmark Plugin
 
+Quick start
+
+1. Install dependencies
+2. Setup environment variables
+3. Add your own email templates in the `plugins/postmark/views` folder
+4. See basic usage and send your first email
+
 ## Dependencies
 
 - `postmark` [NPM package](https://www.npmjs.com/package/postmark)
