@@ -6,6 +6,7 @@ const seed = async (params) => {
     throw new Error('You must set your environment variables before running this script');
   }
   if (process.env.MONGODB_URI.includes('mongodb+srv') && params !== '--force') {
+    console.warn('Info: Use `npm run seed -- --force` to run this seed on a live database');
     throw new Error("You can't run this seed on a live database");
   }
 

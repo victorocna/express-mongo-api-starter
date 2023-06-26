@@ -14,9 +14,10 @@ module.exports = async (req, res) => {
     throw error(400, 'Your email or password are invalid');
   }
 
-  if (identity.retries >= 5) {
+  // Block logins for accounts with too many retries
+  if (identity?.retries >= 5) {
     await identity.updateOne({ active: false });
-    throw error(409, 'Your account has been locked for security reasons');
+    throw error(400, 'Your account has been locked for security reasons');
   }
 
   const { id, name, active, confirmed, __t: role, password: passwordFromDb } = identity;
@@ -40,13 +41,14 @@ module.exports = async (req, res) => {
   });
 
   const refreshToken = jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn: '60m',
+    expiresIn: '12h',
     algorithm: 'HS256',
   });
 
   // set refresk token as cookie
   const oneDay = 24 * 3600 * 1000;
   res.cookie('jwt_refresh_token', refreshToken, {
+    domain: process.env.COOKIE_DOMAIN,
     secure: true,
     maxAge: oneDay,
     signed: true,
