@@ -7,7 +7,7 @@
     "dev": "nodemon ./server",
     "start": "node ./server",
     "seed": "node ./db/seed",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./tests"
   },
   "keywords": [
     "express",
@@ -40,7 +40,9 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "chai": "^4.3.7",
     "eslint": "^7.32.0",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.19",
     "pino-pretty": "^4.8.0",
     "prettier": "^2.3.2"

@@ -1,0 +1,19 @@
+{
+  "name": "plugins/smartbill",
+  "version": "0.1",
+  "collection": "orders",
+  "series": "ACME",
+  "body": {
+    "currency": "RON",
+    "language": "RO"
+  },
+  "lines": {
+    "currency": "RON",
+    "isDiscount": false,
+    "isService": false,
+    "isTaxIncluded": true,
+    "measuringUnitName": "buc",
+    "productDescription": "",
+    "saveToDb": false
+  }
+}

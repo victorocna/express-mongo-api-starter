@@ -45,12 +45,11 @@ Important note for `COOKIE_DOMAIN` environment variable:
 
 > Multiple host/domain values are not allowed, but if a domain is specified, then subdomains are always included.
 
-### Logger
+### Plugins and integrations
 
-You can use the logger from lib folder to log anything with different logging levels.
+You can use the common integrations from the `plugins` folder: AWS, Netopia, Postmark and Smartbill.
 
-By default the logs will not be enabled on production environments.
-To overwrite this behaviour use the `LOG_EVERYWHERE` environment variable and set its value to `"yes"`.
+Each common integration has an extensive documentation, code samples and step-by-step instructions.
 
 ### Loading and error states
 

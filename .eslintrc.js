@@ -12,5 +12,5 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-unused-vars': ['error', { ignoreRestSiblings: true }],
   },
-  ignorePatterns: ['**/test/*.js', '**/*.test.js', '**/test.js'],
+  ignorePatterns: ['**/tests/*.js', '**/*.test.js', '**/test.js'],
 };

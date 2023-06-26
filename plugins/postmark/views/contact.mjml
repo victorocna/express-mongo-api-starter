@@ -1,0 +1,48 @@
+<mjml>
+  <mj-head>
+    <mj-title>{{subject}}</mj-title>
+    <mj-attributes>
+      <mj-all font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"></mj-all>
+      <mj-text
+        font-weight="400"
+        font-size="16px"
+        color="#000000"
+        line-height="24px"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+      ></mj-text>
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#E7E7E7" width="600px">
+    <mj-section full-width="full-width" background-color="#E7E7E7" padding-bottom="0px">
+      <mj-column width="100%">
+        <mj-image
+          padding-bottom="24px"
+          src="https://chesscoders.com/wp-content/uploads/2021/02/logo-nou-text.png"
+          alt="Chess Coders Logo"
+          align="center"
+          width="160px"
+        ></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#1B5587">
+      <mj-column width="100%">
+        <mj-text
+          color="#ffffff"
+          padding-top="6px"
+          padding-bottom="6px"
+          align="center"
+          font-weight="bold"
+          font-size="20px"
+          >{{subject}}</mj-text
+        >
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding-top="0" padding-bottom="0px">
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px">
+        <mj-column width="100%">
+          <mj-text color="#1f2937" font-size="16px">{{message}}</mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>
