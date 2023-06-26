@@ -15,7 +15,7 @@
 const aws = require('../plugins/aws/src');
 
 // Upload files
-await aws.upload(filename, data);
+await aws.upload(filename, data, options);
 
 // Remove files
 await aws.remove(filename);

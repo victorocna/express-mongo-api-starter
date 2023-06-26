@@ -12,14 +12,24 @@ const s3Client = new S3Client({
 });
 
 // Upload file to AWS or DigitalOcean
-const upload = async (filename, data) => {
+const upload = async (filename, data, options = {}) => {
   const key = createKey(filename);
+
+  // Change folder name for development environments
+  if (process.env.NODE_ENV !== 'production') {
+    settings.folder = `${settings.folder}-beta`;
+  }
+
   const params = {
     Bucket: settings.bucket,
     Key: `${settings.folder}/${key}`,
     Body: data,
-    ACL: 'public-read',
   };
+
+  // Set params for public files
+  if (options?.public) {
+    params.ACL = 'public-read';
+  }
 
   const command = new PutObjectCommand(params);
   try {
