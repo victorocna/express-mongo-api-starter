@@ -1,9 +1,9 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, set } = require('mongoose');
 const { paginate } = require('./plugins');
 const { payer, reference } = require('./schemas');
 
 const name = 'order';
-const schema = {
+const schema = new Schema({
   payer,
   user: reference,
   total: {
@@ -29,11 +29,12 @@ const schema = {
     series: String,
     number: String,
   },
-};
+});
 
 // Set schema plugins
 schema.plugin(paginate);
 
-module.exports = model(name, new Schema(schema), {
-  timestamps: true,
-});
+// Set the default schema options
+set('timestamps', true);
+
+module.exports = model(name, schema);
