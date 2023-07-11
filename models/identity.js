@@ -1,13 +1,12 @@
-const mongoose = require('mongoose');
+const { Schema, model, set } = require('mongoose');
 const { isEmail } = require('validator');
 const { hashPasswords, paginate, validate } = require('./plugins');
-const { timestamps } = require('./schemas');
 
 /**
  * Identities manage login related operations
  */
 const name = 'identity';
-const schema = new mongoose.Schema({
+const schema = new Schema({
   name: {
     type: String,
   },
@@ -39,11 +38,14 @@ const schema = new mongoose.Schema({
   confirmedAt: {
     type: Date,
   },
-  ...timestamps,
 });
 
+// Set schema plugins
 schema.plugin(hashPasswords);
 schema.plugin(paginate);
 schema.plugin(validate);
 
-module.exports = mongoose.model(name, schema);
+// Set the default schema options
+set('timestamps', true);
+
+module.exports = model(name, schema);

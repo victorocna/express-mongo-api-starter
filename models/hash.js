@@ -1,16 +1,16 @@
-const mongoose = require('mongoose');
+const { Schema, Types, model, set } = require('mongoose');
 
 /**
  * Hashes are used for identity operations
  */
 const name = 'hash';
-const schema = new mongoose.Schema({
+const schema = new Schema({
   hash: {
     type: String,
     required: true,
   },
   identity: {
-    type: mongoose.Types.ObjectId,
+    type: Types.ObjectId,
     required: true,
     get: (value) => value.toString(),
   },
@@ -20,4 +20,7 @@ const schema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model(name, schema);
+// Set the default schema options
+set('timestamps', true);
+
+module.exports = model(name, schema);

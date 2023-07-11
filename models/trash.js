@@ -1,19 +1,19 @@
-const mongoose = require('mongoose');
+const { Schema, Types, model, set } = require('mongoose');
 const { paginate } = require('./plugins');
 
 const name = 'trash';
-const options = {
+const schema = new Schema({
   type: {
     type: String,
     required: true,
   },
   data: {
-    type: mongoose.SchemaTypes.Mixed,
+    type: Types.Mixed,
     required: true,
   },
   deletedBy: {
     _id: {
-      type: mongoose.Types.ObjectId,
+      type: Types.ObjectId,
       required: true,
       get: (identity) => identity.toString(),
     },
@@ -26,9 +26,13 @@ const options = {
       required: true,
     },
   },
-};
+});
 
-const schema = new mongoose.Schema(options, { collection: 'trash' });
+// Set schema plugins
 schema.plugin(paginate);
 
-module.exports = mongoose.model(name, schema);
+// Set the default schema options
+set('collection', 'trash');
+set('timestamps', true);
+
+module.exports = model(name, schema);
