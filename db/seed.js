@@ -15,7 +15,7 @@ const dropCollections = async () => {
     }
   } catch (err) {
     console.error(err);
-    throw new Error('Error! Cannot not clean db');
+    throw new Error('Error! Cannot clean Mongo database');
   }
 };
 
