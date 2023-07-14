@@ -9,7 +9,7 @@ const dropCollections = async () => {
     const collections = await connection.db.listCollections().toArray();
 
     for (let collection of collections) {
-      process.stdout.write(`Dropping ${collection.name} collection...`);
+      console.log(`Dropping ${collection.name} collection...`);
       await connection.db.dropCollection(collection.name);
       console.log('✓');
     }
