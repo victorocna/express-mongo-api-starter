@@ -9,13 +9,13 @@ const dropCollections = async () => {
     const collections = await connection.db.listCollections().toArray();
 
     for (let collection of collections) {
-      console.log(`Dropping ${collection.name}`);
+      process.stdout.write(`Dropping ${collection.name} collection...`);
       await connection.db.dropCollection(collection.name);
       console.log('✓');
     }
   } catch (err) {
     console.error(err);
-    throw new Error('Could not clean db.');
+    throw new Error('Error! Cannot not clean db');
   }
 };
 
@@ -30,7 +30,7 @@ const seed = async (params) => {
 
   await connectToMongo();
 
-  if (!params.includes('--keep')) {
+  if (params.includes('--clean')) {
     await dropCollections();
   }
 

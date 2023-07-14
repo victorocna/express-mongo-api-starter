@@ -4,7 +4,7 @@ const identities = require('../resources/identities');
 
 exports.seed = async () => {
   try {
-    console.log('Planting seeds for identities');
+    process.stdout.write('Planting seeds for identities...');
 
     const seeds = await identities();
     await Identity.insertMany(seeds);
