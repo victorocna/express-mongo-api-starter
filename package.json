@@ -1,6 +1,6 @@
 {
   "name": "express-mongo-api-starter",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Starter for Node Express API projects with Mongo database",
   "main": "app.js",
   "scripts": {
