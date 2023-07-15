@@ -1,23 +1,7 @@
 /* eslint-disable no-console */
-const mongoose = require('mongoose');
 const connectToMongo = require('../functions/connect');
+const dropCollections = require('./functions/drop-collections');
 const identities = require('./seeds/001_identities');
-
-const dropCollections = async () => {
-  try {
-    const connection = mongoose.connection;
-    const collections = await connection.db.listCollections().toArray();
-
-    for (let collection of collections) {
-      console.log(`Dropping ${collection.name} collection...`);
-      await connection.db.dropCollection(collection.name);
-      console.log('✓');
-    }
-  } catch (err) {
-    console.error(err);
-    throw new Error('Error! Cannot clean Mongo database');
-  }
-};
 
 const seed = async (params) => {
   if (!process.env.MONGODB_URI) {
@@ -34,6 +18,7 @@ const seed = async (params) => {
     await dropCollections();
   }
 
+  // Add all collection seeds below
   await identities.seed();
 };
 
