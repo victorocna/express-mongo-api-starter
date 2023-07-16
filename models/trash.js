@@ -1,34 +1,24 @@
-const mongoose = require('mongoose');
+const { Schema, model, SchemaTypes } = require('mongoose');
 const { paginate } = require('./plugins');
+const { reference } = require('./schemas');
 
 const name = 'trash';
-const options = {
-  type: {
-    type: String,
-    required: true,
-  },
-  data: {
-    type: mongoose.SchemaTypes.Mixed,
-    required: true,
-  },
-  deletedBy: {
-    _id: {
-      type: mongoose.Types.ObjectId,
-      required: true,
-      get: (identity) => identity.toString(),
-    },
-    name: {
+const schema = new Schema(
+  {
+    type: {
       type: String,
       required: true,
     },
-    email: {
-      type: String,
+    data: {
+      type: SchemaTypes.Mixed,
       required: true,
     },
+    deletedBy: reference,
   },
-};
+  { collection: 'trash', timestamps: true }
+);
 
-const schema = new mongoose.Schema(options, { collection: 'trash' });
+// Set schema plugins
 schema.plugin(paginate);
 
-module.exports = mongoose.model(name, schema);
+module.exports = model(name, schema);

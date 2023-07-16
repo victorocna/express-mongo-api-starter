@@ -1,23 +1,22 @@
-const mongoose = require('mongoose');
+const { Schema, Types, model } = require('mongoose');
 
 /**
  * Hashes are used for identity operations
  */
 const name = 'hash';
-const schema = new mongoose.Schema({
-  hash: {
-    type: String,
-    required: true,
+const schema = new Schema(
+  {
+    hash: {
+      type: String,
+      required: true,
+    },
+    identity: {
+      type: Types.ObjectId,
+      required: true,
+      get: (value) => value.toString(),
+    },
   },
-  identity: {
-    type: mongoose.Types.ObjectId,
-    required: true,
-    get: (value) => value.toString(),
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+  { timestamps: true }
+);
 
-module.exports = mongoose.model(name, schema);
+module.exports = model(name, schema);
