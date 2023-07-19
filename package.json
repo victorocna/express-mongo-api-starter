@@ -41,6 +41,8 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@types/pino": "^7.0.5",
     "chai": "^4.3.7",
     "eslint": "^8.45.0",
     "mocha": "^10.2.0",

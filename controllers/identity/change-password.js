@@ -1,6 +1,7 @@
 import bcryptjs from 'bcryptjs';
 import { error } from '../../functions/index.js';
 import { Identity } from '../../models/index.js';
+
 const { hashSync } = bcryptjs;
 
 export default async (req, res) => {

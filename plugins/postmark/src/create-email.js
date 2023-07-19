@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { compile } from 'handlebars';
 import views from '../views/index.js';
 

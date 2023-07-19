@@ -16,6 +16,7 @@ export default async (req, res, next) => {
       method: 'post',
       url: 'https://www.recaptcha.net/recaptcha/api/siteverify',
       params: {
+        // eslint-disable-next-line no-undef
         secret: process.env.RECAPTCHA_SECRET,
         response: req.body['g-recaptcha-response'],
       },

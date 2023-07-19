@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+/* eslint-disable no-undef */
 import { config } from 'dotenv';
 import { createServer } from 'http';
 import pino from 'pino';

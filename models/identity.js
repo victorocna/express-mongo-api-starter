@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import validator from 'validator';
 import { hashPasswords, paginate, validate } from './plugins/index.js';
+
 const { Schema, model } = mongoose;
 const { isEmail } = validator;
 

@@ -4,6 +4,7 @@ import awsTest from './aws.test.js';
 import netopiaTest from './netopia.test.js';
 import postmarkTest from './postmark.test.js';
 import smartbillTest from './smartbill.test.js';
+
 config();
 
 describe('Test Postmark plugin', () => {

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import inWhitelist from './in-whitelist.js';
 
 const origin = (origin, callback) => {

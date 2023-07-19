@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import Identity from './identity.js';
+
 const { Schema } = mongoose;
 
 /**

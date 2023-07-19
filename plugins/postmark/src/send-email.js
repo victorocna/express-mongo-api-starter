@@ -3,6 +3,7 @@ import createEmail from './create-email.js';
 
 const sendEmail = async (data) => {
   try {
+    // eslint-disable-next-line no-undef
     const client = new Client(process.env.POSTMARK_SECRET);
     const payload = await createEmail(data);
 

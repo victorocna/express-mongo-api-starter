@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 /* eslint-disable no-console */
 import connectToMongo from '../functions/connect.js';
 import dropCollections from './functions/drop-collections.js';

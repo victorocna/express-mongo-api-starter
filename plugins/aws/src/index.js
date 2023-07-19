@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { DeleteObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { basename, extname } from 'path';
 import { bucket, folder, region } from '../settings.json';
@@ -17,6 +18,7 @@ const upload = async (filename, data, options = {}) => {
 
   // Change folder name for development environments
   if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line no-import-assign
     folder = `${folder}-beta`;
   }
 

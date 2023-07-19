@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import Netopia from 'netopia-card';
 import settings from '../settings.json';
 

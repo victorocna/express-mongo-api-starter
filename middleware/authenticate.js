@@ -1,4 +1,5 @@
 import jsonwebtoken from 'jsonwebtoken';
+
 const { verify } = jsonwebtoken;
 
 /**
@@ -15,6 +16,7 @@ export default (req, res, next) => {
   }
 
   const token = authorization.split(' ').reverse()[0];
+  // eslint-disable-next-line no-undef
   verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).json({

@@ -11,6 +11,7 @@ const speedLimiter = expressSlowDown({
   maxDelayMs: 20000, // will not increase past 20000ms
   skip: () => {
     // skip requests for dev environments
+    // eslint-disable-next-line no-undef
     const isDev = process.env.NODE_ENV !== 'production';
     return isDev;
   },

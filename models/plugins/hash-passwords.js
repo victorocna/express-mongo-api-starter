@@ -1,4 +1,5 @@
 import bcryptjs from 'bcryptjs';
+
 const { hashSync } = bcryptjs;
 
 export default function hashPasswords(schema) {
