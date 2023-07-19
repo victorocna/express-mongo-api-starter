@@ -6,9 +6,8 @@
   "scripts": {
     "dev": "nodemon --exec babel-node server",
     "seed": "babel-node db/seed",
-    "start": "npm run transpile && node dist/server",
-    "test": "npm run transpile && mocha dist/tests",
-    "transpile": "babel -d dist/ . --ignore node_modules"
+    "start": "rimraf dist && babel . -d dist --ignore db,dist,node_modules,tests && node dist/server",
+    "test": "rimraf dist && babel . -d dist --ignore db,dist,node_modules && mocha dist/tests"
   },
   "keywords": [
     "express",
@@ -40,6 +39,7 @@
     "lodash": "^4.17.21",
     "mongoose": "^5.13.20",
     "pino": "^6.13.1",
+    "rimraf": "^5.0.1",
     "validator": "^13.6.0",
     "yup": "^0.32.11"
   },
