@@ -1,10 +1,10 @@
-import changePassword from './change-password.js';
-import confirm from './confirm.js';
-import forgot from './forgot.js';
-import login from './login.js';
-import logout from './logout.js';
-import profile from './profile.js';
-import refreshToken from './refresh-token.js';
-import reset from './reset.js';
+import changePassword from './change-password';
+import confirm from './confirm';
+import forgot from './forgot';
+import login from './login';
+import logout from './logout';
+import profile from './profile';
+import refreshToken from './refresh-token';
+import reset from './reset';
 
 export default { changePassword, confirm, forgot, login, logout, profile, refreshToken, reset };

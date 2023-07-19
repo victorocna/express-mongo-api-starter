@@ -18,7 +18,7 @@ click the "Setari tehnice" button to reveal them.
 ## Basic usage
 
 ```js
-import netopia from '../plugins/netopia/src/index.js';
+import netopia from '../plugins/netopia/src';
 
 // Create Netopia order
 await netopia.createOrder(data);

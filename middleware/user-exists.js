@@ -1,5 +1,5 @@
-import { error } from '../functions/index.js';
-import { Identity } from '../models/index.js';
+import { error } from '../functions';
+import { Identity } from '../models';
 
 export default async (req, res, next) => {
   const { email } = req.body;

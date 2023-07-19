@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { sendEmail } from '../plugins/postmark/src/index.js';
+import { sendEmail } from '../plugins/postmark/src';
 
 it('Sends an email', async () => {
   // Arrange

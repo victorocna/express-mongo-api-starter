@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { coffee, error } from '../functions/index.js';
+import { coffee, error } from '../functions';
 
 /**
  * Middleware for testing loading states

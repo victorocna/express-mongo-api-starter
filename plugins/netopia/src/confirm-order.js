@@ -1,5 +1,5 @@
 import Netopia from 'netopia-card';
-import { Order } from '../../../models/index.js';
+import { Order } from '../../../models';
 
 const confirmOrder = async (envKey, data) => {
   const netopia = await new Netopia().validatePayment(envKey, data);

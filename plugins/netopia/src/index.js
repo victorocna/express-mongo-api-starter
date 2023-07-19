@@ -1,4 +1,4 @@
-import confirmOrder from './confirm-order.js';
-import createOrder from './create-order.js';
+import confirmOrder from './confirm-order';
+import createOrder from './create-order';
 
 export { confirmOrder, createOrder };

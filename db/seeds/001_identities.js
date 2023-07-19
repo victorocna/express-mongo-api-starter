@@ -1,17 +1,19 @@
 /* eslint-disable no-console */
-import { insertMany } from '../../models/identity.js';
-import identities from '../resources/identities.js';
+import Identity from '../../models/identity';
+import identities from '../resources/identities';
 
-export async function seed() {
+const seed = async () => {
   try {
     console.log('Planting seeds for identities...');
 
     const seeds = await identities();
-    await insertMany(seeds);
+    await Identity.insertMany(seeds);
 
     console.log('✓');
   } catch (err) {
     console.warn('Error! Cannot insert identities');
     console.error(err);
   }
-}
+};
+
+export default { seed };

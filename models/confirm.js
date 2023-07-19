@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Hash from './hash.js';
+import Hash from './hash';
 
 const { Schema } = mongoose;
 

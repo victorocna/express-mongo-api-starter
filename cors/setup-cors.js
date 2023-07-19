@@ -1,5 +1,5 @@
 import cors from 'cors';
-import origin from './origin.js';
+import origin from './origin';
 
 const setupCors = () => {
   return cors({

@@ -1,3 +1,3 @@
-import Identity from './identity/index.js';
+import Identity from './identity';
 
 export { Identity };

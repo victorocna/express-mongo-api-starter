@@ -1,5 +1,5 @@
-import { error } from '../../../functions/index.js';
-import { Todo } from '../../models/index.js';
+import { error } from '../../../functions';
+import { Todo } from '../../models';
 
 export default async (req, res) => {
   const { id } = req.params;

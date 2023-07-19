@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Identity from './identity.js';
+import Identity from './identity';
 
 const { Schema } = mongoose;
 

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import { paginate } from './plugins/index.js';
-import { reference } from './schemas/index.js';
+import { paginate } from './plugins';
+import { reference } from './schemas';
 
 const { Schema, SchemaTypes, model } = mongoose;
 

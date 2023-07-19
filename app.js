@@ -3,10 +3,10 @@ import express, { json, urlencoded } from 'express';
 import 'express-async-errors';
 import fileUpload from 'express-fileupload';
 import helmet from 'helmet';
-import setupCors from './cors/setup-cors.js';
-import { connectToMongo } from './functions/index.js';
-import { speedLimiter } from './middleware/index.js';
-import router from './router.js';
+import setupCors from './cors/setup-cors';
+import { connectToMongo } from './functions';
+import { speedLimiter } from './middleware';
+import router from './router';
 
 const app = express();
 

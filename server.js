@@ -4,7 +4,7 @@
 import { config } from 'dotenv';
 import { createServer } from 'http';
 import pino from 'pino';
-import app from './app.js';
+import app from './app';
 
 config();
 const logger = pino({ level: process.env.LOG_LEVEL || 'info' });

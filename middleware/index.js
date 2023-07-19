@@ -1,13 +1,13 @@
-import authenticate from './authenticate.js';
-import authorize from './authorize.js';
-import errorHandler from './error-handler.js';
-import notFound from './not-found.js';
-import recaptcha from './recaptcha.js';
-import speedLimiter from './speed-limiter.js';
-import * as status from './status.js';
-import userExists from './user-exists.js';
-import userNotExist from './user-not-exist.js';
-import validate from './validate.js';
+import authenticate from './authenticate';
+import authorize from './authorize';
+import errorHandler from './error-handler';
+import notFound from './not-found';
+import recaptcha from './recaptcha';
+import speedLimiter from './speed-limiter';
+import * as status from './status';
+import userExists from './user-exists';
+import userNotExist from './user-not-exist';
+import validate from './validate';
 
 export {
   authenticate,

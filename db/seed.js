@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 
 /* eslint-disable no-console */
-import connectToMongo from '../functions/connect.js';
-import dropCollections from './functions/drop-collections.js';
-import identities from './seeds/001_identities.js';
+import connectToMongo from '../functions/connect';
+import dropCollections from './functions/drop-collections';
+import identities from './seeds/001_identities';
 
 const seed = async (params) => {
   if (!process.env.MONGODB_URI) {

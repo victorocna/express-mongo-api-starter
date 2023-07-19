@@ -1,3 +1,3 @@
-import sendEmail from './send-email.js';
+import sendEmail from './send-email';
 
 export { sendEmail };

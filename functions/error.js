@@ -1,5 +1,5 @@
 /**
- * @see https://github.com/expressjs/express/blob/master/examples/web-service/index.js#L13
+ * @see https://github.com/expressjs/express/blob/master/examples/web-service#L13
  */
 function error(status, msg) {
   var err = new Error(msg);

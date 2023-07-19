@@ -103,3 +103,6 @@ typings/
 
 # vscode
 .vscode
+
+# dist
+/dist

@@ -1,3 +1,3 @@
-import createInvoice from './create-invoice.js';
+import createInvoice from './create-invoice';
 
 export { createInvoice };

@@ -1,5 +1,5 @@
-import { error } from '../../functions/index.js';
-import { Identity, Reset } from '../../models/index.js';
+import { error } from '../../functions';
+import { Identity, Reset } from '../../models';
 
 export default async (req, res) => {
   const { hash } = req.params;

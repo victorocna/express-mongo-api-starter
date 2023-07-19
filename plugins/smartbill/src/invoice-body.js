@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { addDays } from 'date-fns';
 import { body } from '../settings.json';
-import invoiceLines from './invoice-lines.js';
+import invoiceLines from './invoice-lines';
 
 const invoiceBody = (data) => {
   const { createdAt, dueAt, payer, series, type } = data;

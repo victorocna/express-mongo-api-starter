@@ -1,9 +1,9 @@
 import { config } from 'dotenv';
 import { describe } from 'mocha';
-import awsTest from './aws.test.js';
-import netopiaTest from './netopia.test.js';
-import postmarkTest from './postmark.test.js';
-import smartbillTest from './smartbill.test.js';
+import awsTest from './aws.test';
+import netopiaTest from './netopia.test';
+import postmarkTest from './postmark.test';
+import smartbillTest from './smartbill.test';
 
 config();
 

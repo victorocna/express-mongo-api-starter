@@ -12,7 +12,7 @@
 ## Basic Usage
 
 ```js
-import aws from '../plugins/aws/src/index.js';
+import aws from '../plugins/aws/src';
 
 // Upload files
 await aws.upload(filename, data, options);

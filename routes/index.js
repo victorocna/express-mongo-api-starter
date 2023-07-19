@@ -1,3 +1,3 @@
-import identity from './identity.js';
+import identity from './identity';
 
 export { identity };

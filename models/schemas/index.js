@@ -1,4 +1,4 @@
-import payer from './payer.js';
-import reference from './reference.js';
+import payer from './payer';
+import reference from './reference';
 
 export { payer, reference };
