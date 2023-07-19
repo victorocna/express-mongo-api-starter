@@ -1,5 +1,3 @@
-const todo = require('./todo');
+import todo from './todo.js';
 
-module.exports = {
-  todo,
-};
+export { todo };

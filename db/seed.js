@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-const connectToMongo = require('../functions/connect');
-const dropCollections = require('./functions/drop-collections');
-const identities = require('./seeds/001_identities');
+import connectToMongo from '../functions/connect.js';
+import dropCollections from './functions/drop-collections.js';
+import identities from './seeds/001_identities.js';
 
 const seed = async (params) => {
   if (!process.env.MONGODB_URI) {
@@ -33,4 +33,4 @@ const seed = async (params) => {
   }
 })();
 
-module.exports.seed = seed;
+export { seed };

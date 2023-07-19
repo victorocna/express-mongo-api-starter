@@ -1,7 +1,7 @@
-const axios = require('axios');
-const { error } = require('../functions');
+import axios from 'axios';
+import { error } from '../functions/index.js';
 
-module.exports = async (req, res, next) => {
+export default async (req, res, next) => {
   try {
     // allow requests with no origin from postman / others
     if (!req.headers.origin) {

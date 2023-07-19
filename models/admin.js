@@ -1,5 +1,6 @@
-const { Schema } = require('mongoose');
-const Identity = require('./identity');
+import mongoose from 'mongoose';
+import Identity from './identity.js';
+const { Schema } = mongoose;
 
 /**
  * Admins are identities who have extended permissions
@@ -12,4 +13,4 @@ const schema = new Schema({
   },
 });
 
-module.exports = Identity.discriminator(name, schema);
+export default Identity.discriminator(name, schema);

@@ -1,6 +1,7 @@
-const { Schema, model, SchemaTypes } = require('mongoose');
-const { paginate } = require('./plugins');
-const { reference } = require('./schemas');
+import mongoose from 'mongoose';
+import { paginate } from './plugins/index.js';
+import { reference } from './schemas/index.js';
+const { Schema, SchemaTypes, model } = mongoose;
 
 const name = 'trash';
 const schema = new Schema(
@@ -21,4 +22,4 @@ const schema = new Schema(
 // Set schema plugins
 schema.plugin(paginate);
 
-module.exports = model(name, schema);
+export default model(name, schema);

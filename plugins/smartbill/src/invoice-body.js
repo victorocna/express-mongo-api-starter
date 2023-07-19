@@ -1,6 +1,6 @@
-const { addDays } = require('date-fns');
-const invoiceLines = require('./invoice-lines');
-const settings = require('../settings.json');
+import { addDays } from 'date-fns';
+import { body } from '../settings.json';
+import invoiceLines from './invoice-lines.js';
 
 const invoiceBody = (data) => {
   const { createdAt, dueAt, payer, series, type } = data;
@@ -9,7 +9,7 @@ const invoiceBody = (data) => {
   }
 
   const payload = {
-    ...settings.body,
+    ...body,
     companyVatCode: process.env.SMARTBILL_CUI,
     client: {
       name: payer?.name,
@@ -38,4 +38,4 @@ const invoiceBody = (data) => {
   return payload;
 };
 
-module.exports = invoiceBody;
+export default invoiceBody;

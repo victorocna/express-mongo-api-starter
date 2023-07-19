@@ -1,10 +1,10 @@
-const { Router } = require('express');
-const { authenticate, errorHandler, notFound, status } = require('./middleware');
-const { identity } = require('./routes');
-const { todo } = require('./examples/routes');
+import { Router } from 'express';
+import { todo } from './examples/routes/index.js';
+import { authenticate, errorHandler, notFound, status } from './middleware/index.js';
+import { identity } from './routes/index.js';
 
 const router = Router();
-module.exports = router;
+export default router;
 
 // protect all non-public routes
 router.all('/admin', authenticate);

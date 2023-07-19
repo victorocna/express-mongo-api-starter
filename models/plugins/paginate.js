@@ -53,6 +53,6 @@ const paginate = async function ({
   return { pageParams, pages };
 };
 
-module.exports = (schema) => {
+export default (schema) => {
   schema.query.paginate = paginate;
 };

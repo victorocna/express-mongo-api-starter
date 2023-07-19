@@ -7,4 +7,4 @@ function error(status, msg) {
   return err;
 }
 
-module.exports = error;
+export default error;

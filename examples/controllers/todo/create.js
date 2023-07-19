@@ -1,8 +1,8 @@
-const { error } = require('../../../functions');
-const { Identity } = require('../../../models');
-const { Todo } = require('../../models');
+import { error } from '../../../functions/index.js';
+import { Identity } from '../../../models/index.js';
+import { Todo } from '../../models/index.js';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const { me } = req.user;
   if (!me) {
     throw error(404, 'Missing required params');

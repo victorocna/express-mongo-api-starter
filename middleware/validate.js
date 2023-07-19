@@ -1,4 +1,4 @@
-module.exports = (schema) => {
+export default (schema) => {
   return async function (req, res, next) {
     try {
       // validate request body

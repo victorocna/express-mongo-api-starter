@@ -1,5 +1,6 @@
-const { Schema } = require('mongoose');
-const Hash = require('./hash');
+import mongoose from 'mongoose';
+import Hash from './hash.js';
+const { Schema } = mongoose;
 
 /**
  * Hash for identity signup confirmations
@@ -7,4 +8,4 @@ const Hash = require('./hash');
 const name = 'confirm';
 const schema = new Schema({});
 
-module.exports = Hash.discriminator(name, schema);
+export default Hash.discriminator(name, schema);

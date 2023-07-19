@@ -1,5 +1,3 @@
-const contact = require('./contact');
+import contact from './contact';
 
-module.exports = {
-  contact,
-};
+export { contact };

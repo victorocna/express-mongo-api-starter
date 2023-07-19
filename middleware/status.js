@@ -1,9 +1,9 @@
-const { coffee, error } = require('../functions');
+import { coffee, error } from '../functions/index.js';
 
 /**
  * Middleware for testing loading states
  */
-module.exports.loading = async (req, res, next) => {
+export const loading = async (req, res, next) => {
   if (process.env.NODE_ENV === 'production') {
     return next();
   }
@@ -19,7 +19,7 @@ module.exports.loading = async (req, res, next) => {
 /**
  * Middleware for testing error states
  */
-module.exports.error = (req, res, next) => {
+const _error = (req, res, next) => {
   if (process.env.NODE_ENV === 'production') {
     return next();
   }
@@ -31,3 +31,5 @@ module.exports.error = (req, res, next) => {
 
   return next();
 };
+
+export { _error as error };

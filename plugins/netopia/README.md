@@ -18,7 +18,7 @@ click the "Setari tehnice" button to reveal them.
 ## Basic usage
 
 ```js
-const netopia = require('../plugins/netopia/src');
+import netopia from '../plugins/netopia/src/index.js';
 
 // Create Netopia order
 await netopia.createOrder(data);
@@ -35,7 +35,7 @@ Before accepting card payments with Netopia you need to:
 - Make sure you already have an existing company registered (eg: `ACME SRL`)
 - Complete the registration form with data from the `ACME SRL` company
 - Make sure the domain you will register as the main domain was purchased by the company or by a company administrator,
-otherwise you will need extra documents
+  otherwise you will need extra documents
 - Make sure you have the following in the footer of the website:
   - Termeni si conditii
   - Politica de confidentialitate
@@ -54,10 +54,10 @@ After following these steps you should be able to accept card payments with Neto
 
 - **confirmed**: Avem certitudinea ca banii au plecat din contul posesorului de card si facem update al starii comenzii si livrarea produsului.
 - **confirmed_pending**: Tranzactia este in curs de verificare antifrauda. Nu facem livrare/expediere.
-In urma trecerii de aceasta verificare se va primi o noua notificare pentru o actiune de confirmare sau anulare.
+  In urma trecerii de aceasta verificare se va primi o noua notificare pentru o actiune de confirmare sau anulare.
 - **paid_pending**: Tranzactia este in curs de verificare. Nu facem livrare/expediere.
-In urma trecerii de aceasta verificare se va primi o noua notificare pentru o actiune de confirmare sau anulare.
+  In urma trecerii de aceasta verificare se va primi o noua notificare pentru o actiune de confirmare sau anulare.
 - **paid**: Tranzactia este in curs de procesare. Nu facem livrare/expediere.
-In urma trecerii de aceasta procesare se va primi o noua notificare pentru o actiune de confirmare sau anulare.
+  In urma trecerii de aceasta procesare se va primi o noua notificare pentru o actiune de confirmare sau anulare.
 - **canceled**: Tranzactia este anulata. Nu facem livrare/expediere.
 - **credit**: Banii sunt returnati posesorului de card. Daca s-a facut deja livrare, aceasta trebuie oprita sau facut un reverse.

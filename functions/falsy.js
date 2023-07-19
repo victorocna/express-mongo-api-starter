@@ -11,4 +11,4 @@ const falsy = (...args) => {
   });
 };
 
-module.exports = falsy;
+export default falsy;

@@ -1,6 +1,6 @@
-const slowDown = require('express-slow-down');
+import expressSlowDown from 'express-slow-down';
 
-const speedLimiter = slowDown({
+const speedLimiter = expressSlowDown({
   windowMs: 5 * 60 * 1000, // 5 minutes
   delayAfter: 200, // allow 200 requests per 5 minutes, then...
   delayMs: 500, // begin adding 500ms of delay per request above 100
@@ -16,4 +16,4 @@ const speedLimiter = slowDown({
   },
 });
 
-module.exports = speedLimiter;
+export default speedLimiter;

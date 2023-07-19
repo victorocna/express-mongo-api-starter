@@ -1,9 +1,5 @@
-const inWhitelist = require('./in-whitelist');
-const origin = require('./origin');
-const whitelist = require('./whitelist');
+import inWhitelist from './in-whitelist.js';
+import origin from './origin.js';
+import whitelist from './whitelist.js';
 
-module.exports = {
-  inWhitelist,
-  origin,
-  whitelist,
-};
+export { inWhitelist, origin, whitelist };

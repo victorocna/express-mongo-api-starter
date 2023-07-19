@@ -1,6 +1,7 @@
-const { Types } = require('mongoose');
+import mongoose from 'mongoose';
+const { Types } = mongoose;
 
-module.exports = {
+export default {
   _id: {
     type: Types.ObjectId,
     required: true,
@@ -9,4 +10,4 @@ module.exports = {
     type: String,
     required: true,
   },
-}
+};

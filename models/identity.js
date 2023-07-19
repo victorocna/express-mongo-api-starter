@@ -1,6 +1,8 @@
-const { Schema, model } = require('mongoose');
-const { isEmail } = require('validator');
-const { hashPasswords, paginate, validate } = require('./plugins');
+import mongoose from 'mongoose';
+import validator from 'validator';
+import { hashPasswords, paginate, validate } from './plugins/index.js';
+const { Schema, model } = mongoose;
+const { isEmail } = validator;
 
 /**
  * Identities manage login related operations
@@ -49,4 +51,4 @@ schema.plugin(hashPasswords);
 schema.plugin(paginate);
 schema.plugin(validate);
 
-module.exports = model(name, schema);
+export default model(name, schema);

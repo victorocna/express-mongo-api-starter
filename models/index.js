@@ -1,17 +1,9 @@
-const Admin = require('./admin');
-const Confirm = require('./confirm');
-const Hash = require('./hash');
-const Identity = require('./identity');
-const Order = require('./order');
-const Reset = require('./reset');
-const Trash = require('./trash');
+import Admin from './admin.js';
+import Confirm from './confirm.js';
+import Hash from './hash.js';
+import Identity from './identity.js';
+import Order from './order.js';
+import Reset from './reset.js';
+import Trash from './trash.js';
 
-module.exports = {
-  Admin,
-  Confirm,
-  Hash,
-  Identity,
-  Order,
-  Reset,
-  Trash,
-};
+export { Admin, Confirm, Hash, Identity, Order, Reset, Trash };

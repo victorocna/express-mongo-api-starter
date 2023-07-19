@@ -1,6 +1,6 @@
-const { Schema, Types, model } = require('mongoose');
-const { paginate, validate } = require('../../models/plugins');
-const { timestamps } = require('../../models/schemas');
+import mongoose from 'mongoose';
+import { paginate, validate } from '../../models/plugins/index.js';
+const { Schema, model, Types } = mongoose;
 
 const schema = new Schema({
   identity: {
@@ -22,10 +22,9 @@ const schema = new Schema({
     type: Boolean,
     default: false,
   },
-  ...timestamps,
 });
 
 schema.plugin(paginate);
 schema.plugin(validate);
 
-module.exports = model('todo', schema);
+export default model('todo', schema);

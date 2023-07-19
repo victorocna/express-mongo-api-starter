@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const dropCollections = async () => {
   try {
@@ -17,4 +17,4 @@ const dropCollections = async () => {
   }
 };
 
-module.exports = dropCollections;
+export default dropCollections;

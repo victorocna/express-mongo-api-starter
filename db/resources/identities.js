@@ -1,6 +1,7 @@
-const { hashSync } = require('bcryptjs');
+import bcryptjs from 'bcryptjs';
+const { hashSync } = bcryptjs;
 
-module.exports = async () => {
+export default async () => {
   return [
     {
       email: 'michael@email.com',

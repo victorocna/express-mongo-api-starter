@@ -4,4 +4,4 @@ const coffee = (miliseconds = 3500) => {
   });
 };
 
-module.exports = coffee;
+export default coffee;

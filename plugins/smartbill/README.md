@@ -14,7 +14,7 @@
 ## Basic usage
 
 ```js
-const smartbill = require('../plugins/smartbill/src');
+import smartbill from '../plugins/smartbill/src/index.js';
 
 // Create Smartbill invoice
 await smartbill.createInvoice(data);

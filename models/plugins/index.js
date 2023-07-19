@@ -1,11 +1,6 @@
-const hashPasswords = require('./hash-passwords');
-const normalizeId = require('./normalize-id');
-const paginate = require('./paginate');
-const validate = require('./validate');
+import hashPasswords from './hash-passwords.js';
+import normalizeId from './normalize-id.js';
+import paginate from './paginate.js';
+import validate from './validate.js';
 
-module.exports = {
-  hashPasswords,
-  normalizeId,
-  paginate,
-  validate,
-};
+export { hashPasswords, normalizeId, paginate, validate };

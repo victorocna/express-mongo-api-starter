@@ -1,9 +1,11 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const { error } = require('../../functions');
-const { Identity } = require('../../models');
+import bcryptjs from 'bcryptjs';
+import jsonwebtoken from 'jsonwebtoken';
+import { error } from '../../functions/index.js';
+import { Identity } from '../../models/index.js';
+const { compare } = bcryptjs;
+const { sign } = jsonwebtoken;
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     throw error(400, 'Missing required params');
@@ -25,7 +27,7 @@ module.exports = async (req, res) => {
     throw error(400, 'Your account is not active');
   }
 
-  const passwordsMatch = await bcrypt.compare(password, passwordFromDb);
+  const passwordsMatch = await compare(password, passwordFromDb);
   if (!passwordsMatch) {
     await identity.updateOne({ $inc: { retries: 1 } });
     throw error(400, 'Your username or password are invalid');
@@ -35,12 +37,12 @@ module.exports = async (req, res) => {
   // the JWT public data payload
   const payload = { name, email, role, me: id };
 
-  const token = jwt.sign(payload, process.env.JWT_SECRET, {
+  const token = sign(payload, process.env.JWT_SECRET, {
     expiresIn: '15m',
     algorithm: 'HS256',
   });
 
-  const refreshToken = jwt.sign(payload, process.env.JWT_SECRET, {
+  const refreshToken = sign(payload, process.env.JWT_SECRET, {
     expiresIn: '12h',
     algorithm: 'HS256',
   });

@@ -1,4 +1,4 @@
-const whitelist = require('./whitelist');
+import whitelist from './whitelist.js';
 
 const inWhitelist = (origin) => {
   for (const domain of whitelist) {
@@ -11,4 +11,4 @@ const inWhitelist = (origin) => {
   return false;
 };
 
-module.exports = inWhitelist;
+export default inWhitelist;

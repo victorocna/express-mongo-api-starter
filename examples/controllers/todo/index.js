@@ -1,17 +1,9 @@
-const check = require('./check');
-const create = require('./create');
-const readMany = require('./read-many');
-const readOne = require('./read-one');
-const remove = require('./remove');
-const uncheck = require('./uncheck');
-const update = require('./update');
+import check from './check.js';
+import create from './create.js';
+import readMany from './read-many.js';
+import readOne from './read-one.js';
+import remove from './remove.js';
+import uncheck from './uncheck.js';
+import update from './update.js';
 
-module.exports = {
-  check,
-  create,
-  readMany,
-  readOne,
-  remove,
-  uncheck,
-  update,
-};
+export default { check, create, readMany, readOne, remove, uncheck, update };

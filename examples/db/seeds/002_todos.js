@@ -1,17 +1,17 @@
 /* eslint-disable no-console */
-const Todo = require('../../models/todo');
-const todos = require('../resources/todos');
+import { insertMany } from '../../models/todo.js';
+import todos from '../resources/todos.js';
 
-exports.seed = async () => {
+export async function seed() {
   try {
     console.log('Planting seeds for todos');
 
     const seeds = await todos();
-    await Todo.insertMany(seeds);
+    await insertMany(seeds);
 
     console.log('✓');
   } catch (err) {
     console.warn('Error! Cannot insert todos');
     console.error(err);
   }
-};
+}

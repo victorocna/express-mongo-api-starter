@@ -12,7 +12,7 @@
 ## Basic Usage
 
 ```js
-const aws = require('../plugins/aws/src');
+import aws from '../plugins/aws/src/index.js';
 
 // Upload files
 await aws.upload(filename, data, options);
@@ -21,7 +21,7 @@ await aws.upload(filename, data, options);
 await aws.remove(filename);
 
 // Get public URL for files
-aws.getPublicUrl(filename)
+aws.getPublicUrl(filename);
 ```
 
 ## Configuration

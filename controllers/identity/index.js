@@ -1,19 +1,10 @@
-const changePassword = require('./change-password');
-const confirm = require('./confirm');
-const forgot = require('./forgot');
-const login = require('./login');
-const logout = require('./logout');
-const profile = require('./profile');
-const refreshToken = require('./refresh-token');
-const reset = require('./reset');
+import changePassword from './change-password.js';
+import confirm from './confirm.js';
+import forgot from './forgot.js';
+import login from './login.js';
+import logout from './logout.js';
+import profile from './profile.js';
+import refreshToken from './refresh-token.js';
+import reset from './reset.js';
 
-module.exports = {
-  changePassword,
-  confirm,
-  forgot,
-  login,
-  logout,
-  profile,
-  refreshToken,
-  reset,
-};
+export default { changePassword, confirm, forgot, login, logout, profile, refreshToken, reset };

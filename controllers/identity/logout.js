@@ -1,4 +1,4 @@
-module.exports = async (req, res) => {
+export default async (req, res) => {
   res.cookie('jwt_refresh_token', '', {
     domain: process.env.COOKIE_DOMAIN,
     secure: true,

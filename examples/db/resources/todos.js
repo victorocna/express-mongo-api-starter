@@ -1,6 +1,6 @@
-const { Identity } = require('../../../models');
+import { Identity } from '../../../models/index.js';
 
-module.exports = async () => {
+export default async () => {
   const michael = await Identity.findOne({ email: 'michael@email.com' }).lean();
   const jim = await Identity.findOne({ email: 'jim@email.com' }).lean();
 

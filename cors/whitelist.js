@@ -1,7 +1,7 @@
 /**
  * Whitelist CORS domains
  */
-module.exports = [
+export default [
   // 'https://example.com',
   // 'https://subdomain.example.com/app',
 ];

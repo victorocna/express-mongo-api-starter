@@ -1,6 +1,7 @@
-const { Schema, model } = require('mongoose');
-const { paginate } = require('./plugins');
-const { payer, reference } = require('./schemas');
+import mongoose from 'mongoose';
+import { paginate } from './plugins/index.js';
+import { payer, reference } from './schemas/index.js';
+const { Schema, model } = mongoose;
 
 const name = 'order';
 const schema = new Schema(
@@ -37,4 +38,4 @@ const schema = new Schema(
 // Set schema plugins
 schema.plugin(paginate);
 
-module.exports = model(name, schema);
+export default model(name, schema);

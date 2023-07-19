@@ -1,7 +1,7 @@
-const { error } = require('../../functions');
-const { Identity, Reset } = require('../../models');
+import { error } from '../../functions/index.js';
+import { Identity, Reset } from '../../models/index.js';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const { hash } = req.params;
   const { password } = req.body;
   if (!password || !hash) {
