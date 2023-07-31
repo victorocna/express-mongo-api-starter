@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import { insertMany } from '../../models/todo';
-import todos from '../resources/todos';
+import { insertMany } from '../../models/todo.js';
+import todos from '../resources/todos.js';
 
 export async function seed() {
   try {

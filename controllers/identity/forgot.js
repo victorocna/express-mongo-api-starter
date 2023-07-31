@@ -1,5 +1,5 @@
-import { error, randomHash } from '../../functions';
-import { Identity, Reset } from '../../models';
+import { error, randomHash } from '../../functions/index.js';
+import { Identity, Reset } from '../../models/index.js';
 
 export default async (req, res) => {
   const { email } = req.body;

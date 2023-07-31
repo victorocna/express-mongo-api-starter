@@ -1,4 +1,4 @@
-import whitelist from './whitelist';
+import whitelist from './whitelist.js';
 
 const inWhitelist = (origin) => {
   for (const domain of whitelist) {

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { error } from '../functions';
+import { error } from '../functions/index.js';
 
 export default async (req, res, next) => {
   try {

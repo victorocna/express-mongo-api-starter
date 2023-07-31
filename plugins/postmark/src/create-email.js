@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { compile } from 'handlebars';
-import views from '../views';
+import views from '../views/index.js';
 
 const createEmail = async ({ from, to, type, subject, message, data = {} }) => {
   if (!type || !to || !subject) {

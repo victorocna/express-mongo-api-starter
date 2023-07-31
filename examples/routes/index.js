@@ -1,3 +1,3 @@
-import todo from './todo';
+import todo from './todo.js';
 
 export { todo };

@@ -1,5 +1,5 @@
 import { Client } from 'postmark';
-import createEmail from './create-email';
+import createEmail from './create-email.js';
 
 const sendEmail = async (data) => {
   try {

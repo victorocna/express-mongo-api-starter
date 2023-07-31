@@ -1,6 +1,6 @@
 import bcryptjs from 'bcryptjs';
-import { error } from '../../functions';
-import { Identity } from '../../models';
+import { error } from '../../functions/index.js';
+import { Identity } from '../../models/index.js';
 
 const { hashSync } = bcryptjs;
 

@@ -1,6 +1,6 @@
-const coffee = (miliseconds = 3500) => {
+const coffee = (milliseconds = 3500) => {
   return new Promise((resolve) => {
-    setTimeout(() => resolve('☕'), miliseconds);
+    setTimeout(() => resolve('☕'), milliseconds);
   });
 };
 

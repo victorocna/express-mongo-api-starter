@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { paginate, validate } from '../../models/plugins';
+import { paginate, validate } from '../../models/plugins/index.js';
 
 const { Schema, model, Types } = mongoose;
 

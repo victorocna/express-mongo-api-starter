@@ -1,6 +1,6 @@
-import hashPasswords from './hash-passwords';
-import normalizeId from './normalize-id';
-import paginate from './paginate';
-import validate from './validate';
+import hashPasswords from './hash-passwords.js';
+import normalizeId from './normalize-id.js';
+import paginate from './paginate.js';
+import validate from './validate.js';
 
 export { hashPasswords, normalizeId, paginate, validate };

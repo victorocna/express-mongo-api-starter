@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import inWhitelist from './in-whitelist';
+import inWhitelist from './in-whitelist.js';
 
 const origin = (origin, callback) => {
   // allow requests with no origin or from dev environment

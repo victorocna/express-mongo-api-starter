@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import Identity from '../../models/identity';
-import identities from '../resources/identities';
+import Identity from '../../models/identity.js';
+import identities from '../resources/identities.js';
 
 const seed = async () => {
   try {

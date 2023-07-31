@@ -1,3 +1,3 @@
-import todoSchema from './todo-schema';
+import todoSchema from './todo-schema.js';
 
 export { todoSchema };

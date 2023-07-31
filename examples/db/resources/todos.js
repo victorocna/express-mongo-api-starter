@@ -1,4 +1,4 @@
-import { Identity } from '../../../models';
+import { Identity } from '../../../models/index.js';
 
 export default async () => {
   const michael = await Identity.findOne({ email: 'michael@email.com' }).lean();

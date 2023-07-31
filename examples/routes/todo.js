@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { validate } from '../../middleware';
-import { Todo } from '../controllers';
-import { todoSchema } from '../schemas';
+import { validate } from '../../middleware/index.js';
+import { Todo } from '../controllers/index.js';
+import { todoSchema } from '../schemas/index.js';
 
 const router = Router();
 export default router;

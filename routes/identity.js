@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { Identity } from '../controllers';
-import { recaptcha } from '../middleware';
+import { Identity } from '../controllers/index.js';
+import { recaptcha } from '../middleware/index.js';
 
 const router = Router();
 export default router;

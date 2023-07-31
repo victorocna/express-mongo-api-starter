@@ -1,3 +1,3 @@
-import contact from './contact';
+import contact from './contact.js';
 
 export { contact };

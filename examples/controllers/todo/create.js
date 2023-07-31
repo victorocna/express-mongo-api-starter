@@ -1,6 +1,6 @@
-import { error } from '../../../functions';
-import { Identity } from '../../../models';
-import { Todo } from '../../models';
+import { error } from '../../../functions/index.js';
+import { Identity } from '../../../models/index.js';
+import { Todo } from '../../models/index.js';
 
 export default async (req, res) => {
   const { me } = req.user;

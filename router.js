@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { todo } from './examples/routes';
-import { authenticate, errorHandler, notFound, status } from './middleware';
-import { identity } from './routes';
+import { todo } from './examples/routes/index.js';
+import { authenticate, errorHandler, notFound, status } from './middleware/index.js';
+import { identity } from './routes/index.js';
 
 const router = Router();
 export default router;

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import jsonwebtoken from 'jsonwebtoken';
-import { error, removeRefreshTokenCookie } from '../../functions';
+import { error, removeRefreshTokenCookie } from '../../functions/index.js';
 
 const { sign, verify } = jsonwebtoken;
 

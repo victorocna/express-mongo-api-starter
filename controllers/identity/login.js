@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import bcryptjs from 'bcryptjs';
 import jsonwebtoken from 'jsonwebtoken';
-import { error } from '../../functions';
-import { Identity } from '../../models';
+import { error } from '../../functions/index.js';
+import { Identity } from '../../models/index.js';
 
 const { compare } = bcryptjs;
 const { sign } = jsonwebtoken;

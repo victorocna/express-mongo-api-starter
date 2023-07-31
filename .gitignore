@@ -100,9 +100,3 @@ typings/
 
 # netlify
 .netlify
-
-# vscode
-.vscode
-
-# dist
-/dist
