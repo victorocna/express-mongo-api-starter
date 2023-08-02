@@ -14,8 +14,13 @@ const seed = async (params) => {
 
   await connectToMongo();
 
+  // Clean all collections on development environments only
   if (params.includes('--clean')) {
-    await dropCollections();
+    if (process.env.NODE_ENV !== 'production') {
+      await dropCollections();
+    } else {
+      throw new Error("Really??? You can't clean all collections on production environment");
+    }
   }
 
   // Add all collection seeds below
