@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { userStore, setUser } = require('../redux/user-store');
 
 /**
  * Middleware for authentication
@@ -32,6 +33,10 @@ module.exports = (req, res, next) => {
 
     // Make the decoded JWT payload available on the request object
     req.user = decoded;
+    req.user._id = me;
+
+    // Save the user in the Redux store for later use
+    userStore.dispatch(setUser(req.user));
 
     next();
   });
