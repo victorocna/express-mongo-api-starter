@@ -1,5 +1,4 @@
 const { Schema, model, SchemaTypes } = require('mongoose');
-const { paginate } = require('./plugins');
 const { reference } = require('./schemas');
 
 const name = 'trash';
@@ -15,10 +14,10 @@ const schema = new Schema(
     },
     deletedBy: reference,
   },
-  { collection: 'trash', timestamps: true }
+  {
+    collection: 'trash',
+    timestamps: true,
+  }
 );
-
-// Set schema plugins
-schema.plugin(paginate);
 
 module.exports = model(name, schema);
