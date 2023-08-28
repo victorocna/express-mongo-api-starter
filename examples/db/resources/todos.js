@@ -6,27 +6,27 @@ module.exports = async () => {
 
   return [
     {
-      identity: michael._id,
+      identity: michael,
       name: 'Make a todo list',
       done: true,
     },
     {
-      identity: michael._id,
+      identity: michael,
       name: 'Add integration tests',
       done: false,
     },
     {
-      identity: michael._id,
+      identity: michael,
       name: 'Complete starter project',
       done: false,
     },
     {
-      identity: jim._id,
+      identity: jim,
       name: 'Make fun of Dwight',
       done: false,
     },
     {
-      identity: jim._id,
+      identity: jim,
       name: 'Go home at 5PM sharp',
       done: true,
     },

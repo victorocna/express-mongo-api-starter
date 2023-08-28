@@ -21,5 +21,11 @@ module.exports = async (req, res) => {
     throw error(404, 'Resource not found');
   }
 
+  // add current index for every document
+  todos.pages.forEach((document, i) => {
+    const { page, perPage } = todos.pageParams;
+    document.no = (page - 1) * perPage + i + 1;
+  });
+
   return res.status(200).json(todos);
 };
