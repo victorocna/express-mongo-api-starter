@@ -1,6 +1,6 @@
 const paginate = async function ({
   sort,
-  per_page: perPage = 20,
+  per_page: perPage = 30,
   page: currentPage = 1,
   order = 'createdAt',
   direction = -1,
