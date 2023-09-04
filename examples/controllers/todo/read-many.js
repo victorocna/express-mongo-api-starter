@@ -15,6 +15,10 @@ module.exports = async (req, res) => {
   if (only === 'pending') {
     filter.done = false;
   }
+  const { search } = req.query;
+  if (search && search.length > 3) {
+    filter.name = { $regex: search, $options: 'i' };
+  }
 
   const todos = await Todo.find(filter).paginate(req.query);
   if (!todos) {
