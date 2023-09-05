@@ -1,5 +1,3 @@
-const createInvoice = require('./create-invoice');
+import createInvoice from './create-invoice';
 
-module.exports = {
-  createInvoice,
-};
+export { createInvoice };

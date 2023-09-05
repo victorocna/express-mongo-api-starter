@@ -1,15 +1,8 @@
-const coffee = require('./coffee');
-const connectToMongo = require('./connect');
-const error = require('./error');
-const falsy = require('./falsy');
-const randomHash = require('./random-hash');
-const removeRefreshTokenCookie = require('./remove-refresh-token-cookie');
+import coffee from './coffee';
+import connectToMongo from './connect';
+import error from './error';
+import falsy from './falsy';
+import randomHash from './random-hash';
+import removeRefreshTokenCookie from './remove-refresh-token-cookie';
 
-module.exports = {
-  coffee,
-  connectToMongo,
-  error,
-  falsy,
-  randomHash,
-  removeRefreshTokenCookie,
-};
+export { coffee, connectToMongo, error, falsy, randomHash, removeRefreshTokenCookie };

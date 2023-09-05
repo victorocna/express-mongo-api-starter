@@ -1,5 +1,5 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
+import 'dotenv/config';
+import mongoose from 'mongoose';
 
 let cachedConnection;
 const connectToMongo = () => {
@@ -13,4 +13,4 @@ const connectToMongo = () => {
   return cachedConnection;
 };
 
-module.exports = connectToMongo;
+export default connectToMongo;

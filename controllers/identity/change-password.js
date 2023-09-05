@@ -1,8 +1,10 @@
-const { hashSync } = require('bcryptjs');
-const { Identity } = require('../../models');
-const { error } = require('../../functions');
+import { error } from '../../functions';
+import { Identity } from '../../models';
+import bcryptjs from 'bcryptjs';
 
-module.exports = async (req, res) => {
+const { hashSync } = bcryptjs;
+
+export default async (req, res) => {
   if (!req.user?.me) {
     throw error(404, 'Missing required params');
   }

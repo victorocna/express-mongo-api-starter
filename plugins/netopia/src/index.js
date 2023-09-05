@@ -1,7 +1,4 @@
-const confirmOrder = require('./confirm-order');
-const createOrder = require('./create-order');
+import confirmOrder from './confirm-order';
+import createOrder from './create-order';
 
-module.exports = {
-  confirmOrder,
-  createOrder,
-};
+export { confirmOrder, createOrder };

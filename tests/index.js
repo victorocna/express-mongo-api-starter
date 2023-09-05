@@ -1,17 +1,22 @@
-require('dotenv').config();
+import 'dotenv/config';
+import { describe } from 'mocha';
+import awsTest from './aws.test';
+import netopiaTest from './netopia.test';
+import postmarkTest from './postmark.test';
+import smartbillTest from './smartbill.test';
 
 describe('Test Postmark plugin', () => {
-  require('./postmark.test');
+  postmarkTest();
 });
 
 describe('Test Netopia plugin', () => {
-  require('./netopia.test');
+  netopiaTest();
 });
 
 describe('Test Smartbill plugin', () => {
-  require('./smartbill.test');
+  smartbillTest();
 });
 
 describe('Test AWS plugin', () => {
-  require('./aws.test');
+  awsTest();
 });

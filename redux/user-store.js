@@ -1,4 +1,4 @@
-const { createStore } = require('redux');
+import { createStore } from 'redux';
 
 // Action Creators
 const setUser = (user) => ({
@@ -19,4 +19,4 @@ const userReducer = (state = null, action) => {
 // Store
 const userStore = createStore(userReducer);
 
-module.exports = { userStore, setUser };
+export { userStore, setUser };

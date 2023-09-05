@@ -1,5 +1,5 @@
-const handlebars = require('handlebars');
-const views = require('../views');
+import views from '../views';
+import { compile } from 'handlebars';
 
 const createEmail = async ({ from, to, type, subject, message, data = {} }) => {
   if (!type || !to || !subject) {
@@ -16,7 +16,7 @@ const createEmail = async ({ from, to, type, subject, message, data = {} }) => {
   if (!views[type]) {
     throw new Error('Invalid email type');
   }
-  const template = handlebars.compile(views[type]);
+  const template = compile(views[type]);
 
   return {
     From: from || process.env.POSTMARK_FROM,
@@ -26,4 +26,4 @@ const createEmail = async ({ from, to, type, subject, message, data = {} }) => {
   };
 };
 
-module.exports = createEmail;
+export default createEmail;

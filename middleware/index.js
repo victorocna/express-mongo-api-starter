@@ -1,15 +1,15 @@
-const authenticate = require('./authenticate');
-const authorize = require('./authorize');
-const errorHandler = require('./error-handler');
-const notFound = require('./not-found');
-const recaptcha = require('./recaptcha');
-const speedLimiter = require('./speed-limiter');
-const status = require('./status');
-const userExists = require('./user-exists');
-const userNotExist = require('./user-not-exist');
-const validate = require('./validate');
+import authenticate from './authenticate';
+import authorize from './authorize';
+import errorHandler from './error-handler';
+import notFound from './not-found';
+import recaptcha from './recaptcha';
+import speedLimiter from './speed-limiter';
+import * as status from './status';
+import userExists from './user-exists';
+import userNotExist from './user-not-exist';
+import validate from './validate';
 
-module.exports = {
+export {
   authenticate,
   authorize,
   errorHandler,

@@ -2,12 +2,12 @@
   "name": "express-mongo-api-starter",
   "version": "1.3.0",
   "description": "Starter for Node Express API projects with Mongo database",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon ./server",
-    "start": "node ./server",
-    "seed": "node ./db/seed",
-    "test": "mocha ./tests"
+    "dev": "nodemon --loader ./es6.js server.js",
+    "seed": "node --loader ./es6.js db/seed.js",
+    "start": "node --loader ./es6.js server.js",
+    "test": "node --loader ./es6.js tests/index.js"
   },
   "keywords": [
     "express",
@@ -19,7 +19,7 @@
   "license": "MIT",
   "engines": {
     "npm": ">= 7",
-    "node": ">= 15"
+    "node": ">= 18"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -37,16 +37,18 @@
     "lodash": "^4.17.21",
     "mongoose": "^5.13.20",
     "pino": "^6.13.1",
-    "redux": "^4.2.1",
+    "resolve": "^1.22.4",
     "validator": "^13.6.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "chai": "^4.3.7",
-    "eslint": "^7.32.0",
+    "eslint": "^8.45.0",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
     "pino-pretty": "^4.8.0",
     "prettier": "^2.3.2"
-  }
+  },
+  "type": "module"
 }

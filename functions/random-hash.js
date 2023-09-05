@@ -6,4 +6,4 @@ const randomHash = () => {
   );
 };
 
-module.exports = randomHash;
+export default randomHash;

@@ -1,5 +1,3 @@
-const todoSchema = require('./todo-schema');
+import todoSchema from './todo-schema';
 
-module.exports = {
-  todoSchema,
-};
+export { todoSchema };

@@ -1,5 +1,3 @@
-const sendEmail = require('./send-email');
+import sendEmail from './send-email';
 
-module.exports = {
-  sendEmail,
-};
+export { sendEmail };

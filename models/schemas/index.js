@@ -1,7 +1,4 @@
-const payer = require('./payer');
-const reference = require('./reference');
+import payer from './payer';
+import reference from './reference';
 
-module.exports = {
-  payer,
-  reference,
-};
+export { payer, reference };

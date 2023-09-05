@@ -1,5 +1,5 @@
-const cors = require('cors');
-const origin = require('./origin');
+import origin from './origin';
+import cors from 'cors';
 
 const setupCors = () => {
   return cors({
@@ -12,4 +12,4 @@ const setupCors = () => {
   });
 };
 
-module.exports = setupCors;
+export default setupCors;

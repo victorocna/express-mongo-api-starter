@@ -1,14 +1,12 @@
 /* eslint-disable no-console */
-const connectToMongo = require('../functions/connect');
-const dropCollections = require('./functions/drop-collections');
-const runSeeds = require('./run-seeds');
+import connectToMongo from '../functions/connect';
+import dropCollections from './functions/drop-collections';
+import identities from './seeds/001_identities';
 
 const seed = async (params) => {
   if (!process.env.MONGODB_URI) {
     throw new Error('You must set your environment variables before running this script');
   }
-
-  // Verify if the database specified in the environment is remote
   if (process.env.MONGODB_URI.includes('mongodb+srv') && !params.includes('--force')) {
     console.warn('Info: Use `--force` param to run this seed on a live database');
     throw new Error("You can't run this seed on a live database");
@@ -16,16 +14,12 @@ const seed = async (params) => {
 
   await connectToMongo();
 
-  // Clean all collections on development environments only
   if (params.includes('--clean')) {
-    if (process.env.NODE_ENV !== 'production') {
-      await dropCollections();
-    } else {
-      throw new Error("Really??? You can't clean all collections on production environment");
-    }
+    await dropCollections();
   }
 
-  await runSeeds();
+  // Add all collection seeds below
+  await identities.seed();
 };
 
 (async () => {
@@ -39,4 +33,4 @@ const seed = async (params) => {
   }
 })();
 
-module.exports.seed = seed;
+export { seed };

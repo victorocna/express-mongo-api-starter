@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-const Identity = require('../../models/identity');
-const identities = require('../resources/identities');
+import Identity from '../../models/identity';
+import identities from '../resources/identities';
 
-exports.seed = async () => {
+const seed = async () => {
   try {
     console.log('Planting seeds for identities...');
 
@@ -15,3 +15,5 @@ exports.seed = async () => {
     console.error(err);
   }
 };
+
+export default { seed };

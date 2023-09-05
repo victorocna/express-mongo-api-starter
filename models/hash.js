@@ -1,4 +1,6 @@
-const { Schema, Types, model } = require('mongoose');
+import mongoose from 'mongoose';
+
+const { Schema, model, Types } = mongoose;
 
 /**
  * Hashes are used for identity operations
@@ -19,4 +21,4 @@ const schema = new Schema(
   { timestamps: true }
 );
 
-module.exports = model(name, schema);
+export default model(name, schema);
