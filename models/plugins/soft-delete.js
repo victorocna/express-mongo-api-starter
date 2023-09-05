@@ -1,7 +1,7 @@
-const Trash = require('../trash');
-const { userStore } = require('../../redux/user-store');
+import Trash from '../trash';
+import { userStore } from '../../redux/user-store';
 
-module.exports = async function softDelete(schema) {
+export async function softDelete(schema) {
   schema.post(
     ['findByIdAndRemove', 'findOneAndRemove', 'findByIdAndDelete', 'findOneAndDelete'],
     async function (doc) {
