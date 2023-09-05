@@ -37,6 +37,12 @@ npm run dev
 
 Important features are listed below
 
+### Soft delete
+
+You can use the automatic soft delete feature for any collection in the MongoDB database.
+
+This feature will backup the entire deleted document and prevent it from being permanently deleted.
+
 ### Authentication
 
 JSON web tokens (JWT) and HTTP-only cookies are used to facilitate authentication.
