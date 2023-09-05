@@ -22,27 +22,32 @@ const paginate = async function ({
     currentPage = 1;
   }
 
-  const mQuery = this.find(this._conditions);
+  // Calculate the offset for pagination
   const offset = (currentPage - 1) * perPage;
 
+  // Create a query for MongoDB using Mongoose
+  const mQuery = this.find(this._conditions);
+
+  // Set sorting options
   if (sort) {
     mQuery.sort(sort);
   } else {
     mQuery.sort({ [order]: direction });
   }
-  mQuery.skip(offset);
-  mQuery.limit(perPage);
 
-  // @see https://mongoosejs.com/docs/tutorials/lean.html
-  mQuery.lean(true);
+  // Apply pagination options and make the query "lean"
+  mQuery.skip(offset).limit(perPage).lean(true);
 
-  const pages = await mQuery.exec();
+  // Execute both queries concurrently
+  const [pages, count] = await Promise.all([
+    mQuery.exec(),
+    mQuery.model.countDocuments(this._conditions),
+  ]);
 
-  mQuery.limit(); // reset limit
-  mQuery.skip(); // reset offset
-  const count = await mQuery.countDocuments(this._conditions).exec();
+  // Calculate whether there are more pages to display
+  const hasNext = count > Number(offset + pages.length);
 
-  const hasNext = count > Number(pages.length + offset);
+  // Create an object with pagination information
   const pageParams = {
     count: Number(count),
     hasNext: Boolean(hasNext),
