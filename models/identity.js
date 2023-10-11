@@ -40,6 +40,9 @@ const schema = new Schema(
     confirmedAt: {
       type: Date,
     },
+    lastLoginAt: {
+      type: Date,
+    },
   },
   { timestamps: true }
 );
