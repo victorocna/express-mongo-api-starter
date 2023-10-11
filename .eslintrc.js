@@ -13,4 +13,12 @@ module.exports = {
     'no-unused-vars': ['error', { ignoreRestSiblings: true }],
   },
   ignorePatterns: ['**/tests/*.js', '**/*.test.js', '**/test.js'],
+  overrides: [
+    {
+      files: ['scripts/**/*.js'],
+      rules: {
+        'no-console': 'off',
+      },
+    },
+  ],
 };
