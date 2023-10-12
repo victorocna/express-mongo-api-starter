@@ -4,6 +4,7 @@ const error = require('./error');
 const falsy = require('./falsy');
 const randomHash = require('./random-hash');
 const removeRefreshTokenCookie = require('./remove-refresh-token-cookie');
+const runScript = require('./run-script');
 
 module.exports = {
   coffee,
@@ -12,4 +13,5 @@ module.exports = {
   falsy,
   randomHash,
   removeRefreshTokenCookie,
+  runScript,
 };
