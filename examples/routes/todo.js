@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { validate } = require('../../middleware');
+const { validate } = require('express-goodies/middleware');
 const { Todo } = require('../controllers');
 const { todoSchema } = require('../schemas');
 

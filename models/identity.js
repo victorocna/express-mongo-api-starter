@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const { isEmail } = require('validator');
-const { hashPasswords, paginate, validate } = require('./plugins');
+const { hashPasswords, paginate, validate } = require('express-goodies/mongoose');
 
 /**
  * Identities manage login related operations

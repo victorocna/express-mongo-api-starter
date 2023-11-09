@@ -2,13 +2,13 @@ require('express-async-errors');
 const express = require('express');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
-const setupCors = require('./cors/setup-cors');
+const { setupCors } = require('express-goodies');
 const fileUpload = require('express-fileupload');
-const { speedLimiter } = require('./middleware');
+const { speedLimiter } = require('express-goodies/middleware');
 const router = require('./router');
 const app = express();
 
-const { connectToMongo } = require('./functions');
+const { connectToMongo } = require('express-goodies/functions');
 connectToMongo();
 
 app.use(express.json());
