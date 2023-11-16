@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const middleware = require('express-goodies/middleware');
 const httpContext = require('express-http-context');
-const { identity } = require('./routes');
-const { todo } = require('./examples/routes');
+const routes = require('./routes');
+const exampleRoutes = require('./examples/routes');
 
 const router = Router();
 module.exports = router;
@@ -23,8 +23,8 @@ router.use(middleware.testError);
 router.use(middleware.testLoading);
 
 // use the router instances defined
-router.use(identity);
-router.use(todo);
+router.use(routes.identity);
+router.use(exampleRoutes.todo);
 
 // Matches any other HTTP method and route not matched before
 router.all('*', middleware.notFound);
