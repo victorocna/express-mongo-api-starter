@@ -1,31 +1,33 @@
 const { Router } = require('express');
-const { notFound, status } = require('./middleware');
-const { authenticate, errorHandler, setContext } = require('express-goodies/middleware');
+const middleware = require('express-goodies/middleware');
+const httpContext = require('express-http-context');
 const { identity } = require('./routes');
 const { todo } = require('./examples/routes');
-const httpContext = require('express-http-context');
 
 const router = Router();
 module.exports = router;
 
-// protect all non-public routes
-router.all('/admin', authenticate);
-router.all('/admin/*', authenticate);
-
-// useful middleware for testing
-router.use(status.loading);
-router.use(status.error);
-
-// adds context storage
+// Use express context
 router.use(httpContext.middleware);
-router.use(setContext);
+router.use(middleware.httpContext);
+
+// Use speed limiter for all requests
+router.use(middleware.speedLimiter);
+
+// Protect all non-public routes
+router.all('/admin', middleware.authenticate);
+router.all('/admin/*', middleware.authenticate);
+
+// Useful middleware for testing
+router.use(middleware.testError);
+router.use(middleware.testLoading);
 
 // use the router instances defined
 router.use(identity);
 router.use(todo);
 
-// matches any other HTTP method and route not matched before
-router.all('*', notFound);
+// Matches any other HTTP method and route not matched before
+router.all('*', middleware.notFound);
 
-// finally, an error handler
-router.use(errorHandler);
+// Finally, an error handler
+router.use(middleware.errorHandler);

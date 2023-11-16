@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { error } = require('express-goodies/functions');
+const { error } = require('../../functions');
 const { Identity } = require('../../models');
 
 module.exports = async (req, res) => {

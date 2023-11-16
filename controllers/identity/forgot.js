@@ -1,5 +1,4 @@
-const { randomHash } = require('../../functions');
-const { error } = require('express-goodies/functions');
+const { error, randomHash } = require('../../functions');
 const { Identity, Reset } = require('../../models');
 
 module.exports = async (req, res) => {

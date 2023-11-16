@@ -1,4 +1,4 @@
-const { error } = require('express-goodies/functions');
+const { error } = require('../../functions');
 const { Confirm, Identity } = require('../../models');
 
 module.exports = async (req, res) => {

@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { removeRefreshTokenCookie } = require('../../functions');
-const { error } = require('express-goodies/functions');
+const { error, removeRefreshTokenCookie } = require('../../functions');
 
 module.exports = async (req, res) => {
   if (!req.signedCookies.jwt_refresh_token) {

@@ -1,6 +1,6 @@
 const { hashSync } = require('bcryptjs');
 const { Identity } = require('../../models');
-const { error } = require('express-goodies/functions');
+const { error } = require('../../functions');
 
 module.exports = async (req, res) => {
   if (!req.user?.me) {
