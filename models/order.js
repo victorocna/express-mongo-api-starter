@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
-const { paginate } = require('./plugins');
-const { payer, reference } = require('./schemas');
+const { paginate, reference } = require('express-goodies/mongoose');
+const { payer } = require('./schemas');
 
 const name = 'order';
 const schema = new Schema(

@@ -2,28 +2,25 @@ require('express-async-errors');
 const express = require('express');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
-const setupCors = require('./cors/setup-cors');
+const { connectToMongo, setupCors } = require('express-goodies');
 const fileUpload = require('express-fileupload');
-const { speedLimiter } = require('./middleware');
 const router = require('./router');
 const app = express();
 
-const { connectToMongo } = require('./functions');
+// Connect to the database using a cached connection when available
 connectToMongo();
 
+// Configure express app
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
 app.use(fileUpload());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-// custom cors config
+// Custom cors config
 app.use(setupCors());
 
-// add speed limiter for all requests
-app.use(speedLimiter);
-
-// route everything
+// Route everything
 app.use(router);
 
 module.exports = app;

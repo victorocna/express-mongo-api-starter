@@ -1,17 +1,19 @@
-const coffee = require('./coffee');
-const connectToMongo = require('./connect');
-const error = require('./error');
-const falsy = require('./falsy');
 const randomHash = require('./random-hash');
 const removeRefreshTokenCookie = require('./remove-refresh-token-cookie');
-const runScript = require('./run-script');
+
+// Aliases for functions that are used in multiple places.
+// WARNING: Do not add more aliases here unless you really need to.
+const coffee = require('express-goodies/functions/coffee');
+const error = require('express-goodies/functions/error');
+const falsy = require('express-goodies/functions/falsy');
 
 module.exports = {
-  coffee,
-  connectToMongo,
-  error,
-  falsy,
   randomHash,
   removeRefreshTokenCookie,
-  runScript,
+
+  // Aliases for functions that are used in multiple places.
+  // WARNING: Do not add more aliases here unless you really need to.
+  coffee,
+  error,
+  falsy,
 };
