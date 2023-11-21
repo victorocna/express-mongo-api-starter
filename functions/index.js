@@ -1,4 +1,5 @@
 const randomHash = require('./random-hash');
+const removeDiacritics = require('./remove-diacritics');
 const removeRefreshTokenCookie = require('./remove-refresh-token-cookie');
 
 // Aliases for functions that are used in multiple places.
@@ -9,6 +10,7 @@ const falsy = require('express-goodies/functions/falsy');
 
 module.exports = {
   randomHash,
+  removeDiacritics,
   removeRefreshTokenCookie,
 
   // Aliases for functions that are used in multiple places.

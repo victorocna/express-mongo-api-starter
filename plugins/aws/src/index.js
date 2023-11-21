@@ -4,6 +4,7 @@ const settings = require('../settings.json');
 
 const s3Client = new S3Client({
   endpoint: `https://${settings.region}.digitaloceanspaces.com`,
+  region: settings.region,
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY,
     secretAccessKey: process.env.AWS_ACCESS_SECRET,

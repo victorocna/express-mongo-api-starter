@@ -1,7 +1,7 @@
 {
   "name": "plugins/aws",
   "version": "0.1",
-  "bucket": "acme",
-  "folder": "acme-uploads",
+  "bucket": "chesscoders",
+  "folder": "file-upload-tests",
   "region": "fra1"
 }
