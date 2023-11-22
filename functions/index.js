@@ -1,19 +1,17 @@
 const randomHash = require('./random-hash');
 const removeRefreshTokenCookie = require('./remove-refresh-token-cookie');
 
-// Aliases for functions that are used in multiple places.
-// WARNING: Do not add more aliases here unless you really need to.
-const coffee = require('express-goodies/functions/coffee');
-const error = require('express-goodies/functions/error');
-const falsy = require('express-goodies/functions/falsy');
+// Aliases for functions that are used in multiple places
+const { coffee, error, falsy, safeNumber, safeString } = require('express-goodies/functions');
 
 module.exports = {
   randomHash,
   removeRefreshTokenCookie,
 
-  // Aliases for functions that are used in multiple places.
-  // WARNING: Do not add more aliases here unless you really need to.
+  // Aliases
   coffee,
   error,
   falsy,
+  safeNumber,
+  safeString,
 };
