@@ -18,8 +18,8 @@
   "author": "victorocna <victor@chesscoders.com> (https://chesscoders.com)",
   "license": "MIT",
   "engines": {
-    "npm": ">= 7",
-    "node": ">= 15"
+    "npm": ">= 10",
+    "node": ">= 20"
   },
   "dependencies": {
     "axios": "^1.6.2",
@@ -31,10 +31,9 @@
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "express-fileupload": "^1.4.0",
-    "express-goodies": "^0.5.1",
-    "express-slow-down": "^1.5.0",
+    "express-goodies": "^1.0.5",
     "helmet": "^5.1.1",
-    "jsonwebtoken": "^9.0.0",
+    "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mongoose": "^5.13.20",
     "pino": "^6.13.1",
