@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { error } = require('../../functions');
-const { Identity } = require('../../models');
+const { Identity, LoginAttempt } = require('../../models');
 
 module.exports = async (req, res) => {
   const { email, password } = req.body;
@@ -27,7 +27,8 @@ module.exports = async (req, res) => {
 
   const passwordsMatch = await bcrypt.compare(password, passwordFromDb);
   if (!passwordsMatch) {
-    await identity.updateOne({ $inc: { loginAttempts: 1 } });
+    //await identity.updateOne({ $inc: { loginAttempts: 1 } });
+    await LoginAttempt.create({ ip: req.ip });
     throw error(400, 'Your username or password are invalid');
   } else {
     await identity.updateOne({ loginAttempts: 0 });
