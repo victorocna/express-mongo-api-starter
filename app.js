@@ -11,10 +11,14 @@ const app = express();
 connectToMongo();
 
 // Configure express app
+app.use(
+  fileUpload({
+    createParentPath: true,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
-app.use(fileUpload());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // Custom cors config
