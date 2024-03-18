@@ -1,3 +1,1 @@
-import createInvoice from './create-invoice';
-
-export { createInvoice };
+export { default as createInvoice } from './create-invoice';

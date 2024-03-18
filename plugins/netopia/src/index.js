@@ -1,4 +1,2 @@
-import confirmOrder from './confirm-order';
-import createOrder from './create-order';
-
-export { confirmOrder, createOrder };
+export { default as confirmOrder } from './confirm-order';
+export { default as createOrder } from './create-order';

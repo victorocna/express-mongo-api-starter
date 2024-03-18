@@ -1,5 +1,3 @@
-import notFound from './not-found';
-import userExists from './user-exists';
-import userNotExist from './user-not-exist';
-
-export { notFound, userExists, userNotExist };
+export { default as notFound } from './not-found';
+export { default as userExists } from './user-exists';
+export { default as userNotExist } from './user-not-exist';

@@ -1,3 +1,1 @@
-import todos from './002_todos';
-
-export { todos };
+export { default as todos } from './002_todos';

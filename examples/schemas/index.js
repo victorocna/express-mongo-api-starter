@@ -1,3 +1,1 @@
-import todoSchema from './todo-schema';
-
-export { todoSchema };
+export { default as todoSchema } from './todo-schema';

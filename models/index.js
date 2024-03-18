@@ -1,8 +1,6 @@
-import Admin from './admin';
-import Confirm from './confirm';
-import Hash from './hash';
-import Identity from './identity';
-import Order from './order';
-import Reset from './reset';
-
-export { Admin, Confirm, Hash, Identity, Order, Reset };
+export { default as Admin } from './admin';
+export { default as Confirm } from './confirm';
+export { default as Hash } from './hash';
+export { default as Identity } from './identity';
+export { default as Order } from './order';
+export { default as Reset } from './reset';

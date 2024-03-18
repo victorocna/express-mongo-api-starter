@@ -1,3 +1,1 @@
-import contact from './contact';
-
-export { contact };
+export { default as contact } from './contact';

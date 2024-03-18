@@ -1,3 +1,1 @@
-import identities from './001_identities';
-
-export { identities };
+export { default as identities } from './001_identities';

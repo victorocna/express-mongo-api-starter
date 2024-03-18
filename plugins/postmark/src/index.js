@@ -1,3 +1,1 @@
-import sendEmail from './send-email';
-
-export { sendEmail };
+export { default as sendEmail } from './send-email';

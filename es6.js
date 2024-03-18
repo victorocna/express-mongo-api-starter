@@ -10,11 +10,11 @@ const resolveAsync = promisify(resolveCallback);
 
 const baseURL = pathToFileURL(cwd() + '/').href;
 
-export async function resolve(specifier, context, next) {
+export async function resolve(specifier, context, nextResolve) {
   const { parentURL = baseURL } = context;
 
   if (isBuiltin(specifier)) {
-    return next(specifier, context);
+    return nextResolve(specifier, context);
   }
 
   // `resolveAsync` works with paths, not URLs
@@ -40,5 +40,5 @@ export async function resolve(specifier, context, next) {
     throw error;
   }
 
-  return next(url, context);
+  return nextResolve(url, context);
 }

@@ -1,3 +1,1 @@
-import Identity from './identity';
-
-export { Identity };
+export { default as Identity } from './identity';

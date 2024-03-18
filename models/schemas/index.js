@@ -1,3 +1,1 @@
-import payer from './payer';
-
-export { payer };
+export { default as payer } from './payer';
