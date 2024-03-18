@@ -1,12 +1,10 @@
-import Hash from './hash';
 import mongoose from 'mongoose';
-
-const { Schema } = mongoose;
+import Hash from './hash';
 
 /**
  * Hash for identity forgot password
  */
 const name = 'reset';
-const schema = new Schema({});
+const schema = new mongoose.Schema({});
 
 export default Hash.discriminator(name, schema);

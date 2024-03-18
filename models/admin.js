@@ -1,13 +1,11 @@
-import Identity from './identity';
 import mongoose from 'mongoose';
-
-const { Schema } = mongoose;
+import Identity from './identity';
 
 /**
  * Admins are identities who have extended permissions
  */
 const name = 'admin';
-const schema = new Schema({
+const schema = new mongoose.Schema({
   active: {
     type: Boolean,
     default: true,

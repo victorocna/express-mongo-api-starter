@@ -1,8 +1,7 @@
-import coffee from './coffee';
-import connectToMongo from './connect';
-import error from './error';
-import falsy from './falsy';
 import randomHash from './random-hash';
 import removeRefreshTokenCookie from './remove-refresh-token-cookie';
 
-export { coffee, connectToMongo, error, falsy, randomHash, removeRefreshTokenCookie };
+// Aliases for functions that are used in multiple places
+import { coffee, error, falsy, safeNumber, safeString } from 'express-goodies/functions';
+
+export { coffee, error, falsy, randomHash, removeRefreshTokenCookie, safeNumber, safeString };

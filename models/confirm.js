@@ -1,12 +1,10 @@
-import Hash from './hash';
 import mongoose from 'mongoose';
-
-const { Schema } = mongoose;
+import Hash from './hash';
 
 /**
  * Hash for identity signup confirmations
  */
 const name = 'confirm';
-const schema = new Schema({});
+const schema = new mongoose.Schema({});
 
 export default Hash.discriminator(name, schema);

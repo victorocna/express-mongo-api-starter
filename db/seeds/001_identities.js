@@ -16,4 +16,4 @@ const seed = async () => {
   }
 };
 
-export default { seed };
+export { seed };

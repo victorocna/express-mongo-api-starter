@@ -3,10 +3,5 @@
   "tabWidth": 2,
   "semi": true,
   "singleQuote": true,
-  "arrowParens": "always",
-  "importOrder": [
-    "^@(.*)$",
-    "<THIRD_PARTY_MODULES>",
-    "^[./]"
-  ]
+  "arrowParens": "always"
 }

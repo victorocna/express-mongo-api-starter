@@ -59,5 +59,8 @@ export default async (req, res) => {
     sameSite: 'lax',
   });
 
+  // Add last login information to the current user
+  await identity.updateOne({ lastLoginAt: Date.now() });
+
   return res.status(200).json({ token, message: 'Authentication successful' });
 };

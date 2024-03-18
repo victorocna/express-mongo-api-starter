@@ -1,6 +1,6 @@
 {
   "name": "express-mongo-api-starter",
-  "version": "1.3.0",
+  "version": "1.5.1",
   "description": "Starter for Node Express API projects with Mongo database",
   "main": "server.js",
   "scripts": {
@@ -18,11 +18,11 @@
   "author": "victorocna <victor@chesscoders.com> (https://chesscoders.com)",
   "license": "MIT",
   "engines": {
-    "npm": ">= 7",
-    "node": ">= 18"
+    "npm": ">= 10",
+    "node": ">= 20"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.7",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -31,9 +31,9 @@
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "express-fileupload": "^1.4.0",
-    "express-slow-down": "^1.5.0",
+    "express-goodies": "^1.0.7",
     "helmet": "^5.1.1",
-    "jsonwebtoken": "^9.0.0",
+    "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mongoose": "^5.13.20",
     "pino": "^6.13.1",
@@ -42,7 +42,6 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "chai": "^4.3.7",
     "eslint": "^8.45.0",
     "mocha": "^10.2.0",

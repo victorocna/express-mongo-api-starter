@@ -1,12 +1,10 @@
-import { paginate, validate } from '../../models/plugins';
+import plugins from 'express-goodies/mongoose';
 import mongoose from 'mongoose';
 
-const { Schema, model, Types } = mongoose;
-
-const schema = new Schema({
+const schema = new mongoose.Schema({
   identity: {
     _id: {
-      type: Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       required: true,
       get: (value) => value.toString(),
     },
@@ -25,7 +23,7 @@ const schema = new Schema({
   },
 });
 
-schema.plugin(paginate);
-schema.plugin(validate);
+schema.plugin(plugins.paginate);
+schema.plugin(plugins.validate);
 
-export default model('todo', schema);
+export default mongoose.model('todo', schema);

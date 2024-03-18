@@ -1,7 +1,7 @@
-import { validate } from '../../middleware';
+import { Router } from 'express';
+import { validate } from 'express-goodies/middleware';
 import { Todo } from '../controllers';
 import { todoSchema } from '../schemas';
-import { Router } from 'express';
 
 const router = Router();
 export default router;
@@ -10,6 +10,8 @@ export default router;
  * Use RESTful routes only
  * @see https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
  */
+// TODO Remove this test route
+router.get('/todos/test', (req, res) => res.send('Hello, world!'));
 router.get('/admin/todos', Todo.readMany);
 router.get('/admin/todos/:id', Todo.readOne);
 router.post('/admin/todos', validate(todoSchema), Todo.create);

@@ -1,6 +1,6 @@
-import { Identity } from '../controllers';
-import { recaptcha } from '../middleware';
 import { Router } from 'express';
+import { recaptcha } from 'express-goodies/middleware';
+import { Identity } from '../controllers';
 
 const router = Router();
 
