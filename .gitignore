@@ -100,3 +100,6 @@ typings/
 
 # netlify
 .netlify
+
+# Babel output directory
+lib/
