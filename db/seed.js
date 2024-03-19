@@ -11,5 +11,6 @@ const seed = async () => {
 const seedMongoDb = async () => {
   await runSeeds(seed);
 };
+
 // Execute the seeds
 seedMongoDb();
