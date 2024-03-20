@@ -1,5 +1,5 @@
-const { expect } = require('chai');
-const postmark = require('../plugins/postmark/src');
+import { sendEmail } from '../plugins/postmark/src';
+import { expect } from 'chai';
 
 it('Sends an email', async () => {
   // Arrange
@@ -11,7 +11,7 @@ it('Sends an email', async () => {
   };
 
   // Act
-  const response = await postmark.sendEmail(payload);
+  const response = await sendEmail(payload);
 
   // Assert
   expect(response).to.be.an('object');

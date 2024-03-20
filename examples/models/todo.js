@@ -1,28 +1,29 @@
-const { Schema, model } = require('mongoose');
-const { paginate, validate, reference } = require('express-goodies/mongoose');
+import plugins from 'express-goodies/mongoose';
+import mongoose from 'mongoose';
 
-const schema = new Schema(
-  {
-    identity: reference,
-    name: {
+const schema = new mongoose.Schema({
+  identity: {
+    _id: {
+      type: mongoose.Types.ObjectId,
+      required: true,
+      get: (value) => value.toString(),
+    },
+    email: {
       type: String,
       required: true,
     },
-    done: {
-      type: Boolean,
-      default: false,
-    },
   },
-  { timestamps: true }
-);
+  name: {
+    type: String,
+    required: true,
+  },
+  done: {
+    type: Boolean,
+    default: false,
+  },
+});
 
-/**
- * Schema plugins
- *
- * pagination: add pages and pageParams
- * validation: validate model before save
- */
-schema.plugin(paginate);
-schema.plugin(validate);
+schema.plugin(plugins.paginate);
+schema.plugin(plugins.validate);
 
-module.exports = model('todo', schema);
+export default mongoose.model('todo', schema);

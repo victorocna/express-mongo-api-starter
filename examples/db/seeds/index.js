@@ -1,5 +1,1 @@
-const todos = require('./002_todos');
-
-module.exports = {
-  todos,
-};
+export { default as todos } from './002_todos';

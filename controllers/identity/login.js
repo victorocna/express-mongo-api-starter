@@ -1,9 +1,12 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const { error } = require('../../functions');
-const { Identity } = require('../../models');
+import bcryptjs from 'bcryptjs';
+import jsonwebtoken from 'jsonwebtoken';
+import { error } from '../../functions';
+import { Identity } from '../../models';
 
-module.exports = async (req, res) => {
+const { compare } = bcryptjs;
+const { sign } = jsonwebtoken;
+
+export default async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     throw error(400, 'Missing required params');
@@ -14,8 +17,8 @@ module.exports = async (req, res) => {
     throw error(400, 'Your email or password are invalid');
   }
 
-  // Block logins for accounts with too many login attempts
-  if (identity?.loginAttempts >= 5) {
+  // Block logins for accounts with too many retries
+  if (identity?.retries >= 5) {
     await identity.updateOne({ active: false });
     throw error(400, 'Your account has been locked for security reasons');
   }
@@ -25,22 +28,22 @@ module.exports = async (req, res) => {
     throw error(400, 'Your account is not active');
   }
 
-  const passwordsMatch = await bcrypt.compare(password, passwordFromDb);
+  const passwordsMatch = await compare(password, passwordFromDb);
   if (!passwordsMatch) {
-    await identity.updateOne({ $inc: { loginAttempts: 1 } });
+    await identity.updateOne({ $inc: { retries: 1 } });
     throw error(400, 'Your username or password are invalid');
   } else {
-    await identity.updateOne({ loginAttempts: 0 });
+    await identity.updateOne({ retries: 0 });
   }
   // the JWT public data payload
   const payload = { name, email, role, me: id };
 
-  const token = jwt.sign(payload, process.env.JWT_SECRET, {
+  const token = sign(payload, process.env.JWT_SECRET, {
     expiresIn: '15m',
     algorithm: 'HS256',
   });
 
-  const refreshToken = jwt.sign(payload, process.env.JWT_SECRET, {
+  const refreshToken = sign(payload, process.env.JWT_SECRET, {
     expiresIn: '12h',
     algorithm: 'HS256',
   });

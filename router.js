@@ -1,10 +1,10 @@
-const { Router } = require('express');
-const middleware = require('express-goodies/middleware');
-const routes = require('./routes');
-const exampleRoutes = require('./examples/routes');
+import { Router } from 'express';
+import middleware from 'express-goodies/middleware';
+import exampleRoutes from './examples/routes';
+import routes from './routes';
 
 const router = Router();
-module.exports = router;
+export default router;
 
 // Use express context
 router.use(middleware.httpContext);

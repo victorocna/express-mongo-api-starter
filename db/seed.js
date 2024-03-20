@@ -1,15 +1,16 @@
-const { runSeeds } = require('express-goodies/functions');
-const seeds = require('./seeds');
-const exampleSeeds = require('../examples/db/seeds');
+import { runSeeds } from 'express-goodies/functions';
+import { todos } from '../examples/db/seeds';
+import { identities } from './seeds';
 
 const seed = async () => {
   // Add all collection seeds below
-  await seeds.identities.seed();
-  await exampleSeeds.todos.seed();
+  await identities.seed();
+  await todos.seed();
 };
 
 const seedMongoDb = async () => {
   await runSeeds(seed);
 };
+
 // Execute the seeds
 seedMongoDb();

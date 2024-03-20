@@ -2,12 +2,13 @@
   "name": "express-mongo-api-starter",
   "version": "1.5.1",
   "description": "Starter for Node Express API projects with Mongo database",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon ./server",
-    "start": "node ./server",
-    "seed": "node ./db/seed",
-    "test": "mocha ./tests"
+    "build": "babel . -d lib",
+    "start": "node lib/server.js",
+    "dev": "nodemon --exec babel-node --presets=@babel/preset-env -- server.js",
+    "seed": "babel-node db/seed.js",
+    "test": "mocha"
   },
   "keywords": [
     "express",
@@ -18,8 +19,8 @@
   "author": "victorocna <victor@chesscoders.com> (https://chesscoders.com)",
   "license": "MIT",
   "engines": {
-    "npm": ">= 10",
-    "node": ">= 20"
+    "npm": ">=10",
+    "node": ">=20"
   },
   "dependencies": {
     "axios": "^1.6.7",
@@ -31,19 +32,22 @@
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "express-fileupload": "^1.4.0",
-    "express-goodies": "^1.0.7",
+    "express-goodies": "^1.1.1",
     "helmet": "^5.1.1",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mongoose": "^5.13.20",
     "pino": "^6.13.1",
-    "redux": "^4.2.1",
     "validator": "^13.6.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.1",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.1",
     "chai": "^4.3.7",
-    "eslint": "^7.32.0",
+    "eslint": "^8.57.0",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
     "pino-pretty": "^4.8.0",

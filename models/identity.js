@@ -1,12 +1,12 @@
-const { Schema, model } = require('mongoose');
-const { isEmail } = require('validator');
-const { hashPasswords, paginate, validate } = require('express-goodies/mongoose');
+import plugins from 'express-goodies/mongoose';
+import mongoose from 'mongoose';
+import validator from 'validator';
 
 /**
  * Identities manage login related operations
  */
 const name = 'identity';
-const schema = new Schema(
+const schema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -16,7 +16,7 @@ const schema = new Schema(
       type: String,
       required: true,
       validate: {
-        validator: (value) => isEmail(value),
+        validator: (value) => validator.isEmail(value),
       },
     },
     password: {
@@ -25,7 +25,7 @@ const schema = new Schema(
       minlength: 8,
       select: false,
     },
-    loginAttempts: {
+    retries: {
       type: Number,
       default: 0,
     },
@@ -48,8 +48,8 @@ const schema = new Schema(
 );
 
 // Set schema plugins
-schema.plugin(hashPasswords);
-schema.plugin(paginate);
-schema.plugin(validate);
+schema.plugin(plugins.hashPasswords);
+schema.plugin(plugins.paginate);
+schema.plugin(plugins.validate);
 
-module.exports = model(name, schema);
+export default mongoose.model(name, schema);

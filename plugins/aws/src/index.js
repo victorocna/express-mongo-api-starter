@@ -1,9 +1,9 @@
-const { basename, extname } = require('path');
-const { S3Client, PutObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3');
-const settings = require('../settings.json');
+import { DeleteObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { basename, extname } from 'path';
+import { bucket, folder, region } from '../settings.json';
 
 const s3Client = new S3Client({
-  endpoint: `https://${settings.region}.digitaloceanspaces.com`,
+  endpoint: `https://${region}.digitaloceanspaces.com`,
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY,
     secretAccessKey: process.env.AWS_ACCESS_SECRET,
@@ -17,12 +17,12 @@ const upload = async (filename, data, options = {}) => {
 
   // Change folder name for development environments
   if (process.env.NODE_ENV !== 'production') {
-    settings.folder = `${settings.folder}-beta`;
+    folder = `${folder}-beta`;
   }
 
   const params = {
-    Bucket: settings.bucket,
-    Key: `${settings.folder}/${key}`,
+    Bucket: bucket,
+    Key: `${folder}/${key}`,
     Body: data,
   };
 
@@ -44,8 +44,8 @@ const upload = async (filename, data, options = {}) => {
 const remove = async (filename) => {
   const key = getKey(filename);
   const params = {
-    Bucket: settings.bucket,
-    Key: `${settings.folder}/${key}`,
+    Bucket: bucket,
+    Key: `${folder}/${key}`,
   };
 
   const command = new DeleteObjectCommand(params);
@@ -74,7 +74,7 @@ const getKey = (path) => {
 
 // Get the public URL of the file
 const getPublicUrl = (filename) => {
-  return `https://${settings.bucket}.${settings.region}.digitaloceanspaces.com/${filename}`;
+  return `https://${bucket}.${region}.digitaloceanspaces.com/${filename}`;
 };
 
 const aws = {
@@ -83,4 +83,4 @@ const aws = {
   getPublicUrl,
 };
 
-module.exports = aws;
+export default aws;

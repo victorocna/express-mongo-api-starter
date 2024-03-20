@@ -1,10 +1,10 @@
-const { Router } = require('express');
-const { validate } = require('express-goodies/middleware');
-const { Todo } = require('../controllers');
-const { todoSchema } = require('../schemas');
+import { Router } from 'express';
+import { validate } from 'express-goodies/middleware';
+import { Todo } from '../controllers';
+import { todoSchema } from '../schemas';
 
 const router = Router();
-module.exports = router;
+export default router;
 
 /**
  * Use RESTful routes only

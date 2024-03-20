@@ -101,5 +101,5 @@ typings/
 # netlify
 .netlify
 
-# vscode
-.vscode
+# Babel output directory
+lib/

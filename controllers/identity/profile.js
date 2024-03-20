@@ -1,7 +1,7 @@
-const { error } = require('../../functions');
-const { Identity } = require('../../models');
+import { error } from '../../functions';
+import { Identity } from '../../models';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   if (!req.user?.me) {
     throw error(404, 'Missing required params');
   }

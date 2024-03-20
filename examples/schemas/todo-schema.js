@@ -1,10 +1,9 @@
-const yup = require('yup');
+import { boolean, object, string } from 'yup';
 
-module.exports = yup
-  .object()
+export default object()
   .shape({
-    name: yup.string().trim().required(),
-    done: yup.boolean(),
+    name: string().trim().required(),
+    done: boolean(),
   })
   // removes unwanted or unknown fields
   .noUnknown(true);
