@@ -7,6 +7,7 @@
     "build": "babel . -d lib",
     "start": "node lib/server.js",
     "dev": "nodemon --exec babel-node --presets=@babel/preset-env -- server.js",
+    "seed": "babel-node db/seed.js",
     "test": "mocha"
   },
   "keywords": [
