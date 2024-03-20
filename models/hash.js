@@ -1,6 +1,4 @@
-import mongoose from 'mongoose';
-
-const { Schema, model, Types } = mongoose;
+import { Schema, model, Types } from 'mongoose';
 
 /**
  * Hashes are used for identity operations

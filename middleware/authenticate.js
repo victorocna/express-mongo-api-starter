@@ -1,6 +1,4 @@
-import jsonwebtoken from 'jsonwebtoken';
-
-const { verify } = jsonwebtoken;
+import jwt from 'jsonwebtoken';
 
 /**
  * Middleware for authentication
@@ -16,7 +14,7 @@ export default (req, res, next) => {
   }
 
   const token = authorization.split(' ').reverse()[0];
-  verify(token, process.env.JWT_SECRET, (err, decoded) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).json({
         name: 'Error',

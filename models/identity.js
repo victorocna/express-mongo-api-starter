@@ -1,9 +1,6 @@
-import { hashPasswords, paginate, validate } from './plugins';
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import validator from 'validator';
-
-const { Schema, model } = mongoose;
-const { isEmail } = validator;
+import { hashPasswords, paginate, validate } from './plugins';
 
 /**
  * Identities manage login related operations
@@ -19,7 +16,7 @@ const schema = new Schema(
       type: String,
       required: true,
       validate: {
-        validator: (value) => isEmail(value),
+        validator: (value) => validator.isEmail(value),
       },
     },
     password: {

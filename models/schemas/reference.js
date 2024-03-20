@@ -1,6 +1,4 @@
-import mongoose from 'mongoose';
-
-const { Types } = mongoose;
+import { Types } from 'mongoose';
 
 export default {
   _id: {

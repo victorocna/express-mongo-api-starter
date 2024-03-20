@@ -1,7 +1,5 @@
-import jsonwebtoken from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { error, removeRefreshTokenCookie } from '../../functions';
-
-const { sign, verify } = jsonwebtoken;
 
 export default async (req, res) => {
   if (!req.signedCookies.jwt_refresh_token) {
@@ -10,7 +8,7 @@ export default async (req, res) => {
 
   let payload;
   try {
-    payload = verify(req.signedCookies.jwt_refresh_token, process.env.JWT_SECRET);
+    payload = jwt.verify(req.signedCookies.jwt_refresh_token, process.env.JWT_SECRET);
   } catch (err) {
     removeRefreshTokenCookie(res);
     throw error(401, 'Refresh token invalid');
@@ -22,12 +20,12 @@ export default async (req, res) => {
   delete payload.nbf;
   delete payload.jti;
 
-  const token = sign(payload, process.env.JWT_SECRET, {
+  const token = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: '15m',
     algorithm: 'HS256',
   });
 
-  const refreshToken = sign(payload, process.env.JWT_SECRET, {
+  const refreshToken = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: '12h',
     algorithm: 'HS256',
   });

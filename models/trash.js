@@ -1,8 +1,6 @@
+import { Schema, SchemaTypes, model } from 'mongoose';
 import { paginate } from './plugins';
 import { reference } from './schemas';
-import mongoose from 'mongoose';
-
-const { Schema, SchemaTypes, model } = mongoose;
 
 const name = 'trash';
 const schema = new Schema(

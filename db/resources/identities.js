@@ -1,6 +1,4 @@
-import bcryptjs from 'bcryptjs';
-
-const { hashSync } = bcryptjs;
+import bcrypt from 'bcryptjs';
 
 export default async () => {
   return [
@@ -8,7 +6,7 @@ export default async () => {
       email: 'michael@email.com',
       name: 'Michael Scott',
       role: 'admin',
-      password: hashSync('supersecretpassword'),
+      password: bcrypt.hashSync('supersecretpassword'),
       active: true,
       confirmed: true,
     },
@@ -16,7 +14,7 @@ export default async () => {
       email: 'jim@email.com',
       name: 'Jim Halpert',
       role: 'client',
-      password: hashSync('supersecretpassword'),
+      password: bcrypt.hashSync('supersecretpassword'),
       active: false,
       confirmed: true,
     },
@@ -24,7 +22,7 @@ export default async () => {
       email: 'pam@email.com',
       name: 'Pam Beesly',
       role: 'client',
-      password: hashSync('supersecretpassword'),
+      password: bcrypt.hashSync('supersecretpassword'),
       active: true,
       confirmed: false,
     },

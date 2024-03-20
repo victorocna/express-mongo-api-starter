@@ -1,8 +1,6 @@
+import bcryptjs from 'bcryptjs';
 import { error } from '../../functions';
 import { Identity } from '../../models';
-import bcryptjs from 'bcryptjs';
-
-const { hashSync } = bcryptjs;
 
 export default async (req, res) => {
   if (!req.user?.me) {
@@ -23,7 +21,7 @@ export default async (req, res) => {
     throw error(500, 'Account not found');
   }
 
-  await document.updateOne({ password: hashSync(changePassword) });
+  await document.updateOne({ password: bcryptjs.hashSync(changePassword) });
 
   return res.status(200).json({
     data: document,

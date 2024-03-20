@@ -1,7 +1,5 @@
+import { Schema, model, Types } from 'mongoose';
 import { paginate, validate } from '../../models/plugins';
-import mongoose from 'mongoose';
-
-const { Schema, model, Types } = mongoose;
 
 const schema = new Schema({
   identity: {

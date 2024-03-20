@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
-import mongoose from 'mongoose';
+import { connection } from 'mongoose';
 
 const dropCollections = async () => {
   try {
-    const connection = mongoose.connection;
     const collections = await connection.db.listCollections().toArray();
 
     for (let collection of collections) {

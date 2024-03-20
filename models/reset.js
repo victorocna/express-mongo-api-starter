@@ -1,7 +1,5 @@
+import { Schema } from 'mongoose';
 import Hash from './hash';
-import mongoose from 'mongoose';
-
-const { Schema } = mongoose;
 
 /**
  * Hash for identity forgot password

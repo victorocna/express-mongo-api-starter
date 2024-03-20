@@ -1,8 +1,6 @@
+import { Schema, model } from 'mongoose';
 import { paginate } from './plugins';
 import { payer, reference } from './schemas';
-import mongoose from 'mongoose';
-
-const { Schema, model } = mongoose;
 
 const name = 'order';
 const schema = new Schema(
