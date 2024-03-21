@@ -1,4 +1,4 @@
-import expressGoodiesMongoose from 'express-goodies/mongoose';
+import { paginate, reference } from 'express-goodies/mongoose';
 import mongoose from 'mongoose';
 import { payer } from './schemas';
 
@@ -6,7 +6,7 @@ const name = 'order';
 const schema = new mongoose.Schema(
   {
     payer,
-    user: expressGoodiesMongoose.reference,
+    user: reference,
     total: {
       type: Number,
       required: true,
@@ -35,6 +35,6 @@ const schema = new mongoose.Schema(
 );
 
 // Set schema plugins
-schema.plugin(expressGoodiesMongoose.paginate);
+schema.plugin(paginate);
 
 export default mongoose.model(name, schema);

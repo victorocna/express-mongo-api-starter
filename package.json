@@ -4,11 +4,11 @@
   "description": "Starter for Node Express API projects with Mongo database",
   "main": "server.js",
   "scripts": {
-    "build": "babel . -d lib",
-    "start": "node lib/server.js",
+    "build": "babel . --out-dir build",
+    "start": "node build/server.js",
     "dev": "nodemon --exec babel-node --presets=@babel/preset-env -- server.js",
     "seed": "babel-node db/seed.js",
-    "test": "mocha test/index.test.js"
+    "test": "mocha tests"
   },
   "keywords": [
     "express",
@@ -19,8 +19,8 @@
   "author": "victorocna <victor@chesscoders.com> (https://chesscoders.com)",
   "license": "MIT",
   "engines": {
-    "npm": ">=10",
-    "node": ">=20"
+    "npm": ">= 10",
+    "node": ">= 20"
   },
   "dependencies": {
     "axios": "^1.6.7",
@@ -38,6 +38,7 @@
     "lodash": "^4.17.21",
     "mongoose": "^5.13.20",
     "pino": "^6.13.1",
+    "postmark": "^4.0.2",
     "validator": "^13.6.0",
     "yup": "^0.32.11"
   },

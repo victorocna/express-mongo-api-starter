@@ -1,4 +1,4 @@
-import plugins from 'express-goodies/mongoose';
+import { hashPasswords, paginate, validate } from 'express-goodies/mongoose';
 import mongoose from 'mongoose';
 import validator from 'validator';
 
@@ -48,8 +48,8 @@ const schema = new mongoose.Schema(
 );
 
 // Set schema plugins
-schema.plugin(plugins.hashPasswords);
-schema.plugin(plugins.paginate);
-schema.plugin(plugins.validate);
+schema.plugin(hashPasswords);
+schema.plugin(paginate);
+schema.plugin(validate);
 
 export default mongoose.model(name, schema);

@@ -1,4 +1,4 @@
-import plugins from 'express-goodies/mongoose';
+import { paginate, validate } from 'express-goodies/mongoose';
 import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
@@ -23,7 +23,8 @@ const schema = new mongoose.Schema({
   },
 });
 
-schema.plugin(plugins.paginate);
-schema.plugin(plugins.validate);
+// Set schema plugins
+schema.plugin(paginate);
+schema.plugin(validate);
 
 export default mongoose.model('todo', schema);
