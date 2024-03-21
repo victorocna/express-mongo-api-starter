@@ -4,11 +4,11 @@
   "description": "Starter for Node Express API projects with Mongo database",
   "main": "server.js",
   "scripts": {
-    "build": "babel . --out-dir build",
-    "start": "node build/server.js",
-    "dev": "nodemon --exec babel-node --presets=@babel/preset-env -- server.js",
-    "seed": "babel-node db/seed.js",
-    "test": "mocha tests"
+    "build": "babel . --out-dir ./build",
+    "start": "node ./build/server.js",
+    "dev": "nodemon --exec babel-node --presets=@babel/preset-env -- ./server.js",
+    "seed": "babel-node ./db/seed.js",
+    "test": "mocha ./tests"
   },
   "keywords": [
     "express",
