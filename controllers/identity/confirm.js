@@ -1,5 +1,5 @@
-import { error } from '../../functions';
-import { Confirm, Identity } from '../../models';
+import { error } from '@functions';
+import { Confirm, Identity } from '@models';
 
 export default async (req, res) => {
   const { hash } = req.params;

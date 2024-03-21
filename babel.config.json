@@ -1,4 +1,25 @@
 {
   "presets": ["@babel/preset-env"],
-  "ignore": ["node_modules/**"]
+  "ignore": ["node_modules/**"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@controllers": "./controllers",
+          "@db": "./db",
+          "@examples": "./examples",
+          "@functions": "./functions",
+          "@middleware": "./middleware",
+          "@models": "./models",
+          "@plugins": "./plugins",
+          "@postman": "./postman",
+          "@routes": "./routes",
+          "@schemas": "./schemas",
+          "@tests": "./tests"
+        }
+      }
+    ]
+  ]
 }

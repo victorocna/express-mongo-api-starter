@@ -8,7 +8,7 @@
     "start": "node lib/server.js",
     "dev": "nodemon --exec babel-node --presets=@babel/preset-env -- server.js",
     "seed": "babel-node db/seed.js",
-    "test": "mocha"
+    "test": "mocha test/index.test.js"
   },
   "keywords": [
     "express",
@@ -46,6 +46,7 @@
     "@babel/core": "^7.24.1",
     "@babel/node": "^7.23.9",
     "@babel/preset-env": "^7.24.1",
+    "babel-plugin-module-resolver": "^5.0.0",
     "chai": "^4.3.7",
     "eslint": "^8.57.0",
     "mocha": "^10.2.0",

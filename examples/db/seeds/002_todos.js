@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { insertMany } from '../../models/todo';
+import { Todo } from '@examples/models';
 import todos from '../resources/todos';
 
 export async function seed() {
@@ -7,7 +7,7 @@ export async function seed() {
     console.log('Planting seeds for todos');
 
     const seeds = await todos();
-    await insertMany(seeds);
+    await Todo.insertMany(seeds);
 
     console.log('✓');
   } catch (err) {

@@ -1,5 +1,5 @@
-import { error } from '../../../functions';
-import { Todo } from '../../models';
+import { Todo } from '@examples/models';
+import { error } from '@functions';
 
 export default async (req, res) => {
   const { me } = req.user;

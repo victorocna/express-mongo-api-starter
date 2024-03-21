@@ -1,7 +1,7 @@
+import * as exampleRoutes from '@examples/routes';
+import * as routes from '@routes';
 import { Router } from 'express';
 import middleware from 'express-goodies/middleware';
-import exampleRoutes from './examples/routes';
-import routes from './routes';
 
 const router = Router();
 export default router;

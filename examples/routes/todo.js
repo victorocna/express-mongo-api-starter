@@ -1,10 +1,9 @@
+import { Todo } from '@examples/controllers';
+import { todoSchema } from '@examples/schemas';
 import { Router } from 'express';
 import { validate } from 'express-goodies/middleware';
-import { Todo } from '../controllers';
-import { todoSchema } from '../schemas';
 
 const router = Router();
-export default router;
 
 /**
  * Use RESTful routes only
@@ -18,3 +17,5 @@ router.delete('/admin/todos/:id', Todo.remove);
 
 router.post('/admin/todos/:id/check', Todo.check);
 router.delete('/admin/todos/:id/check', Todo.uncheck);
+
+export default router;

@@ -1,5 +1,5 @@
-import { error } from '../../functions';
-import { Identity } from '../../models';
+import { error } from '@functions';
+import { Identity } from '@models';
 import bcryptjs from 'bcryptjs';
 
 const { hashSync } = bcryptjs;

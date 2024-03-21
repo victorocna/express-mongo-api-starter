@@ -1,1 +1,1 @@
-export { default as Identity } from './identity';
+export * as Identity from './identity';

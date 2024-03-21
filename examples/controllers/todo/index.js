@@ -1,9 +1,7 @@
-import check from './check';
-import create from './create';
-import readMany from './read-many';
-import readOne from './read-one';
-import remove from './remove';
-import uncheck from './uncheck';
-import update from './update';
-
-export default { check, create, readMany, readOne, remove, uncheck, update };
+export { default as check } from './check';
+export { default as create } from './create';
+export { default as readMany } from './read-many';
+export { default as readOne } from './read-one';
+export { default as remove } from './remove';
+export { default as uncheck } from './uncheck';
+export { default as update } from './update';

@@ -1,5 +1,5 @@
-import views from '../views';
 import { compile } from 'handlebars';
+import * as views from '../views';
 
 const createEmail = async ({ from, to, type, subject, message, data = {} }) => {
   if (!type || !to || !subject) {

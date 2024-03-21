@@ -1,4 +1,4 @@
-import { Order } from '../../../models';
+import { Order } from '@models';
 import Netopia from 'netopia-card';
 
 const confirmOrder = async (envKey, data) => {

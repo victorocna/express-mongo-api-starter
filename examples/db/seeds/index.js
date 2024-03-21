@@ -1,1 +1,1 @@
-export { default as todos } from './002_todos';
+export * as todos from './002_todos';

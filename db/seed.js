@@ -1,5 +1,5 @@
+import { todos } from '@examples/db/seeds';
 import { runSeeds } from 'express-goodies/functions';
-import { todos } from '../examples/db/seeds';
 import { identities } from './seeds';
 
 const seed = async () => {

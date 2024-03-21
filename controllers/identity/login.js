@@ -1,7 +1,7 @@
+import { error } from '@functions';
+import { Identity } from '@models';
 import bcryptjs from 'bcryptjs';
 import jsonwebtoken from 'jsonwebtoken';
-import { error } from '../../functions';
-import { Identity } from '../../models';
 
 const { compare } = bcryptjs;
 const { sign } = jsonwebtoken;

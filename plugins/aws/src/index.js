@@ -16,13 +16,14 @@ const upload = async (filename, data, options = {}) => {
   const key = createKey(filename);
 
   // Change folder name for development environments
+  let folderName = folder;
   if (process.env.NODE_ENV !== 'production') {
-    folder = `${folder}-beta`;
+    folderName = `${folder}-beta`;
   }
 
   const params = {
     Bucket: bucket,
-    Key: `${folder}/${key}`,
+    Key: `${folderName}/${key}`,
     Body: data,
   };
 

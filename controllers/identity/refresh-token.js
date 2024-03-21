@@ -1,5 +1,5 @@
+import { error, removeRefreshTokenCookie } from '@functions';
 import jsonwebtoken from 'jsonwebtoken';
-import { error, removeRefreshTokenCookie } from '../../functions';
 
 const { sign, verify } = jsonwebtoken;
 

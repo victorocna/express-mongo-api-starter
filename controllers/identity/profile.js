@@ -1,5 +1,5 @@
-import { error } from '../../functions';
-import { Identity } from '../../models';
+import { error } from '@functions';
+import { Identity } from '@models';
 
 export default async (req, res) => {
   if (!req.user?.me) {
