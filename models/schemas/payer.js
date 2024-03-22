@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   address: {
     type: String,
     required: true,

@@ -1,5 +1,1 @@
-const contact = require('./contact');
-
-module.exports = {
-  contact,
-};
+export { default as contact } from './contact';

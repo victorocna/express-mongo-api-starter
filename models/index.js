@@ -1,15 +1,6 @@
-const Admin = require('./admin');
-const Confirm = require('./confirm');
-const Hash = require('./hash');
-const Identity = require('./identity');
-const Order = require('./order');
-const Reset = require('./reset');
-
-module.exports = {
-  Admin,
-  Confirm,
-  Hash,
-  Identity,
-  Order,
-  Reset,
-};
+export { default as Admin } from './admin';
+export { default as Confirm } from './confirm';
+export { default as Hash } from './hash';
+export { default as Identity } from './identity';
+export { default as Order } from './order';
+export { default as Reset } from './reset';

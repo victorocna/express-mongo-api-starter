@@ -1,5 +1,5 @@
-const { isEmpty } = require('lodash');
-const settings = require('../settings.json');
+import { isEmpty } from 'lodash';
+import { lines as _lines } from '../settings.json';
 
 const invoiceLines = (products) => {
   if (isEmpty(products)) {
@@ -9,7 +9,7 @@ const invoiceLines = (products) => {
   const lines = [];
   for (const product of products) {
     lines.push({
-      ...settings.lines,
+      ..._lines,
       ...product,
     });
   }
@@ -17,4 +17,4 @@ const invoiceLines = (products) => {
   return lines;
 };
 
-module.exports = invoiceLines;
+export default invoiceLines;

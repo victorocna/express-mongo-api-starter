@@ -1,7 +1,2 @@
-const confirmOrder = require('./confirm-order');
-const createOrder = require('./create-order');
-
-module.exports = {
-  confirmOrder,
-  createOrder,
-};
+export { default as confirmOrder } from './confirm-order';
+export { default as createOrder } from './create-order';

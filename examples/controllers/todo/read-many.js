@@ -1,7 +1,7 @@
-const { error } = require('../../../functions');
-const { Todo } = require('../../models');
+import { Todo } from '@examples/models';
+import { error } from '@functions';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const { me } = req.user;
   if (!me) {
     throw error(404, 'Missing required params');
@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
     filter.done = false;
   }
   const { search } = req.query;
-  if (search && search.length > 3) {
+  if (search && search.length >= 3) {
     filter.name = { $regex: search, $options: 'i' };
   }
 

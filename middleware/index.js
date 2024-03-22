@@ -1,9 +1,3 @@
-const notFound = require('./not-found');
-const userExists = require('./user-exists');
-const userNotExist = require('./user-not-exist');
-
-module.exports = {
-  notFound,
-  userExists,
-  userNotExist,
-};
+export { default as notFound } from './not-found';
+export { default as userExists } from './user-exists';
+export { default as userNotExist } from './user-not-exist';

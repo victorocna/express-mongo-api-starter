@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-const Identity = require('../../models/identity');
-const identities = require('../resources/identities');
+import { Identity } from '@models';
+import identities from '../resources/identities';
 
-exports.seed = async () => {
+export async function seed() {
   try {
     console.log('Planting seeds for identities...');
 
@@ -14,4 +14,4 @@ exports.seed = async () => {
     console.warn('Error! Cannot insert identities');
     console.error(err);
   }
-};
+}

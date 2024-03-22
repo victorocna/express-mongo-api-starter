@@ -1,5 +1,5 @@
-const Netopia = require('netopia-card');
-const { Order } = require('../../../models');
+import { Order } from '@models';
+import Netopia from 'netopia-card';
 
 const confirmOrder = async (envKey, data) => {
   const netopia = await new Netopia().validatePayment(envKey, data);
@@ -58,4 +58,4 @@ const confirmOrder = async (envKey, data) => {
   return response;
 };
 
-module.exports = confirmOrder;
+export default confirmOrder;

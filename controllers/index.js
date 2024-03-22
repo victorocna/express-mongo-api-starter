@@ -1,5 +1,1 @@
-const Identity = require('./identity');
-
-module.exports = {
-  Identity,
-};
+export * as Identity from './identity';
