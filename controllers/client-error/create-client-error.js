@@ -3,7 +3,7 @@ const { pick } = require('lodash');
 
 module.exports = async (req, res) => {
   if (!req.body?.data || !req.body?.pathname) {
-    return res.status(400).json('Missing required params for error caught in ErrorBoundary');
+    return res.status(400).json('Missing required params for error caught by client-side.');
   }
   let user;
   if (req.user?._id) {
