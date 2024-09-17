@@ -9,8 +9,9 @@ module.exports = router;
 // Use express context
 router.use(middleware.httpContext);
 
-// Use speed limiter for all requests
-router.use(middleware.speedLimiter);
+// Apply speed limiter only for public routes
+router.use('/public', middleware.speedLimiter);
+router.use('/public/*', middleware.speedLimiter);
 
 // Protect all non-public routes
 router.all('/admin', middleware.authenticate);
