@@ -2,15 +2,14 @@ const jwt = require('jsonwebtoken');
 const { error, removeRefreshTokenCookie } = require('../../functions');
 
 module.exports = async (req, res) => {
-  if (!req.signedCookies.jwt_refresh_token) {
+  const signedCookie = req.signedCookies[process.env.JWT_TOKEN_NAME];
+  if (!signedCookie) {
     throw error(401, 'Refresh token not provided');
   }
 
   let payload;
   try {
-    payload = jwt.verify(req.signedCookies.jwt_refresh_token, process.env.JWT_SECRET, {
-      ignoreExpiration: true,
-    });
+    payload = jwt.verify(signedCookie, process.env.JWT_SECRET, { ignoreExpiration: true });
   } catch (err) {
     removeRefreshTokenCookie(res);
     throw error(401, 'Refresh token invalid');
@@ -35,7 +34,6 @@ module.exports = async (req, res) => {
   // set refresk token as cookie
   const oneDay = 24 * 3600 * 1000;
   res.cookie('jwt_refresh_token', refreshToken, {
-    domain: process.env.COOKIE_DOMAIN,
     secure: true,
     maxAge: oneDay,
     signed: true,
