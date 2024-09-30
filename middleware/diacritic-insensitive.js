@@ -1,5 +1,8 @@
 const { toString } = require('diacritic-regex');
 
+/**
+ * @see https://chesscoders.atlassian.net/wiki/spaces/CC/pages/125075457/How+to+filter+query+data
+ */
 const diacriticInsensitive = (filterNames = ['search']) => {
   return (req, _, next) => {
     const mappings = { t: 'țtȚT', s: 'șsȘS' };
