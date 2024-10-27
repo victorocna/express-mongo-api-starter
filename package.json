@@ -7,10 +7,11 @@
     "next": "./scripts/next.js"
   },
   "scripts": {
+    "build": "next build",
     "dev": "next dev",
-    "start": "next start",
     "seed": "next seed",
-    "test": "mocha ./tests --require @babel/register"
+    "start": "next build && next start",
+    "test": "next test"
   },
   "keywords": [
     "express",
