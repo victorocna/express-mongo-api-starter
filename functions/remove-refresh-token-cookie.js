@@ -1,6 +1,5 @@
 const removeRefreshTokenCookie = (res) => {
-  res.cookie('jwt_refresh_token', '', {
-    domain: process.env.COOKIE_DOMAIN,
+  res.cookie(process.env.JWT_TOKEN_NAME, '', {
     secure: true,
     maxAge: new Date(0),
     signed: true,

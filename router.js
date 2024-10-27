@@ -9,8 +9,9 @@ export default router;
 // Use express context
 router.use(middleware.httpContext);
 
-// Use speed limiter for all requests
-router.use(middleware.speedLimiter);
+// Apply speed limiter only for public routes
+router.use('/public', middleware.speedLimiter);
+router.use('/public/*', middleware.speedLimiter);
 
 // Protect all non-public routes
 router.all('/admin', middleware.authenticate);
@@ -21,6 +22,7 @@ router.use(middleware.testError);
 router.use(middleware.testLoading);
 
 // use the router instances defined
+router.use(routes.clientError);
 router.use(routes.identity);
 router.use(exampleRoutes.todo);
 

@@ -1,5 +1,5 @@
 export default async (req, res) => {
-  res.cookie('jwt_refresh_token', '', {
+  res.cookie(process.env.JWT_TOKEN_NAME, '', {
     domain: process.env.COOKIE_DOMAIN,
     secure: true,
     maxAge: new Date(0),

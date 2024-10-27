@@ -1,7 +1,7 @@
 import { Todo } from '@examples/controllers';
 import { todoSchema } from '@examples/schemas';
 import { Router } from 'express';
-import { validate } from 'express-goodies/middleware';
+import { diacriticInsensitive, validate } from 'express-goodies/middleware';
 
 const router = Router();
 
@@ -9,7 +9,7 @@ const router = Router();
  * Use RESTful routes only
  * @see https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
  */
-router.get('/admin/todos', Todo.readMany);
+router.get('/admin/todos', diacriticInsensitive(['search']), Todo.readMany);
 router.get('/admin/todos/:id', Todo.readOne);
 router.post('/admin/todos', validate(todoSchema), Todo.create);
 router.put('/admin/todos/:id', Todo.update);

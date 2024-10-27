@@ -12,6 +12,8 @@ export default async (req, res) => {
     throw error(400, 'Missing required params');
   }
 
+  // Find the user by case-insensitive email search
+  // The email should already be lowercase if loginSchema middleware was used
   const identity = await Identity.findOne({ email }).select('+password');
   if (!identity) {
     throw error(400, 'Your email or password are invalid');
@@ -50,8 +52,7 @@ export default async (req, res) => {
 
   // set refresk token as cookie
   const oneDay = 24 * 3600 * 1000;
-  res.cookie('jwt_refresh_token', refreshToken, {
-    domain: process.env.COOKIE_DOMAIN,
+  res.cookie(process.env.JWT_TOKEN_NAME, refreshToken, {
     secure: true,
     maxAge: oneDay,
     signed: true,

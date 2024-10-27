@@ -47,10 +47,6 @@ This feature will backup the entire deleted document and prevent it from being p
 
 JSON web tokens (JWT) and HTTP-only cookies are used to facilitate authentication.
 
-Important note for `COOKIE_DOMAIN` environment variable:
-
-> Multiple host/domain values are not allowed, but if a domain is specified, then subdomains are always included.
-
 ### Plugins and integrations
 
 You can use the common integrations from the `plugins` folder: AWS, Netopia, Postmark and Smartbill.
