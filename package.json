@@ -3,11 +3,13 @@
   "version": "1.6.0",
   "description": "Starter for Node Express API projects with Mongo database",
   "main": "server.js",
+  "bin": {
+    "next": "./scripts/next.js"
+  },
   "scripts": {
-    "build": "babel . --out-dir ./build",
-    "start": "node ./build/server.js",
-    "dev": "nodemon --exec babel-node --presets=@babel/preset-env -- ./server.js",
-    "seed": "babel-node ./db/seed.js",
+    "dev": "next dev",
+    "start": "next start",
+    "seed": "next seed",
     "test": "mocha ./tests"
   },
   "keywords": [
