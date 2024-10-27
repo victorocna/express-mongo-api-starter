@@ -1,7 +1,8 @@
 import { Todo } from '@examples/controllers';
 import { todoSchema } from '@examples/schemas';
+import { diacriticInsensitive } from '@middleware';
 import { Router } from 'express';
-import { diacriticInsensitive, validate } from 'express-goodies/middleware';
+import { validate } from 'express-goodies/middleware';
 
 const router = Router();
 
