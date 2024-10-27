@@ -1,8 +1,8 @@
-const ErrorModel = require('express-goodies/mongoose/models/error');
-const { pick, isEmpty } = require('lodash');
-const { Identity } = require('../../models');
+import { Identity } from '@models';
+import { error as ErrorModel } from 'express-goodies/mongoose';
+import { isEmpty, pick } from 'lodash';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   if (!req.body?.data || !req.body?.pathname) {
     return res.status(400).json('Missing required params for error caught by client-side');
   }

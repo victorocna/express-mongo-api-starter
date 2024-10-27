@@ -1,5 +1,1 @@
-const createClientError = require('./create-client-error');
-
-module.exports = {
-  createClientError,
-};
+export { default as createClientError } from './create-client-error';

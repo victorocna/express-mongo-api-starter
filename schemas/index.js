@@ -1,5 +1,1 @@
-const loginSchema = require('./login-schema');
-
-module.exports = {
-  loginSchema,
-};
+export { default as loginSchema } from './login-schema';
