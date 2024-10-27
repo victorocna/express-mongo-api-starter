@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
-const { error, removeRefreshTokenCookie } = require('../../functions');
+import { error, removeRefreshTokenCookie } from '@functions';
+import jwt from 'jsonwebtoken';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const signedCookie = req.signedCookies[process.env.JWT_TOKEN_NAME];
   if (!signedCookie) {
     throw error(401, 'Refresh token not provided');

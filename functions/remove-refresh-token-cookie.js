@@ -8,4 +8,4 @@ const removeRefreshTokenCookie = (res) => {
   });
 };
 
-module.exports = removeRefreshTokenCookie;
+export default removeRefreshTokenCookie;

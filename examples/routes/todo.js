@@ -1,11 +1,10 @@
-const { Router } = require('express');
-const { validate } = require('express-goodies/middleware');
-const { Todo } = require('../controllers');
-const { todoSchema } = require('../schemas');
-const { diacriticInsensitive } = require('../../middleware');
+import { Todo } from '@examples/controllers';
+import { todoSchema } from '@examples/schemas';
+import { diacriticInsensitive } from '@middleware';
+import { Router } from 'express';
+import { validate } from 'express-goodies/middleware';
 
 const router = Router();
-module.exports = router;
 
 /**
  * Use RESTful routes only
@@ -19,3 +18,5 @@ router.delete('/admin/todos/:id', Todo.remove);
 
 router.post('/admin/todos/:id/check', Todo.check);
 router.delete('/admin/todos/:id/check', Todo.uncheck);
+
+export default router;

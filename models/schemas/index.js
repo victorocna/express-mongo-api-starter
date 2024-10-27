@@ -1,5 +1,1 @@
-const payer = require('./payer');
-
-module.exports = {
-  payer,
-};
+export { default as payer } from './payer';

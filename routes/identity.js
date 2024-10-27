@@ -1,10 +1,9 @@
-const { Router } = require('express');
-const { recaptcha, validate } = require('express-goodies/middleware');
-const { Identity } = require('../controllers');
-const { loginSchema } = require('../schemas');
+import { Identity } from '@controllers';
+import { loginSchema } from '@schemas';
+import { Router } from 'express';
+import { recaptcha, validate } from 'express-goodies/middleware';
 
 const router = Router();
-module.exports = router;
 
 router.post('/confirm/:hash', recaptcha, Identity.confirm);
 router.post('/forgot', recaptcha, Identity.forgot);
@@ -16,3 +15,5 @@ router.post('/refresh-token', Identity.refreshToken);
 
 router.post('/admin/change-password', Identity.changePassword);
 router.get('/admin/profile', Identity.profile);
+
+export default router;

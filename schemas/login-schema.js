@@ -1,9 +1,9 @@
-const yup = require('yup');
-const safeSchema = require('./safe-schema');
+import * as yup from 'yup';
+import safeSchema from './safe-schema';
 
 const loginSchema = safeSchema({
   email: yup.string().lowercase().trim().required(),
   password: yup.string().trim().required(),
 });
 
-module.exports = loginSchema;
+export default loginSchema;

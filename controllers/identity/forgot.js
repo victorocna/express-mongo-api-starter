@@ -1,7 +1,7 @@
-const { error, randomHash } = require('../../functions');
-const { Identity, Reset } = require('../../models');
+import { error, randomHash } from '@functions';
+import { Identity, Reset } from '@models';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const { email } = req.body;
   if (!email) {
     throw error(400, 'Missing required params');

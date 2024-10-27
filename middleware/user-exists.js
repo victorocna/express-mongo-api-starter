@@ -1,7 +1,7 @@
-const { error } = require('../functions');
-const { Identity } = require('../models');
+import { error } from '@functions';
+import { Identity } from '@models';
 
-module.exports = async (req, res, next) => {
+export default async (req, res, next) => {
   const { email } = req.body;
 
   const identity = await Identity.findOne({ email });

@@ -1,17 +1,10 @@
-const randomHash = require('./random-hash');
-const removeRefreshTokenCookie = require('./remove-refresh-token-cookie');
-
 // Aliases for functions that are used in multiple places
-const { coffee, error, falsy, safeNumber, safeString } = require('express-goodies/functions');
+export { default as coffee } from 'express-goodies/functions/coffee';
+export { default as error } from 'express-goodies/functions/error';
+export { default as falsy } from 'express-goodies/functions/falsy';
+export { default as safeNumber } from 'express-goodies/functions/safe-number';
+export { default as safeString } from 'express-goodies/functions/safe-string';
 
-module.exports = {
-  randomHash,
-  removeRefreshTokenCookie,
-
-  // Aliases
-  coffee,
-  error,
-  falsy,
-  safeNumber,
-  safeString,
-};
+// Export the functions
+export { default as randomHash } from './random-hash';
+export { default as removeRefreshTokenCookie } from './remove-refresh-token-cookie';

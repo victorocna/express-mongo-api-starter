@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-const Todo = require('../../models/todo');
-const todos = require('../resources/todos');
+import { Todo } from '@examples/models';
+import todos from '../resources/todos';
 
-exports.seed = async () => {
+export async function seed() {
   try {
     console.log('Planting seeds for todos');
 
@@ -14,4 +14,4 @@ exports.seed = async () => {
     console.warn('Error! Cannot insert todos');
     console.error(err);
   }
-};
+}

@@ -1,7 +1,8 @@
-const { Router } = require('express');
-const { ClientError } = require('../controllers');
+import { ClientError } from '@controllers';
+import { Router } from 'express';
 
 const router = Router();
-module.exports = router;
 
 router.post('/client-errors', ClientError.createClientError);
+
+export default router;

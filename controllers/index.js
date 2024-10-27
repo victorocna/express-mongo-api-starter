@@ -1,4 +1,2 @@
-const ClientError = require('./client-error');
-const Identity = require('./identity');
-
-module.exports = { ClientError, Identity };
+export * as ClientError from './client-error';
+export * as Identity from './identity';

@@ -1,7 +1,2 @@
-const clientError = require('./client-error');
-const identity = require('./identity');
-
-module.exports = {
-  clientError,
-  identity,
-};
+export { default as clientError } from './client-error';
+export { default as identity } from './identity';

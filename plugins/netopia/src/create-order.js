@@ -1,5 +1,5 @@
-const Netopia = require('netopia-card');
-const settings = require('../settings.json');
+import Netopia from 'netopia-card';
+import settings from '../settings.json';
 
 const createOrder = async ({ amount, orderId, clientData }) => {
   const netopia = new Netopia();
@@ -18,4 +18,4 @@ const createOrder = async ({ amount, orderId, clientData }) => {
   return netopia.buildRequest();
 };
 
-module.exports = createOrder;
+export default createOrder;

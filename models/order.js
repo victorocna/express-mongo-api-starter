@@ -1,9 +1,9 @@
-const { Schema, model } = require('mongoose');
-const { paginate, reference } = require('express-goodies/mongoose');
-const { payer } = require('./schemas');
+import { paginate, reference } from 'express-goodies/mongoose';
+import mongoose from 'mongoose';
+import { payer } from './schemas';
 
 const name = 'order';
-const schema = new Schema(
+const schema = new mongoose.Schema(
   {
     payer,
     user: reference,
@@ -37,4 +37,4 @@ const schema = new Schema(
 // Set schema plugins
 schema.plugin(paginate);
 
-module.exports = model(name, schema);
+export default mongoose.model(name, schema);

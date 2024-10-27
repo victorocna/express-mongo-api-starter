@@ -1,7 +1,7 @@
-const { error } = require('../../../functions');
-const { Todo } = require('../../models');
+import { Todo } from '@examples/models';
+import { error } from '@functions';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const { id } = req.params;
   const { me } = req.user;
   if (!id || !me) {

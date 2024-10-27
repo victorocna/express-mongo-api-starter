@@ -1,10 +1,10 @@
-const { Schema } = require('mongoose');
-const Hash = require('./hash');
+import mongoose from 'mongoose';
+import Hash from './hash';
 
 /**
  * Hash for identity forgot password
  */
 const name = 'reset';
-const schema = new Schema({});
+const schema = new mongoose.Schema({});
 
-module.exports = Hash.discriminator(name, schema);
+export default Hash.discriminator(name, schema);
