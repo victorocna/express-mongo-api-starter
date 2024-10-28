@@ -33,7 +33,7 @@ export default async (req, res) => {
 
   // set refresk token as cookie
   const oneDay = 24 * 3600 * 1000;
-  res.cookie('jwt_refresh_token', refreshToken, {
+  res.cookie(process.env.JWT_TOKEN_NAME, refreshToken, {
     secure: true,
     maxAge: oneDay,
     signed: true,

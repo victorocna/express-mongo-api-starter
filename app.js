@@ -5,6 +5,7 @@ import fileUpload from 'express-fileupload';
 import { connectToMongo, setupCors } from 'express-goodies';
 import helmet from 'helmet';
 import router from './router';
+
 const app = express();
 
 // Connect to the database using a cached connection when available
