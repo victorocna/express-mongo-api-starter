@@ -1,10 +1,11 @@
 const removeRefreshTokenCookie = (res) => {
   res.cookie(process.env.JWT_TOKEN_NAME, '', {
-    secure: true,
-    maxAge: new Date(0),
-    signed: true,
+    domain: process.env.COOKIE_DOMAIN,
     httpOnly: true,
-    sameSite: 'lax',
+    maxAge: 0,
+    secure: true,
+    signed: true,
+    sameSite: 'Lax',
   });
 };
 

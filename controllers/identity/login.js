@@ -34,7 +34,7 @@ export default async (req, res) => {
   } else {
     await identity.updateOne({ retries: 0 });
   }
-  // the JWT public data payload
+  // The JWT public data payload
   const payload = { name, email, role, me: id };
 
   const token = jwt.sign(payload, process.env.JWT_SECRET, {
@@ -47,14 +47,15 @@ export default async (req, res) => {
     algorithm: 'HS256',
   });
 
-  // set refresk token as cookie
+  // Set refresh token as cookie
   const oneDay = 24 * 3600 * 1000;
   res.cookie(process.env.JWT_TOKEN_NAME, refreshToken, {
-    secure: true,
-    maxAge: oneDay,
-    signed: true,
+    domain: process.env.COOKIE_DOMAIN,
     httpOnly: true,
-    sameSite: 'lax',
+    maxAge: oneDay,
+    secure: true,
+    signed: true,
+    sameSite: 'Lax',
   });
 
   // Add last login information to the current user
