@@ -16,8 +16,8 @@ export default async (req, res) => {
     throw error(400, 'Your email or password are invalid');
   }
 
-  // Block logins for accounts with too many retries
-  if (identity?.retries >= 5) {
+  // Block logins for accounts with 5 or more failed attempts
+  if (identity?.loginAttempts >= 5) {
     await identity.updateOne({ active: false });
     throw error(400, 'Your account has been locked for security reasons');
   }
@@ -29,11 +29,12 @@ export default async (req, res) => {
 
   const passwordsMatch = await bcrypt.compare(password, passwordFromDb);
   if (!passwordsMatch) {
-    await identity.updateOne({ $inc: { retries: 1 } });
+    await identity.updateOne({ $inc: { loginAttempts: 1 } });
     throw error(400, 'Your username or password are invalid');
   } else {
-    await identity.updateOne({ retries: 0 });
+    await identity.updateOne({ loginAttempts: 0 });
   }
+
   // The JWT public data payload
   const payload = { name, email, role, me: id };
 
