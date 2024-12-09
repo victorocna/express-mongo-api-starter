@@ -16,7 +16,7 @@ const schema = new mongoose.Schema(
       get: (value) => value.toString(),
     },
   },
-  { timestamps: true }
+  { autoCreate: false, timestamps: true }
 );
 
 export default mongoose.model(name, schema);

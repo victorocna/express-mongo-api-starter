@@ -31,7 +31,7 @@ const schema = new mongoose.Schema(
       number: String,
     },
   },
-  { timestamps: true }
+  { autoCreate: false, timestamps: true }
 );
 
 // Set schema plugins

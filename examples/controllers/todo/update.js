@@ -15,7 +15,7 @@ export default async (req, res) => {
   if (todo.identity._id !== me) {
     throw error(400, 'Not allowed to update todo');
   }
-  await todo.update(req.body);
+  await todo.updateOne(req.body);
 
   return res.status(200).json({ data: todo, message: 'Todo updated' });
 };
