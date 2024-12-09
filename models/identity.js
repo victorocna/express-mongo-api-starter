@@ -44,7 +44,7 @@ const schema = new mongoose.Schema(
       type: Date,
     },
   },
-  { timestamps: true }
+  { autoCreate: false, timestamps: true }
 );
 
 // Set schema plugins

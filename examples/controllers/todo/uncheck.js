@@ -12,7 +12,7 @@ export default async (req, res) => {
   if (!todo) {
     throw error(404, 'Resource not found');
   }
-  await todo.update({ done: false });
+  await todo.updateOne({ done: false });
 
   return res.status(200).json({ data: todo, message: 'Undo completed todo' });
 };

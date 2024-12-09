@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "df537007-ed16-428e-bb96-49bc2c36b4ce",
+		"_postman_id": "862fbf01-148f-4ec8-93b1-6a5f51641fd0",
 		"name": "express",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18120273"
 	},
 	"item": [
 		{
@@ -112,16 +113,243 @@
 			]
 		},
 		{
+			"name": "Todo",
+			"item": [
+				{
+					"name": "Read many",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.response.text());\r",
+									"pm.collectionVariables.set(\"todo_id\", jsonData.pages?.[0]?._id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/todos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/todos/{{todo_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"todos",
+								"{{todo_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.response.text());\r",
+									"pm.collectionVariables.set(\"todo_id\", jsonData.data?._id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomLoremSentence}}\",\r\n    \"done\": \"{{$randomBoolean}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin/todos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomLoremSentence}}\",\r\n    \"done\": \"{{$randomBoolean}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin/todos/{{todo_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"todos",
+								"{{todo_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.unset(\"todo_id\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/todos/{{todo_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"todos",
+								"{{todo_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/todos/{{todo_id}}/check",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"todos",
+								"{{todo_id}}",
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Uncheck",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/todos/{{todo_id}}/check",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"todos",
+								"{{todo_id}}",
+								"check"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{jwt}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
 			"name": "Login",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
+							"var jsonData = JSON.parse(pm.response.text());",
 							"pm.collectionVariables.set(\"jwt\", jsonData.token);"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -151,6 +379,18 @@
 		},
 		{
 			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"jwt\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -193,12 +433,16 @@
 			"value": "http://localhost:9000"
 		},
 		{
-			"key": "jwt",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3NDQwMWFjLThlMTgtNDkzMC05YzM3LWRkNzMyZWRiOTMzYyIsIm5hbWUiOiJNaWNoYWVsIFNjb3R0IiwiZW1haWwiOiJtaWNoYWVsQGVtYWlsLmNvbSIsImlhdCI6MTYxNDUxODIzOSwiZXhwIjoxNjE0NTE5MTM5fQ.aybxWo7tCATpU8jbBjgYUEg5LYP_gPdfWDi_9kE01iM"
-		},
-		{
 			"key": "hash",
 			"value": "79euqsq7et9o6zcy86fas"
+		},
+		{
+			"key": "todo_id",
+			"value": ""
+		},
+		{
+			"key": "jwt",
+			"value": ""
 		}
 	]
 }

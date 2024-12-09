@@ -15,7 +15,7 @@ export default async (req, res) => {
   if (todo.identity._id !== me) {
     throw error(400, 'Not allowed to remove todo');
   }
-  await todo.remove();
+  await todo.deleteOne();
 
   return res.status(200).json({ data: todo, message: 'Todo removed' });
 };
