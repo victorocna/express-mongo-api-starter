@@ -1,12 +1,12 @@
 import { formatEmail, hashPasswords, paginate, validate } from 'express-goodies/mongoose';
-import mongoose from 'mongoose';
+import { model, Schema } from 'mongoose';
 import validator from 'validator';
 
 /**
  * Identities manage login related operations
  */
 const name = 'identity';
-const schema = new mongoose.Schema(
+const schema = new Schema(
   {
     name: {
       type: String,
@@ -53,4 +53,4 @@ schema.plugin(hashPasswords);
 schema.plugin(paginate);
 schema.plugin(validate);
 
-export default mongoose.model(name, schema);
+export default model(name, schema);
