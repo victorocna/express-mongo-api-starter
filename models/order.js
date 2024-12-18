@@ -1,9 +1,9 @@
 import { paginate, reference } from 'express-goodies/mongoose';
-import mongoose from 'mongoose';
+import { model, Schema } from 'mongoose';
 import { payer } from './schemas';
 
 const name = 'order';
-const schema = new mongoose.Schema(
+const schema = new Schema(
   {
     payer,
     user: reference,
@@ -31,10 +31,10 @@ const schema = new mongoose.Schema(
       number: String,
     },
   },
-  { timestamps: true }
+  { autoCreate: false, timestamps: true }
 );
 
 // Set schema plugins
 schema.plugin(paginate);
 
-export default mongoose.model(name, schema);
+export default model(name, schema);

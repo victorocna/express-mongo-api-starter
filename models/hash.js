@@ -1,22 +1,22 @@
-import mongoose from 'mongoose';
+import { model, Schema, Types } from 'mongoose';
 
 /**
  * Hashes are used for identity operations
  */
 const name = 'hash';
-const schema = new mongoose.Schema(
+const schema = new Schema(
   {
     hash: {
       type: String,
       required: true,
     },
     identity: {
-      type: mongoose.Types.ObjectId,
+      type: Types.ObjectId,
       required: true,
       get: (value) => value.toString(),
     },
   },
-  { timestamps: true }
+  { autoCreate: false, timestamps: true }
 );
 
-export default mongoose.model(name, schema);
+export default model(name, schema);

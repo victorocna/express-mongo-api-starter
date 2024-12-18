@@ -1,10 +1,10 @@
 import { paginate, validate } from 'express-goodies/mongoose';
-import mongoose from 'mongoose';
+import { model, Schema, Types } from 'mongoose';
 
-const schema = new mongoose.Schema({
+const schema = new Schema({
   identity: {
     _id: {
-      type: mongoose.Types.ObjectId,
+      type: Types.ObjectId,
       required: true,
       get: (value) => value.toString(),
     },
@@ -27,4 +27,4 @@ const schema = new mongoose.Schema({
 schema.plugin(paginate);
 schema.plugin(validate);
 
-export default mongoose.model('todo', schema);
+export default model('todo', schema);
