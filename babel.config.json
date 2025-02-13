@@ -8,6 +8,7 @@
         "root": ["./"],
         "alias": {
           "@controllers": "./controllers",
+          "@data": "./data",
           "@db": "./db",
           "@examples": "./examples",
           "@functions": "./functions",
