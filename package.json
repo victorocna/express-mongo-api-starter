@@ -4,11 +4,11 @@
   "description": "Starter for Node Express API projects with Mongo database",
   "main": "server.js",
   "scripts": {
-    "build": "node scripts/next.js build",
-    "dev": "node scripts/next.js dev",
-    "seed": "node scripts/next.js seed",
-    "start": "node scripts/next.js build && node scripts/next.js start",
-    "test": "node scripts/next.js test"
+    "build": "node npm.js build",
+    "dev": "node npm.js dev",
+    "seed": "node npm.js seed",
+    "start": "node npm.js build && node npm.js start",
+    "test": "node npm.js test"
   },
   "keywords": [
     "express",
