@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Todo } from '@examples/models';
 import todos from '../resources/todos';
 

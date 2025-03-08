@@ -7,7 +7,7 @@
   "ignorePatterns": ["**/tests/*.js", "**/*.test.js", "**/test.js"],
   "overrides": [
     {
-      "files": ["scripts/**/*.js"],
+      "files": ["**/scripts/**/*.js", "**/seeds/**/*.js"],
       "rules": {
         "no-console": "off"
       }

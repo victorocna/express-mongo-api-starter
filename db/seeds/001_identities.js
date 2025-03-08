@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Identity } from '@models';
 import identities from '../resources/identities';
 
