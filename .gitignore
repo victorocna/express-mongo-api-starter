@@ -1,4 +1,5 @@
 # User specific
+.cursor
 migrate.json
 NOTES.txt
 .env.production
