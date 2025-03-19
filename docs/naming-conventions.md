@@ -6,6 +6,7 @@
 - `controllers` any CRUD Express operations: create order, list orders, etc.
 - `db` any initial database data for project collections, grouped by user roles: visitor, client, admin, etc.
 - `docs` any project documentation
+- `filters` any query filters for models
 - `functions` any pure function that abstract a small part of the project
 - `middleware` any Express middleware: user exists, recaptcha checks, etc.
 - `models` any project model: identities, orders, reviews, etc.
