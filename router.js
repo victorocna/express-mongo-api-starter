@@ -22,8 +22,8 @@ router.use(middleware.testError);
 router.use(middleware.testLoading);
 
 // use the router instances defined
-router.use(routes.clientError);
 router.use(routes.identity);
+router.use(routes.logger);
 router.use(exampleRoutes.todo);
 
 // Matches any other HTTP method and route not matched before
