@@ -1,9 +1,9 @@
 import { compile } from 'handlebars';
-import * as views from '../views';
 
-const createEmail = async ({ from, to, type, subject, message, data = {} }) => {
+const createEmail = async (props, view) => {
+  const { from, to, type, subject, message, data = {} } = props;
   if (!type || !to || !subject) {
-    throw new Error('Missing required parameters');
+    throw new Error('Missing required params');
   }
 
   // Prepend some data to be used in the email templates
@@ -13,10 +13,10 @@ const createEmail = async ({ from, to, type, subject, message, data = {} }) => {
   data.message = message;
 
   // Compile handlebars template
-  if (!views[type]) {
+  if (!view) {
     throw new Error('Invalid email type');
   }
-  const template = compile(views[type]);
+  const template = compile(view);
 
   return {
     From: from || process.env.POSTMARK_FROM,
