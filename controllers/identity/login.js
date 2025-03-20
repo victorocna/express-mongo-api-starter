@@ -19,7 +19,7 @@ export default async (req, res) => {
   // Block logins for accounts with 5 or more failed attempts
   if (identity?.loginAttempts >= 5) {
     await identity.updateOne({ active: false });
-    throw error(400, 'Your account has been locked for security reasons');
+    throw error(400, 'Your account has been locked, please reset your password');
   }
 
   const { id, name, active, confirmed, __t: role, password: passwordFromDb } = identity;

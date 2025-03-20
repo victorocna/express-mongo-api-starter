@@ -19,6 +19,10 @@ export default async (req, res) => {
     throw error(404, 'Account not found');
   }
 
+  // Reset login attempts
+  identity.loginAttempts = 0;
+  identity.active = true;
+
   identity.password = password;
   await identity.save(); // validates and throws if anything is wrong
   await Reset.deleteMany({ hash });
