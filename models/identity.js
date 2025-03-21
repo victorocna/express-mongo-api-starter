@@ -1,6 +1,6 @@
 import { formatEmail, hashPasswords, paginate, validate } from 'express-goodies/mongoose';
 import { model, Schema } from 'mongoose';
-import validator from 'validator';
+import { isEmail } from 'validator';
 
 /**
  * Identities manage login related operations
@@ -16,7 +16,7 @@ const schema = new Schema(
       type: String,
       required: true,
       validate: {
-        validator: (value) => validator.isEmail(value),
+        validator: isEmail,
       },
     },
     password: {

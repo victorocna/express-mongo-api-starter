@@ -17,7 +17,8 @@ export default async (req, res) => {
   }
 
   // Block logins for accounts with 5 or more failed attempts
-  if (identity?.loginAttempts >= 5) {
+  const { loginAttempts } = identity;
+  if (loginAttempts >= 5) {
     await identity.updateOne({ active: false });
     throw error(400, 'Your account has been locked, please reset your password');
   }
@@ -30,7 +31,7 @@ export default async (req, res) => {
   const passwordsMatch = await bcrypt.compare(password, passwordFromDb);
   if (!passwordsMatch) {
     await identity.updateOne({ $inc: { loginAttempts: 1 } });
-    throw error(400, 'Your username or password are invalid');
+    throw error(400, 'Your email or password are invalid');
   } else {
     await identity.updateOne({ loginAttempts: 0 });
   }

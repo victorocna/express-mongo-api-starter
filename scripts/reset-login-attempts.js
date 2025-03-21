@@ -14,12 +14,12 @@ async function script() {
     throw new Error('No email address provided');
   }
 
-  // Find the DRMA user by email in the "identity" collection
+  // Find the user by email and reset their login attempts
   const identity = await Identity.findOne({ email }).lean();
   if (!identity) {
     throw new Error('No identity found');
   }
-  await Identity.update({ email }, { loginAttempts: 0 });
+  await Identity.update({ email }, { active: true, loginAttempts: 0 });
 
   console.log(`Login attempts reset for ${email}`);
 }
