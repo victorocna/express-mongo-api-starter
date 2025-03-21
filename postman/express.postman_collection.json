@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "862fbf01-148f-4ec8-93b1-6a5f51641fd0",
+		"_postman_id": "ecd3c413-6a40-46be-b188-61122f4d7cee",
 		"name": "express",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "18120273"
+		"_exporter_id": "26272564"
 	},
 	"item": [
 		{
@@ -401,6 +401,32 @@
 					],
 					"path": [
 						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log errors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pathname\": \"/404\",\n    \"data\": \"Page not found\",\n    \"user\": {\n        \"me\": \"67dc13979481e572e4c143da\",\n        \"name\": \"Michael Scott\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/log-errors",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"log-errors"
 					]
 				}
 			},

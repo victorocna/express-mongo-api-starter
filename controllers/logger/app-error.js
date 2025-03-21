@@ -1,25 +1,18 @@
-import { Identity } from '@models';
 import { error as ErrorModel } from 'express-goodies/mongoose';
-import { isEmpty, pick } from 'lodash';
 
 export default async (req, res) => {
-  const { data, pathname } = req.body;
-  const { me } = req.user;
-
+  const { data, pathname, user } = req.body;
   if (!data || !pathname) {
     return res.status(400).json('Missing required params');
   }
 
-  const identity = await Identity.findById(me).lean();
-  let user;
-  if (!isEmpty(identity)) {
-    user = pick(identity, ['name', '_id']);
-  } else {
-    user = null;
+  // Update user props when user exists
+  if (user && user.me) {
+    user._id = user.me;
   }
 
   // Error model from express-goodies
-  const document = ErrorModel.create({ data, pathname, user });
+  const document = await ErrorModel.create({ data, pathname, user });
 
   return res.status(200).json({
     data: document,
