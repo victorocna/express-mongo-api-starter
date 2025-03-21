@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { it } from 'mocha';
 
 export default function () {
-  return it('sends an email', async function () {
+  it('sends an email', async function () {
     // Arrange
     const payload = {
       type: 'contact',
