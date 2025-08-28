@@ -6,7 +6,11 @@ export async function seed() {
     console.log('Planting seeds for identities...');
 
     const seeds = await identities();
-    await Identity.insertMany(seeds);
+
+    // Create documents individually to ensure timestamps are properly added
+    for (const seedData of seeds) {
+      await Identity.create(seedData);
+    }
 
     console.log('✓');
   } catch (err) {

@@ -6,7 +6,11 @@ export async function seed() {
     console.log('Planting seeds for todos');
 
     const seeds = await todos();
-    await Todo.insertMany(seeds);
+
+    // Create documents individually to ensure timestamps are properly added
+    for (const seedData of seeds) {
+      await Todo.create(seedData);
+    }
 
     console.log('✓');
   } catch (err) {
