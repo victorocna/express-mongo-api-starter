@@ -6,3 +6,4 @@ export { default as logout } from './logout';
 export { default as profile } from './profile';
 export { default as refreshToken } from './refresh-token';
 export { default as reset } from './reset';
+export { default as signup } from './signup';
