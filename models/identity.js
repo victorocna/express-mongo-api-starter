@@ -43,6 +43,9 @@ const schema = new Schema(
     lastLoginAt: {
       type: Date,
     },
+    role:{
+      type:String
+    }
   },
   { autoCreate: false, timestamps: true }
 );
