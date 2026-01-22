@@ -16,4 +16,4 @@ router.post('/logout', Identity.logout);
 router.post('/refresh-token', Identity.refreshToken);
 
 router.post('/admin/change-password', Identity.changePassword);
-router.get('/admin/profile', Identity.profile);
+router.get('/profile', Identity.profile);
