@@ -23,7 +23,7 @@ export default async (req, res) => {
     throw error(400, 'Your account has been locked, please reset your password');
   }
 
-  const { id, name, active, confirmed, __t: role, password: passwordFromDb } = identity;
+  const { id, name, active, confirmed, __t: role, role:extraRole, password: passwordFromDb } = identity;
   if (!active || !confirmed) {
     throw error(400, 'Your account is not active');
   }
@@ -37,7 +37,7 @@ export default async (req, res) => {
   }
 
   // The JWT public data payload
-  const payload = { name, email, role, me: id };
+  const payload = { name, email, role: extraRole || role, me: id };
 
   const token = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: '15m',

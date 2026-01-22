@@ -1,7 +1,7 @@
 import { Identity } from '@controllers';
 import { loginSchema, signupSchema } from '@schemas';
 import { Router } from 'express';
-import { validate } from 'express-goodies/middleware';
+import { authenticate, validate } from 'express-goodies/middleware';
 
 const router = Router();
 export default router;
@@ -16,4 +16,4 @@ router.post('/logout', Identity.logout);
 router.post('/refresh-token', Identity.refreshToken);
 
 router.post('/admin/change-password', Identity.changePassword);
-router.get('/profile', Identity.profile);
+router.get('/profile', authenticate, Identity.profile);
