@@ -12,14 +12,14 @@ export default async (req, res) => {
     throw error(404, 'Account not found');
   }
 
-  if (!identity.picture) {
-    throw error(400, 'No profile picture to remove');
+  if (!identity.profile) {
+    throw error(400, 'No profile profile to remove');
   }
 
-  // Remove picture from S3/DigitalOcean
-  await aws.remove(identity.picture);
+  // Remove profile from S3/DigitalOcean
+  await aws.remove(identity.profile);
 
-  await identity.updateOne({ $unset: { picture: 1 } });
+  await identity.updateOne({ $unset: { profile: 1 } });
 
-  return res.status(200).json({ message: 'Profile picture removed' });
+  return res.status(200).json({ message: 'Profile profile removed' });
 };

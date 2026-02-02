@@ -46,7 +46,7 @@ const schema = new Schema(
     role:{
       type:String
     },
-    picture: {
+    profile: {
       type: String,
     }
   },

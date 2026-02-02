@@ -10,7 +10,7 @@ export default async (req, res) => {
   if (!req.files?.profile) {
     throw error(400, 'No profile file uploaded');
   }
-  console.log("In upload---->")
+
   const { profile } = req.files;
   const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
   if (!allowedTypes.includes(profile.mimetype)) {
@@ -21,7 +21,7 @@ export default async (req, res) => {
   if (!identity) {
     throw error(404, 'Account not found');
   }
-  console.log(identity)
+
   // Delete old profile if exists
   if (identity.profile) {
     await aws.remove(identity.profile);
