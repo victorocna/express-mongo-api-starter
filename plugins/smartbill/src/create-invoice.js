@@ -2,4 +2,4 @@ const createInvoice = () => {
   // TODO: Create invoice
 };
 
-export default createInvoice;
+module.exports = createInvoice;

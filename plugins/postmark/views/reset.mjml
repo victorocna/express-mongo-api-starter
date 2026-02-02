@@ -1,0 +1,98 @@
+<mjml>
+  <mj-head>
+    <!-- Document title -->
+    <mj-title>Resetare parolă cont</mj-title>
+
+    <!-- Pre-header text -->
+    <mj-preview>Pre-header Text</mj-preview>
+
+    <!-- Global font settings, etc. -->
+    <mj-attributes>
+      <mj-all font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" />
+      <mj-text font-size="16px" color="#1f2937" line-height="24px" />
+    </mj-attributes>
+
+    <!-- Custom CSS for box-shadow and other classes -->
+    <mj-style inline="inline">
+      .body-section { box-shadow: 1px 4px 11px 0px rgba(0, 0, 0, 0.15); -moz-box-shadow: 1px 4px
+      11px 0px rgba(0, 0, 0, 0.15); -webkit-box-shadow: 1px 4px 11px 0px rgba(0, 0, 0, 0.15); }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#E7E7E7">
+    <!-- Header Section (dark pink background #cc756e) -->
+    <mj-section background-color="#cc756e" padding="20px 0 0 0">
+      <mj-column>
+        <mj-image
+          src="https://chesscoders.fra1.digitaloceanspaces.com/emaill_icon.png"
+          width="80px"
+          padding-bottom="0px"
+          alt=""
+        />
+        <!-- Empty text block to match your original structure -->
+        <mj-text
+          font-size="20px"
+          font-weight="bold"
+          color="#000000"
+          align="center"
+          padding-top="0px"
+          padding-bottom="30px"
+        >
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Title Section (red background #e42313) -->
+    <mj-section background-color="#e42313" padding="20px 0">
+      <mj-column>
+        <mj-text font-size="20px" font-weight="bold" color="#ffffff" align="center">
+          Resetare parolă cont
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Main Content with Box Shadow -->
+    <mj-wrapper css-class="body-section" padding="0">
+      <mj-section background-color="#ffffff" padding="15px">
+        <mj-column>
+          <mj-text color="#1f2937" padding-bottom="10px"> Dragă {{name}}, </mj-text>
+          <mj-text color="#1f2937" padding-bottom="10px">
+            Am primit o solicitare de resetare a parolei pentru contul tău. Pentru a continua
+            procesul de resetare a parolei, te rugăm să dai click pe următorul link:
+            <a href="{{link}}" style="color: #e42313">{{link}}</a>
+          </mj-text>
+          <mj-text color="#000000" padding-bottom="10px"> Îți mulțumim pentru înțelegere. </mj-text>
+          <mj-text color="#000000" padding-bottom="10px"> {{team}} </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+
+    <!-- Footer Section -->
+    <mj-section padding="20px 0">
+      <mj-column>
+        <!-- Social Icons -->
+        <mj-social font-size="11px" icon-size="30px" mode="horizontal" align="center">
+          <mj-social-element
+            name="facebook"
+            href="https://www.facebook.com/sharer/sharer.php?u=https://www.facebook.com/superliga.ro"
+            background-color="#A1A0A0"
+            border-radius="3px"
+          >
+          </mj-social-element>
+          <mj-social-element
+            name="instagram"
+            href="https://www.instagram.com/superliga.ro"
+            background-color="#A1A0A0"
+            border-radius="3px"
+          >
+          </mj-social-element>
+        </mj-social>
+
+        <!-- Footer Text -->
+        <mj-text font-size="11px" color="#445566" align="center" padding-top="10px">
+          &copy; Superliga, Toate drepturile rezervate.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

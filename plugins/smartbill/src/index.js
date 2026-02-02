@@ -1,1 +1,5 @@
-export { default as createInvoice } from './create-invoice';
+const createInvoice = require('./create-invoice');
+
+module.exports = {
+  createInvoice,
+};

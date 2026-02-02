@@ -1,0 +1,57 @@
+<mjml>
+  <mj-head>
+    <mj-title>{{title}}</mj-title>
+    <mj-attributes>
+      <mj-all font-family="'Kanit', 'Helvetica', 'Arial', sans-serif"></mj-all>
+      <mj-button background-color="#2B2B2B"></mj-button>
+      <mj-text color="#2B2B2B"></mj-text>
+    </mj-attributes>
+    <mj-font
+      href="https://fonts.googleapis.com/css?family=Kanit:normal,italic,bold&display=swap"
+      name="Kanit"
+    ></mj-font>
+    <mj-font
+      href="https://fonts.googleapis.com/css?family=Cabin:normal,italic,bold&display=swap"
+      name="Cabin"
+    ></mj-font>
+  </mj-head>
+  <mj-body>
+    <mj-section background-color="#F0F0F0" padding="20px">
+      <mj-column>
+        <mj-image
+          src="https://superliga.fra1.digitaloceanspaces.com/gold/logo-red.png"
+          alt="Logo"
+          width="80px"
+          padding="0"
+        ></mj-image>
+        <mj-text
+          align="center"
+          font-size="20px"
+          font-weight="bold"
+          color="#000000"
+          padding-bottom="30px"
+        >
+        </mj-text>
+        <mj-text font-size="20px" color="#000"> Salut {{userName}}, </mj-text>
+        <mj-text font-size="16px" color="#000">
+          Vă mulțumim că v-ați înregistrat pe site-ul nostru. Pentru a activa contul dvs., vă rugăm
+          să faceți click pe linkul de mai jos:
+        </mj-text>
+        <mj-text font-size="16px" color="#000">{{link}} </mj-text>
+
+        <mj-text font-size="16px" color="#000">
+          Dacă nu ați solicitat această activare, vă rugăm să ignorați acest e-mail.
+        </mj-text>
+
+        <mj-spacer height="20px"></mj-spacer>
+
+        <mj-divider border-color="#E0E0E0" border-width="1px"></mj-divider>
+        <mj-text font-size="12px" color="#999" align="center">
+          În cazul în care nu ați creat un cont pe platforma
+          <a href="https://superliga.ro/">superliga.ro</a>, puteți ignora acest e-mail. Vă rugăm să
+          nu trimiteți nimănui codul de activare prezenat în acest e-mail.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

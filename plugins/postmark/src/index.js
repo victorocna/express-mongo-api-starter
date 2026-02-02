@@ -1,1 +1,5 @@
-export { default as sendEmail } from './send-email';
+const sendEmail = require('./send-email');
+
+module.exports = {
+  sendEmail,
+};

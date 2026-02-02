@@ -45,6 +45,9 @@ const schema = new Schema(
     },
     role:{
       type:String
+    },
+    picture: {
+      type: String,
     }
   },
   { autoCreate: false, timestamps: true }

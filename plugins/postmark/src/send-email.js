@@ -1,5 +1,5 @@
-import { Client } from 'postmark';
-import createEmail from './create-email';
+const { Client } = require('postmark');
+const createEmail = require('./create-email');
 
 const sendEmail = async (data) => {
   try {
@@ -12,4 +12,4 @@ const sendEmail = async (data) => {
   }
 };
 
-export default sendEmail;
+module.exports = sendEmail;

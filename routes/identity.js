@@ -17,3 +17,5 @@ router.post('/refresh-token', Identity.refreshToken);
 
 router.post('/admin/change-password', Identity.changePassword);
 router.get('/profile', authenticate, Identity.profile);
+router.post('/profile/picture', authenticate, Identity.updateProfilePicture);
+router.delete('/profile/picture', authenticate, Identity.removeProfilePicture);
