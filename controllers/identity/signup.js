@@ -31,13 +31,17 @@ export default async (req, res) => {
 
   if (!wantConfirmed) {
     const hash = crypto.createHash('sha256').update(newUser._id.toString()).digest('hex');
-    const link = `${'http://localhost:3000'}/confirm/${hash}`;
-
+    const link = `${process.env.APP_BASE_URL}/confirm/${hash}`;
+    console.log('Confirmation link:', link);
     await sendEmail({
-      type: 'contact',
+      type: 'confirm',
       to: email,
       subject: 'Account Confirmation',
-      message: `Confirm your account to activate it. Click <a href="${link}">here</a> to confirm your account.<br>If you did not signup, please ignore this email.`,
+      data: {
+        link,
+      },
+      message:
+        'Confirm your account to activate it. Click the link below to confirm your account. If you did not signup, please ignore this email.',
     });
 
     await Confirm.create({
