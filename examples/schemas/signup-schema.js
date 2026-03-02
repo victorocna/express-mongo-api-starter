@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import safeSchema from './safe-schema';
+import safeSchema from '../../schemas/safe-schema';
 
 const signupSchema = safeSchema({
   name: yup.string().lowercase().trim().required(),

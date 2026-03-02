@@ -32,7 +32,7 @@ export default async (req, res) => {
   if (!wantConfirmed) {
     const hash = crypto.createHash('sha256').update(newUser._id.toString()).digest('hex');
     const link = `${process.env.APP_BASE_URL}/confirm/${hash}`;
-    console.log('Confirmation link:', link);
+
     await sendEmail({
       type: 'confirm',
       to: email,

@@ -25,6 +25,7 @@ router.use(middleware.testLoading);
 router.use(routes.identity);
 router.use(routes.logger);
 router.use(exampleRoutes.todo);
+router.use(exampleRoutes.identity);
 
 // Matches any other HTTP method and route not matched before
 router.all('*', middleware.notFound);
