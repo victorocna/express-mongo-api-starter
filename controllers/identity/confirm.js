@@ -11,6 +11,7 @@ export default async (req, res) => {
   if (!confirm) {
     throw error(404, 'Invalid confirmation code');
   }
+
   const { identity: id } = confirm;
   const identity = await Identity.findById(id);
   if (!identity) {

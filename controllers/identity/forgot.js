@@ -17,15 +17,17 @@ export default async (req, res) => {
   await Reset.deleteMany({ identity });
   await Reset.create({ hash, identity });
 
-  const link = `${process.env.APP_BASE_URL}/reset/${hash}`;
   await sendEmail({
     type: 'reset',
     to: email,
     subject: 'Password Reset Request',
     data: {
-      link,
+      link: `${process.env.APP_BASE_URL}/reset/${hash}`,
     },
-    message: `You requested a password reset. Click the link below to reset your password. If you did not request this, please ignore this email.`,
+    message: ```
+      You requested a password reset. Click the link below to reset your password.
+      If you did not request this, please ignore this email.
+    ```,
   });
 
   return res.status(200).json({ success: true });
