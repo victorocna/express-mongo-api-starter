@@ -24,10 +24,10 @@ export default async (req, res) => {
     data: {
       link: `${process.env.APP_BASE_URL}/reset/${hash}`,
     },
-    message: ```
+    message: `
       You requested a password reset. Click the link below to reset your password.
       If you did not request this, please ignore this email.
-    ```,
+    `,
   });
 
   return res.status(200).json({ success: true });
