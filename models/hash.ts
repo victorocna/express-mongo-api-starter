@@ -13,7 +13,7 @@ const schema = new Schema(
     identity: {
       type: Types.ObjectId,
       required: true,
-      get: (value) => value.toString(),
+      get: (value: Types.ObjectId) => value.toString(),
     },
   },
   { autoCreate: false, timestamps: true }

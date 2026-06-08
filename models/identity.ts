@@ -16,7 +16,7 @@ const schema = new Schema(
       type: String,
       required: true,
       validate: {
-        validator: isEmail,
+        validator: (value: string) => isEmail(value),
       },
     },
     password: {

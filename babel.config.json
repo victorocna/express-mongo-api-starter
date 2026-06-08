@@ -1,16 +1,12 @@
 {
-  "presets": [
-    "@babel/preset-env"
-  ],
-  "ignore": [
-    "**/node_modules/**",
-    "**/build/**"
-  ],
+  "presets": ["@babel/preset-env", "@babel/preset-typescript"],
+  "ignore": ["**/node_modules/**", "**/build/**"],
   "plugins": [
     [
       "module-resolver",
       {
         "root": ["./"],
+        "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"],
         "alias": {
           "@controllers": "./controllers",
           "@data": "./data",
