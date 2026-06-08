@@ -8,11 +8,11 @@ const getScriptProps = () => {
 
   switch (mode) {
     case 'build':
-      return `babel . --out-dir ./build ${extraArgs}`;
+      return `babel . --out-dir ./build --extensions .js,.jsx,.ts,.tsx ${extraArgs}`;
     case 'dev':
-      return `nodemon --exec babel-node --presets=@babel/preset-env -- ./server.js ${extraArgs}`;
+      return `nodemon --ext js,jsx,ts,tsx,json --exec babel-node --extensions .js,.jsx,.ts,.tsx ./server.js ${extraArgs}`;
     case 'seed':
-      return `babel-node ./db/seed.js ${extraArgs}`;
+      return `babel-node --extensions .js,.jsx,.ts,.tsx ./db/seed.js ${extraArgs}`;
     case 'start':
       return `node ./build/server.js ${extraArgs}`;
     case 'test':
@@ -21,18 +21,11 @@ const getScriptProps = () => {
 };
 
 const runScript = (script) => {
-  // Split script by space
-  const args = script.split(' ');
-
-  // Check if the script is a node script or npx script
-  const command = args[0] === 'node' ? 'node' : 'npx';
-  if (command === 'node') {
-    // Remove the "node" command from the arguments
-    args.shift();
-  }
-
-  // Run the script with the arguments, excluding the first element
-  spawn(command, args, { stdio: 'inherit', shell: true });
+  // Local binaries (babel, nodemon, mocha) run via npx; node scripts run directly.
+  // Pass the full command string with shell:true and no args array to avoid the
+  // DEP0190 deprecation warning (args array + shell:true).
+  const command = script.startsWith('node ') ? script : `npx ${script}`;
+  spawn(command, { stdio: 'inherit', shell: true });
 };
 
 // Run the script

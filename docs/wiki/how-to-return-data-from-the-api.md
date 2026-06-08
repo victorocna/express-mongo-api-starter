@@ -27,7 +27,7 @@ Success response for mutations
   "message": "Item created successfully",
   "data": {
     "_id": "63a5d7576c252816c1810ea3",
-    "name": "My Item 1",
+    "name": "My Item 1"
   }
 }
 ```
@@ -39,7 +39,7 @@ Success response for GET many items
   "pages": [
     {
       "_id": "63a5d7576c252816c1810ea3",
-      "name": "My Item 1",
+      "name": "My Item 1"
     }
   ],
   "pageParams": {
@@ -47,7 +47,7 @@ Success response for GET many items
     "hasNext": false,
     "page": 1,
     "perPage": 30
-  },
+  }
 }
 ```
 
@@ -56,7 +56,7 @@ Success response for GET one item
 ```json
 {
   "_id": "63a5d7576c252816c1810ea3",
-  "name": "My Item 1",
+  "name": "My Item 1"
 }
 ```
 

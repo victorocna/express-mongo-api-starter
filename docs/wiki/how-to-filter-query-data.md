@@ -22,7 +22,7 @@ const todoFilter = (query, user) => {
   const { me } = user;
 
   // Filter by identity
-  const filter = { 
+  const filter = {
     'identity._id': me,
   };
   // Filter by status
